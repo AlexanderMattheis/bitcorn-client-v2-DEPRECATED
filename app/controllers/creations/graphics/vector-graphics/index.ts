@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
 import Symbols from "../../../../system/symbols";
-import Regexs from "../../../../system/regexs";
+import Regex from "../../../../system/regex";
 import Paths from "../../../../system/paths";
 
 export default class CreationsGraphicsVectorGraphicsIndex extends Controller.extend({
@@ -8,9 +8,9 @@ export default class CreationsGraphicsVectorGraphicsIndex extends Controller.ext
     page: 1,
 
     actions: {
-        filterByTag(query, page: number) {
+        filterByTag(query: string, page: number) {
             if(query !== Symbols.EMPTY) {  // not empty input
-                let processedParam = query.split(Regexs.COMMA_OR_SPACE);  // comma and space
+                let processedParam = query.split(Regex.COMMA_OR_SPACE);  // comma and space
                 let filteredParam = processedParam.filter(function (element) {
                     return element.length > 0;
                 });

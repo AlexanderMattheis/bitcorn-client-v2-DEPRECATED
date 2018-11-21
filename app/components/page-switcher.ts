@@ -3,7 +3,9 @@ import Component from '@ember/component';
 export default class PageSwitcher extends Component.extend({
     scrollUp() {
         document.body.scrollTop = 180;
-        document.documentElement.scrollTop = 180;
+        if (document.documentElement !== null) {
+            document.documentElement.scrollTop = 180;
+        }
     },
 
     actions: {

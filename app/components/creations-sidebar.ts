@@ -8,12 +8,12 @@ export default class CreationsSidebar extends Component.extend({
             if (this.$(moveDown).is(':visible')) {
                 this.$(moveDown).slideUp("slow");
 
-                let element = this.$(dropper)[0];
+                let element: HTMLElement = this.$(dropper)[0];
                 element.innerHTML = Symbols.Arrows.RIGHT + element.innerHTML.substring(1);
             } else {
                 this.$(moveDown).slideDown("slow");
 
-                let element = this.$(dropper)[0];
+                let element: HTMLElement = this.$(dropper)[0];
                 element.innerHTML = Symbols.Arrows.DOWN + element.innerHTML.substring(1);
             }
         }

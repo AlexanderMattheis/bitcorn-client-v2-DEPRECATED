@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
 import Paths from "../../../../system/paths";
-import Regexs from "../../../../system/regexs";
+import Regexs from "../../../../system/regex";
 import Symbols from "../../../../system/symbols";
 
 export default class CreationsGraphicsTexturesShow extends Route.extend({

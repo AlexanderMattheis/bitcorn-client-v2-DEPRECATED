@@ -35,9 +35,9 @@ export default class FilesLister extends Component.extend({
             });
 
             if (resetStartPage) {  // only if something is typed in, else it is automatically resetted
-                if (window.navigator.imageHasBeenEnlarged) {
+                if (window.bitcorn.imageHasBeenEnlarge) {
                     this.resetImageSize();
-                    window.navigator.imageHasBeenEnlarged = false;
+                    window.bitcorn.imageHasBeenEnlarge = false;
                 }
             }
         },

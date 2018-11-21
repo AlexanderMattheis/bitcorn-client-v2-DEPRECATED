@@ -3,10 +3,10 @@ import Defaults from '../system/defaults';
 
 export default class FileListing extends Component.extend({
     actions: {
-        toggleSize(reference) {
+        toggleSize(reference: any) {
             let viewElements = reference.element;
-            let backgroundImage = viewElements.getElementsByClassName("image-background")[0];
-            let resizingIcon = viewElements.getElementsByClassName("toggleImage")[0];
+            let backgroundImage: HTMLElement = viewElements.getElementsByClassName("image-background")[0];
+            let resizingIcon: HTMLElement = viewElements.getElementsByClassName("toggleImage")[0];
 
             if (backgroundImage.style.height === Defaults.BackgroundImage.ENLARGED) {
                 backgroundImage.style.height = Defaults.BackgroundImage.REDUCED;
@@ -14,7 +14,7 @@ export default class FileListing extends Component.extend({
             } else {
                 backgroundImage.style.height = Defaults.BackgroundImage.ENLARGED;
                 backgroundImage.style.width = Defaults.BackgroundImage.ENLARGED;
-                window.navigator.imageHasBeenEnlarged = true;  // can also be set below [@ref]
+                window.bitcorn.imageHasBeenEnlarge = true;  // can also be set below [@ref]
             }
 
             if (resizingIcon.classList.contains("sprite-reduce")) {

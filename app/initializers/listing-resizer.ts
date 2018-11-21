@@ -1,7 +1,5 @@
-import Application from '@ember/application';
-
-export function initialize(application: Application): void {
-    window.navigator.imageHasBeenEnlarged = false;
+export function initialize(): void {
+    window.bitcorn = { imageHasBeenEnlarged: false };
 }
 
 export default {

@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
 import Symbols from "../../../../system/symbols";
-import Regexs from "../../../../system/regexs";
+import Regex from "../../../../system/regex";
 import Paths from "../../../../system/paths";
 
 export default class CreationsGraphicsTexturesIndex extends Controller.extend({
@@ -8,15 +8,17 @@ export default class CreationsGraphicsTexturesIndex extends Controller.extend({
     page: 1,
 
     actions: {
-        filterByTag(query, page: number) {
+        filterByTag(query: string, page: number) {
+
             if(query !== Symbols.EMPTY) {  // not empty input
-                let processedParam = query.split(Regexs.COMMA_OR_SPACE);  // comma and space
+                let processedParam = query.split(Regex.COMMA_OR_SPACE);  // comma and space
                 let filteredParam = processedParam.filter(function (element) {
                     return element.length > 0;
                 });
                 return this.store
                     .query(Paths.Models.TEXTURE, { tags: filteredParam, page: page })  // filtering by tags, page and
                     .then((results) => {
+                        // @ts-ignore
                         let meta = results.get('meta');
                         return { meta: meta, query: query, results: results }
                     });
@@ -27,6 +29,7 @@ export default class CreationsGraphicsTexturesIndex extends Controller.extend({
                 return this.store
                     .query(Paths.Models.TEXTURE, { page: page })
                     .then((results) => {
+                        // @ts-ignore
                         let meta = results.get('meta');
                         return { meta: meta, query: query, results: results }
                     });  // show all
