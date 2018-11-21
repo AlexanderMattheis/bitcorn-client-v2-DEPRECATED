@@ -1,0 +1,33 @@
+<div class="pagination">
+  {{#if (geq numberOfPages 2)}}  <!-- show pagination if there is more than one page -->
+    <button class="control" {{action "move" (add page -1) numberOfPages}}>&#9668;</button>
+
+    {{#if (geq numberOfPages 11)}}
+      {{#each (repeat startPage (add startPage 9)) as |number|}}  <!-- 9 due to the length 10 pagination -->
+        {{#if (geq number 7)}}  <!-- 7 is the default value used by Google and eBay -->
+          {{#if (eq number page)}}
+            <button class="highlighted">{{number}}</button>
+          {{else}}
+            <button {{action "move" number numberOfPages}} class="number">{{number}}</button>
+          {{/if}}
+        {{else}}
+          {{#if (eq number page)}}
+            <button class="highlighted">{{number}}</button>
+          {{else}}
+            <button {{action "move" number numberOfPages}} class="number">{{number}}</button>
+          {{/if}}
+        {{/if}}
+      {{/each}}
+    {{else}}
+      {{#each (repeat 1 numberOfPages) as |number|}}
+        {{#if (eq number page)}}
+          <button class="highlighted">{{number}}</button>
+        {{else}}
+          <button {{action "move" number numberOfPages}} class="number">{{number}}</button>
+        {{/if}}
+      {{/each}}
+    {{/if}}
+
+    <button class="control" {{action "move" (add page 1) numberOfPages}}>&#9658;</button>
+  {{/if}}
+</div>

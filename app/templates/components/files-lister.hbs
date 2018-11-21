@@ -1,0 +1,28 @@
+<p>
+  {{input class="search"
+          key-up=(action "handleFilterEntries" 1 true)
+          placeholder="Type in a tags.."
+          value=inputValue}} <!-- sets the value property of the input on inputValue defined in the class -->
+</p>
+
+<br>
+
+{{yield results}}
+
+<br>
+
+{{page-switcher
+    page=page
+    numberOfPages=numberOfPages
+    startPage=startPage
+    setCurrentPage=(action "setCurrentPage")}}
+
+
+
+
+
+
+
+
+
+

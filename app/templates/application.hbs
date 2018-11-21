@@ -1,0 +1,48 @@
+<div id="top">
+  <div id="header">
+    <a href="/" class="sprite sprite-bitcorn-logo"></a>
+  </div>
+
+  <div id="body">
+    <div id="navigation">
+      {{#link-to "home" class="home"}}
+        <span class="sprite sprite-house">
+        </span>
+        Home
+      {{/link-to}}
+      {{#link-to "creations" class="creations"}}
+        Creations
+      {{/link-to}}
+      {{#link-to "tutorials" class="tutorials"}}
+        Tutorials
+      {{/link-to}}
+      <div class="dropdown">
+        <a class="info">
+          Info
+        </a>
+        <ul class="menu">
+          {{#link-to "about-authors" tagName="li"}}
+            About Authors
+          {{/link-to}}
+          {{#link-to "about-page" tagName="li"}}
+            About Bitcorn
+          {{/link-to}}
+        </ul>
+      </div>
+    </div>
+
+    {{liquid-outlet}}
+  </div>
+</div>
+
+<div id="footer">
+  <span id="liabilities">
+    {{#link-to "contact" class="contact"}}Contact{{/link-to}}
+    {{#link-to "imprint" class="imprint"}}Imprint{{/link-to}}
+    {{#link-to "privacy" class="privacy"}}Privacy{{/link-to}}
+  </span>
+
+  <span id="author">
+    Copyright &copy; 2019 Alexander Mattheis
+  </span>
+</div>

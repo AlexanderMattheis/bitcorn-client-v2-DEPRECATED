@@ -1,0 +1,586 @@
+/*--------------------------------------------------- DEFINITIONS ----------------------------------------------------*/
+/* COLORS */
+@gray: #dcdcdc;
+@orange: #f6c637;
+@red: #e55457;
+@yellow: #fbe03a;
+
+/* colors (dark) */
+@dark-green: #779219;
+
+/* colors (light) */
+@light-gray: #f3f3f3;
+@dark-red: #c6383c;
+
+/* DIMENSIONS */
+@default-distance: 60px;
+@width-long-button: 180px;
+@width-short-button: 150px;
+
+/* DURATIONS */
+@button-ease-in: 500ms;
+
+/* FONTS */
+@font-face {
+  font-family: "OpenSans-Light";
+  src: url("@{fonts}OpenSans-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "NovaMono";
+  src: url("@{fonts}NovaMono.ttf") format("truetype");
+}
+
+/* PATHS */
+@fonts: "../assets/fonts/";
+@images: "../assets/images/";
+
+/* OBJECTS */
+@shadow: 0 0 5px rgba(99, 99, 99, 0.7);
+
+/*--------------------------------------------------- TAG STYLING ----------------------------------------------------*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: @red;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+body {
+  background-color: whitesmoke;  /* fixes the background in Opera 63.0.1 (64-bit) */
+  font-family: "OpenSans-Light", sans-serif;
+  min-width: 800px;
+
+  >.ember-view {
+    height: 100%;  /* to stick footer at the bottom of the page */
+  }
+}
+
+em {
+  font-family: "NovaMono", monospace;
+  font-style: normal;
+}
+
+html, body {
+  height: 100%;  /* to stick footer at the bottom of the page */
+}
+
+h3 {
+  color: #676767;
+  display: inline-block;
+
+  /* TAGS */
+  a {
+    opacity: 0.7;
+  }
+
+  a:hover {
+    opacity: 1.0;
+    text-decoration: none;
+  }
+}
+
+h4 {
+  font-style: italic;
+  font-weight: normal;
+  padding-left: 2px;
+  padding-bottom: 10px;
+}
+
+/*---------------------------------------------------- ID STYLING ----------------------------------------------------*/
+#author {
+  color: #edf2e5;
+  float: right;
+  margin-right: @default-distance;
+  margin-top: 15px;
+}
+
+#body {
+  background-color: white;
+  margin: @default-distance auto @default-distance auto;
+  max-width: 800px;
+  min-height: 800px;
+  overflow: auto;  /* extends page with respect to the content */
+}
+
+#creations {
+  display: flex;  /* allows divs inside to grow dependent on the page size */
+}
+
+#footer {
+  background: rgb(0, 0, 0);
+  color: #404040;
+  font-weight: bold;
+  height: 50px;
+  overflow: hidden;
+}
+
+#header {
+  background: linear-gradient(#ed2f38, rgb(200, 34, 40));
+  box-shadow: @shadow;
+  padding-left: @default-distance;
+  height: 50px;
+
+  /* TAGS */
+  a h1 {
+    letter-spacing: .15em;
+    margin: 10px 0 0 @default-distance;
+    position: absolute;
+    text-shadow: 2px 2px 5px black;
+  }
+}
+
+#liabilities {
+  float: left;
+  margin-left: @default-distance;
+  margin-top: 13px;
+
+  /* TAGS */
+  a {
+    color: #edf2e5;
+    margin-right: 10px;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #ffffff;
+  }
+}
+
+#navigation {
+  background: white;
+  font-size: 0;
+  height: 35px;
+
+  /* TAGS */
+  a {
+    color: #676767;
+    display: inline-block;
+    font-size: medium;
+    height: 35px;
+    padding-top: 6px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition-duration: @button-ease-in;
+  }
+
+  a:hover {
+    background-color: @yellow;
+    color: white;
+  }
+
+  a:hover .sprite-house {
+    background-position: -351px -5px;
+    height: 27px;
+    width: 20px;
+  }
+
+  /* IDs */
+  .dropdown {
+    display: inline;
+    font-size: medium;
+
+    .menu {
+      background-color: white;
+      box-shadow: @shadow;
+      display: none;
+      list-style: none;
+      margin-left: 480px;
+      position: absolute;
+      width: 180px;
+      z-index: 2;
+
+      /* TAGS */
+      li {
+        cursor: pointer;
+        display: block;
+        height: 35px;
+        padding: 7px 0 0 20px;
+      }
+
+      li:hover {
+        background-color: @yellow;
+        color: white;
+      }
+    }
+  }
+
+  .dropdown:hover {
+    .info {
+      background: @yellow;
+      color: white;
+    }
+
+    .menu {
+      display: block;
+    }
+  }
+
+  /* CLASSES */
+  .creations {
+    width: @width-short-button;
+  }
+
+  .home {
+    padding-left: 25px;
+    width: @width-long-button;
+  }
+
+  .info {
+    cursor: pointer;
+    width: @width-long-button;
+  }
+
+  .tutorials {
+    width: @width-short-button;
+  }
+
+  /* sprites */
+  .sprite {
+    bottom: 5px;
+    display: inline-block;
+    left: 55px;
+    position: absolute;
+  }
+}
+
+#top {
+  min-height: 100%;  /* to stick footer at the bottom of the page */
+  margin-bottom: 50px;
+}
+
+/*-------------------------------------------------- CLASS STYLING ---------------------------------------------------*/
+.content {
+  float: left;
+  line-height: 1.6;
+  padding: 40px;
+  text-align: justify;
+
+  /* TAGS */
+  li {
+    margin-left: 40px;
+  }
+}
+
+.container {
+  .column {
+    display: inline-block;
+    vertical-align: middle;
+    width: 256px;
+  }
+}
+
+.heading-and-download {
+  margin-bottom: 5px;
+
+  /* CLASSES */
+  .download {
+    color: @red;
+    font-size: large;
+    font-weight: bolder;
+    float: right;
+    opacity: 0.7;
+  }
+
+  .download:hover {
+    opacity: 1.0;
+    text-decoration: none;
+  }
+
+  .history-back {
+    opacity: 0.7;
+    text-decoration: none;
+  }
+
+  .history-back:hover {
+    opacity: 1.0;
+  }
+
+  .sprite-download {
+    float: right;
+  }
+}
+
+.image {
+  border-radius: 7px;
+  margin-bottom: 5px;
+}
+
+.listing {
+  background: white;
+  margin-top: 20px;
+  padding: 10px;
+  width: 540px;
+
+  /* CLASSES */
+  .container {
+    display: inline-block;
+    margin-top: -30px;
+    width: 520px;
+
+    .licence {
+      float: left;
+      height: 120px;
+      padding: 5px;
+      width: 120px;
+
+      /* CLASSES */
+      a {
+        color: @red;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .subcontainer {
+      .image-background {
+        background: white;
+        border-radius: 2px;
+        float: left;
+        height: 120px;
+        margin-top: 10px;
+        position: relative;
+        width: 120px;
+      }
+
+      .image-foreground {
+        display: block;
+        margin: auto;
+        max-height: 100%;
+        max-width: 100%;
+        padding: 10px;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    .subcontainer:hover {
+      .sprite-enlarge {
+        opacity: 1.0;
+      }
+
+      .sprite-reduce {
+        opacity: 1.0;
+      }
+    }
+
+    .text{
+      float: left;
+      height: 120px;
+      margin-bottom: 10px;
+      padding: 5px 5px 5px 6px;
+      width: 181px;  /* fixes the vector-graphic listings in Firefox 63.0.1 (64-bit) */
+    }
+  }
+
+  .download {
+    float: right;
+    position: relative;
+    width: 160px;
+
+    .button {
+      font-size: small;
+      float: right;
+      width: 80px;
+
+      .date {
+        color: black;
+        font-weight: bold;
+        margin-top: 5px;
+        opacity: 0.7;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      .sprite-download {
+        margin: auto;
+      }
+    }
+
+    .text {
+      color: @red;
+      font-weight: bold;
+      float: left;
+      padding-left: 20px;
+      margin-top: 3px;
+      opacity: 0.7;
+      text-decoration: none;
+      width: 80px;
+    }
+  }
+
+  .download:hover {
+    .button {
+      .date {
+        opacity: 1.0;
+      }
+    }
+
+    .sprite-download {
+      opacity: 1.0;
+    }
+
+    .text {
+      opacity: 1.0;
+    }
+  }
+
+  .name {
+    float: left;
+    width: 360px;
+
+    .author {
+      font-size: small;
+    }
+  }
+}
+
+.pagination {
+  text-align: center;
+
+  /* TAGS */
+  button {
+    background-color: @gray;
+    border: 3px solid @gray;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: small;
+    font-weight: bold;
+    padding: 5px;
+  }
+
+  button:focus {
+    outline: none;
+  }
+
+  /* CLASSES */
+  .control:hover {
+    background-color: @yellow;
+    border: 3px solid @yellow;
+  }
+
+  .highlighted {
+    background-color: @gray;
+    border: none;
+    cursor: default;
+    width: 25px;
+  }
+
+  .number {
+    background-color: @light-gray;
+    border: none;
+    width: 25px;
+  }
+
+  .number:hover {
+    background-color: @yellow;
+    border: none;
+  }
+}
+
+.search {
+  height: 30px;
+  margin: 0 20px 0 20px;
+  width: 500px;
+}
+
+.sidebar {
+  float: left;
+  padding-top: 40px;
+  width: 180px;
+
+  /* TAGS */
+  a {
+    color: black;
+    display: block;
+    padding: 10px 10px 10px 40px;
+    text-decoration: none;
+    width: 180px;
+    transition-duration: @button-ease-in;
+  }
+
+  a:hover {
+    background: @yellow;
+    color: white;
+  }
+
+  /* CLASSES */
+  .dropdown {
+    font-size: 0.8em;
+
+    a {
+      height: 30px !important;
+      padding: 5px 0 5px 70px !important;
+      text-align: left;
+    }
+  }
+}
+
+.small-text {
+  font-size: smaller;
+  text-align: left;
+  max-width: 512px;
+}
+
+/*------------------------------------------------------ SPRITES -----------------------------------------------------*/
+.sprite {
+  background: url("@{images}spritesheet.png") no-repeat;
+  display: block;
+}
+
+.sprite-download {
+  background-position: -180px -5px;
+  height: 31px;
+  opacity: 0.7;
+  width: 31px;
+}
+
+.sprite-enlarge {
+  background-position: -221px -5px;
+  height: 15px;
+  margin-top: 10px;
+  opacity: 0.7;
+  position: relative;
+  width: 20px;
+}
+
+.sprite-house {
+  background-position: -321px -5px;
+  height: 27px;
+  width: 20px;
+}
+
+.sprite-bitcorn-logo  {
+  background-position: -5px -5px;
+  height: 60px;
+  width: 165px;
+}
+
+.sprite-reduce {
+  background-position: -381px -5px;
+  height: 15px;
+  margin-top: 10px;
+  opacity: 0.7;
+  position: relative;
+  width: 20px;
+}
+
+/*------------------------------------------------- BROWSER SPECIFIC -------------------------------------------------*/
+/* Microsoft */
+input::-ms-clear {
+  display: none; /* removes the input-removal symbol "X" */
+}

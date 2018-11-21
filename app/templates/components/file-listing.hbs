@@ -1,0 +1,50 @@
+<article class="listing">
+  <div class="name">
+    {{#if linking}}
+        <h3>
+          {{#link-to routeName model}}{{model.title}}{{/link-to}}
+          <span class="author">by {{model.author}}</span>
+        </h3>
+    {{else}}
+      <h3>{{model.title}} <span class="author">by {{model.author}}</span></h3>
+    {{/if}}
+  </div>
+
+  <a href="{{model.path}}" download class="download">
+    <span class="text">Download</span>
+    <div class="button">
+      <div class="sprite sprite-download"></div>
+      <div class="date">{{model.date}}</div>
+    </div>
+  </a>
+
+  <div class="container">
+    <div class="subcontainer">
+      <a href {{action "toggleSize" this}} class="image-background">
+        <img class="image-foreground" src="{{model.image}}" alt="Preview">
+      </a>
+      <a href {{action "toggleSize" this}} class="toggleImage sprite sprite-enlarge"></a>
+    </div>
+
+    <div class="text">
+      <h5>Description</h5>
+      <p class="small-text">
+        {{model.description}}
+      </p>
+
+      <br>
+
+      <h5>Tags</h5>
+      <p class="small-text">
+        {{model.tags}}
+      </p>
+    </div>
+
+    <div class="licence">
+      <h5>Licence</h5>
+      <p class="small-text">
+        {{{model.licence}}}
+      </p>
+    </div>
+  </div>
+</article>

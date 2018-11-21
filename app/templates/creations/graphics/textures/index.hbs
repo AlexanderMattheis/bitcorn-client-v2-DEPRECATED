@@ -1,0 +1,23 @@
+<p>
+  Just type in a tag or multiple tags into the input field
+  and all corresponding graphics will be listed one below the other.
+  As with all graphics here on this website
+  you can also click on the corresponding image
+  of a listing to enlarge or reduce the size.
+  For more information about a downloadable package,
+  click on the listing-name.
+</p>
+
+<br>
+
+{{#files-lister
+    page=page
+    restart=restart
+    setPage=(action "setPage")
+    filter=(action "filterByTag") as |data|}}
+
+  {{#each data as |listing|}}
+    {{file-listing linking=true routeName="creations.graphics.textures.show" model=listing}}
+  {{/each}}
+
+{{/files-lister}}

@@ -1,0 +1,29 @@
+<div class="sidebar">
+  <a class="graphics-dropper" href="/graphics" {{action "click" ".graphics-menu" ".graphics-dropper"}}>&#9658; Graphics</a>
+
+  <div class="dropdown graphics-menu">
+    {{#link-to "creations.graphics.textures.index" (query-params restart=true)}}
+      Textures
+    {{/link-to}}
+
+    {{#link-to "creations.graphics.vector-graphics.index" (query-params restart=true)}}
+      Vector Graphics
+    {{/link-to}}
+  </div>
+
+  <a class="programs-dropper" href="/programs" {{action "click" ".programs-menu" ".programs-dropper"}}>&#9658; Programs</a>
+
+  <div class="dropdown programs-menu">
+    {{#link-to "creations.programs.bioinformatics"}}
+      Bioinformatics
+    {{/link-to}}
+
+    {{#link-to "creations.programs.cross-dating"}}
+      Cross-Dating
+    {{/link-to}}
+
+    {{#link-to "creations.programs.res"}}
+      RES
+    {{/link-to}}
+  </div>
+</div>
