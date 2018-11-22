@@ -7,11 +7,12 @@ module('Integration | Helper | html-safe', function(hooks) {
   setupRenderingTest(hooks);
 
   // Replace this with your real tests.
-  test('it renders', async function(assert) {
-    this.set('inputValue', '1234');
+  test('html-link rendering', async function(assert) {
+    this.set('inputValue', '<a href="index.html">Test</a>');
 
     await render(hbs`{{html-safe inputValue}}`);
 
-    assert.equal(this.element.textContent.trim(), '1234');
+    // @ts-ignore
+    assert.equal(this.element.textContent.trim(), 'Test');
   });
 });

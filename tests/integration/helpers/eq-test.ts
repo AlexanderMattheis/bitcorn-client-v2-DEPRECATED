@@ -7,7 +7,7 @@ module('Integration | Helper | eq', function(hooks) {
   setupRenderingTest(hooks);
 
   // Replace this with your real tests.
-  test('equality numbers', async function(assert) {
+  test('equality of numbers', async function(assert) {
     this.set('a', 12);
     this.set('b', 12);
 
@@ -17,7 +17,7 @@ module('Integration | Helper | eq', function(hooks) {
     assert.equal(this.element.textContent.trim(), "true");
   });
 
-  test('equality strings', async function(assert) {
+  test('equality of strings', async function(assert) {
       this.set('a', "Sophie");
       this.set('b', "Sophie");
 
@@ -27,7 +27,7 @@ module('Integration | Helper | eq', function(hooks) {
       assert.equal(this.element.textContent.trim(), "true")
   });
 
-  test('inequality strings', async function(assert) {
+  test('inequality of strings', async function(assert) {
       await render(hbs`{{eq "Sophie" "Sophia"}}`);
 
       // @ts-ignore

@@ -7,7 +7,7 @@ module('Integration | Helper | repeat', function(hooks) {
   setupRenderingTest(hooks);
 
   // Replace this with your real tests.
-  test('it renders', async function(assert) {
+  test('generating numbers 5 up to 12', async function(assert) {
     this.set('start', 5);
     this.set('end', 12);
 
