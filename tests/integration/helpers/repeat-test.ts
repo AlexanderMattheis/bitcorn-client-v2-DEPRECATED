@@ -8,10 +8,12 @@ module('Integration | Helper | repeat', function(hooks) {
 
   // Replace this with your real tests.
   test('it renders', async function(assert) {
-    this.set('inputValue', '1234');
+    this.set('start', 5);
+    this.set('end', 12);
 
-    await render(hbs`{{repeat inputValue}}`);
+    await render(hbs`{{repeat start end}}`);
 
-    assert.equal(this.element.textContent.trim(), '1234');
+    // @ts-ignore
+    assert.equal(this.element.textContent.trim(), "5,6,7,8,9,10,11,12");
   });
 });

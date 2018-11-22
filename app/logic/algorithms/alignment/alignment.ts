@@ -20,7 +20,7 @@ export default abstract class Alignment<T1, T2> {
 
         // going through each element of the path and look on the differences between vectors
         // to find out the type of difference vector (arrow)
-        for (let i:number = 1; i < path.length; i++) {
+        for (let i: number = 1; i < path.length; i++) {
             let verticalDifference: number = path[i].i - path[i - 1].i;
             let horizontalDifference: number = path[i].j - path[i - 1].j;
 
@@ -35,7 +35,7 @@ export default abstract class Alignment<T1, T2> {
                 currentPositionB++;
                 currentPositionA++;
             } else if (horizontalDifference > 0) {  // horizontal case
-                for (let k:number = 0; k < horizontalDifference; k++) {
+                for (let k: number = 0; k < horizontalDifference; k++) {
                     alignedSequenceA += Symbols.GAP;
                     matchOrMismatchString += Symbols.SPACE;
                     alignedSequenceB += sequenceB[currentPositionB];
@@ -44,7 +44,7 @@ export default abstract class Alignment<T1, T2> {
                 }
             } else if (verticalDifference > 0) {  // vertical case
                 // Hint: for Gotoh really "else if" is required because you can switch between matrices
-                for (let k:number = 0; k < verticalDifference; k++) {
+                for (let k: number = 0; k < verticalDifference; k++) {
                     alignedSequenceA += sequenceA[currentPositionA];
                     matchOrMismatchString += Symbols.SPACE;
                     alignedSequenceB += Symbols.GAP;

@@ -7,11 +7,13 @@ module('Integration | Helper | add', function(hooks) {
   setupRenderingTest(hooks);
 
   // Replace this with your real tests.
-  test('it renders', async function(assert) {
-    this.set('inputValue', '1234');
+  test('addition', async function(assert) {
+    this.set('a', 5);
+    this.set('b', 7);
 
-    await render(hbs`{{add inputValue}}`);
+    await render(hbs`{{add a b}}`);
 
-    assert.equal(this.element.textContent.trim(), '1234');
+    // @ts-ignore
+    assert.equal(this.element.textContent.trim(), "12");
   });
 });

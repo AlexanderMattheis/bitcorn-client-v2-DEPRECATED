@@ -1,25 +1,23 @@
 import Application from '@ember/application';
 
-import { initialize } from 'java-script/initializers/listing-resizer';
+import { initialize } from 'bitcorn-client/initializers/listing-resizer';
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
-import destroyApp from '../../helpers/destroy-app';
 
 module('Unit | Initializer | listing-resizer', function(hooks) {
   setupTest(hooks);
 
   hooks.beforeEach(function() {
-    this.TestApplication = Application.extend();
-    this.TestApplication.initializer({
-      name: 'initializer under test',
-      initialize
-    });
+      // @ts-ignore
+      this.TestApplication = Application.extend();
+      // @ts-ignore
+      this.TestApplication.initializer({
+          name: 'initializer under test',
+          initialize
+      });
 
-    this.application = this.TestApplication.create({ autoboot: false });
-  });
-
-  hooks.afterEach(function() {
-    destroyApp(this.application);
+      // @ts-ignore
+      this.application = this.TestApplication.create({ autoboot: false });
   });
 
   // Replace this with your real tests.
