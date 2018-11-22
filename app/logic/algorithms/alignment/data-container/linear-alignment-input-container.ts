@@ -9,7 +9,7 @@ export default class LinearAlignmentInputContainer {
     private readonly _matrixHeight: number;
     private readonly _matrixWidth: number;
 
-    constructor(input) {
+    constructor(input: any) {
         this._sequenceA = input.sequenceA;
         this._sequenceB = input.sequenceB;
 

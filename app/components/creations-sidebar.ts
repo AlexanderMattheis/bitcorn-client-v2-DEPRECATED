@@ -4,7 +4,7 @@ import Symbols from '../system/symbols';
 
 export default class CreationsSidebar extends Component.extend({
     actions: {
-        click: function(moveDown: string, dropper: string) {
+        click: function(moveDown: string, dropper: string): void {
             if (this.$(moveDown).is(':visible')) {
                 this.$(moveDown).slideUp("slow");
 
@@ -19,7 +19,7 @@ export default class CreationsSidebar extends Component.extend({
         }
     },
 
-    didInsertElement: function() {
+    didInsertElement: function(): void {
         scheduleOnce('afterRender', this, function() {
             this.$(".dropdown").hide();
         });

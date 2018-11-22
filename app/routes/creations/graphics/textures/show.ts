@@ -6,16 +6,17 @@ import Symbols from "../../../../system/symbols";
 export default class CreationsGraphicsTexturesShow extends Route.extend({
     referrerPage: 1,
 
-    model(params) {
+    model(params: any): object {
         return this.store.findRecord(Paths.Models.TEXTURE, params.texture_id);
     },
 
     actions: {
-        didTransition() {  // launched before transition to new URL was made
+        didTransition(): void {  // launched before transition to new URL was made
             //this.set("referrerURL", this.get("router.url").replace("&restart=true", ""));
 
-            let url = this.get("router.url");
-            let page = parseInt(url.replace(Regexs.NON_DIGITS, Symbols.EMPTY));
+            // @ts-ignore
+            let url: string = this.get("router.url");
+            let page: number = parseInt(url.replace(Regexs.NON_DIGITS, Symbols.EMPTY));
 
             if (isNaN(page)) {
                 this.set('referrerPage', 1);
@@ -24,7 +25,7 @@ export default class CreationsGraphicsTexturesShow extends Route.extend({
             }
         },
 
-        transitionBack() {
+        transitionBack(): void {
             //window.location.href = this.get('referrerURL');
 
             this.transitionTo("/creations/graphics/textures" + "?page=" + this.get('referrerPage'));

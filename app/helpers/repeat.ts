@@ -1,9 +1,9 @@
 import { helper } from '@ember/component/helper';
 
-export function repeat([start, end]: [number, number]) {
-  let numbers = [];
+export function repeat([start, end]: [number, number]): number[] {
+  let numbers: number[] = [];
 
-  for (let i = start; i <= end; i++) {
+  for (let i: number = start; i <= end; i++) {
       numbers.push(i);
   }
 

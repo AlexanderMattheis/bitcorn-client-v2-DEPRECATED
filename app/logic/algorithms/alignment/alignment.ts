@@ -1,5 +1,6 @@
 import Symbols from "../../../system/symbols";
 import InputOutputData from "./data-container/input-output-data";
+import Vector from "bitcorn-client/logic/math/vector";
 
 export default abstract class Alignment<T1, T2> {
 
@@ -7,7 +8,7 @@ export default abstract class Alignment<T1, T2> {
     protected abstract computeTracebacks(): void;
     protected abstract createAlignments(): void;
 
-    protected createAlignment(path, sequenceA, sequenceB): string[] {
+    protected createAlignment(path: Vector[], sequenceA: string, sequenceB: string): string[] {
         path.reverse();  // allows more intuitive calculations from start (left-top) to finish (right-bottom)
 
         let alignedSequenceA: string = Symbols.EMPTY;

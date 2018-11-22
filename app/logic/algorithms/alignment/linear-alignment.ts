@@ -13,7 +13,7 @@ export default abstract class LinearAlignment extends Alignment<LinearAlignmentI
     protected readonly inputData: LinearAlignmentInputContainer;  // stores the input of the algorithm
     protected readonly outputData: LinearAlignmentOutputContainer;  // stores the output of the algorithm
 
-    public constructor(input) {
+    public constructor(input: any) {
         super();
         this.inputData = new LinearAlignmentInputContainer(input);
         this.outputData = new LinearAlignmentOutputContainer();

@@ -5,30 +5,35 @@ export default class FilesLister extends Component.extend({
     numberOfPages: 1,
     startPage: 1,
 
-    init() {
+    init(): void {
         this._super(...arguments);
+        // @ts-ignore
         if (this.restart) {
             this.send('handleFilterEntries', 1, true);
         } else {
+            // @ts-ignore
             this.send('handleFilterEntries', this.page, false);
         }
     },
 
     actions: {  // special functions that can be called in templates
-        handleFilterEntries(page: number, resetStartPage: boolean) {
-            let inputValue = this.inputValue;
-            let filterAction = this.filter;
+        handleFilterEntries(page: number, resetStartPage: boolean): void {
+            let inputValue: string = this.inputValue;
+            // @ts-ignore
+            let filterAction: Function = this.filter;
 
             // filters given the typed in stuff from the input field
             // and sets then the filtered results as the returned results "results"
-            filterAction(inputValue, page).then((resultsStruct) => {
+            filterAction(inputValue, page).then((resultsStruct: any) => {
                 if (resultsStruct.query === this.inputValue) {  // only if the results are for the current input
+                    // @ts-ignore
                     this.set("results", resultsStruct.results);
                     this.set("numberOfPages", resultsStruct.meta.pages);
 
                     // whenever the input has changed, show numbers right from the beginning on and reset selected page
                     if (resetStartPage) {
                         this.set("startPage", 1);
+                        // @ts-ignore
                         this.set("page", 1);
                     }
                 }
@@ -42,19 +47,20 @@ export default class FilesLister extends Component.extend({
             }
         },
 
-        setCurrentPage(page: number, numberOfPages: number) {
+        setCurrentPage(page: number, numberOfPages: number): void {
             if (page >= 1 && page <= numberOfPages) {
+                // @ts-ignore
                 this.setPage(page);
                 this.send('handleFilterEntries', page, false);
             }
         }
     },
 
-    resetImageSize() {
+    resetImageSize(): void {
         if (this.$(".subcontainer a") !== undefined && this.$(".subcontainer a").length > 0) {
-            let elements = this.$(".subcontainer a");
+            let elements: JQuery<HTMLElement> = this.$(".subcontainer a");
 
-            elements.each(function (index, element) {
+            elements.each(function (index: number, element: HTMLElement) {
                 if (index %2 === 0) {
                     element.style.height = "120px";
                     element.style.width = "120px";

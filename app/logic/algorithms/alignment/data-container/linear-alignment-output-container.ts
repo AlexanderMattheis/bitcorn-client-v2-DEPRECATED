@@ -6,6 +6,13 @@ export default class LinearAlignmentOutputContainer {
     private _tracebacks: Vector[][];
     private _alignments: string[][];
 
+    constructor() {
+        this._matrix = [];
+        this._score = NaN;
+        this._tracebacks = [];
+        this._alignments = [];
+    }
+
     public get matrix(): number[][] {
         return this._matrix;
     }

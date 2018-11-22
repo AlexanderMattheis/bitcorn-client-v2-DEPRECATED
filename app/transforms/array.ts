@@ -2,11 +2,11 @@ import DS from 'ember-data';
 import Strings from '../system/strings';
 
 const Array = DS.Transform.extend({
-  deserialize(serialized: []) {
+  deserialize(serialized: []): string {
       return serialized.join(Strings.COMMA_SEPARATOR);
   },
 
-  serialize(deserialized: string) {
+  serialize(deserialized: string): string[] {
       return deserialized.split(Strings.COMMA_SEPARATOR);
   }
 });

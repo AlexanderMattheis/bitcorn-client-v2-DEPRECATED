@@ -1,6 +1,6 @@
 import { helper } from '@ember/component/helper';
 
-export function eq([a, b]: [number, number]) {
+export function eq([a, b]: [number, number]): boolean {
   return a === b;
 }
 

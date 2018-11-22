@@ -3,7 +3,7 @@ import Defaults from '../system/defaults';
 
 export default class FileListing extends Component.extend({
     actions: {
-        toggleSize(reference: any) {
+        toggleSize(reference: any): void {
             let viewElements = reference.element;
             let backgroundImage: HTMLElement = viewElements.getElementsByClassName("image-background")[0];
             let resizingIcon: HTMLElement = viewElements.getElementsByClassName("toggleImage")[0];
