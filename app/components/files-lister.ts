@@ -25,6 +25,7 @@ export default class FilesLister extends Component.extend({
             // filters given the typed in stuff from the input field
             // and sets then the filtered results as the returned results "results"
             filterAction(inputValue, page).then((resultsStruct: any) => {
+                debugger;
                 if (resultsStruct.query === this.inputValue) {  // only if the results are for the current input
                     // @ts-ignore
                     this.set("results", resultsStruct.results);
