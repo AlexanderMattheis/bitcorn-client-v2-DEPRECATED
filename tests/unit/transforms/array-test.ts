@@ -1,6 +1,7 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 
+// @ts-ignore
 module('transform:array', 'Unit | Transform | array', function(hooks) {
   setupTest(hooks);
 
