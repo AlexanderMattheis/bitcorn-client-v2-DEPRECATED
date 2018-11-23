@@ -10,5 +10,4 @@ let input = {
 }; // stores the input of the algorithm
 let needlemanWunsch = new NeedlemanWunsch(input);
 needlemanWunsch.compute();
-console.log("Test");
 //# sourceMappingURL=main.js.map

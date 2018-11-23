@@ -13,5 +13,3 @@ let input = {
 
 let needlemanWunsch:NeedlemanWunsch = new NeedlemanWunsch(input);
 needlemanWunsch.compute();
-console.log("Test");
-
