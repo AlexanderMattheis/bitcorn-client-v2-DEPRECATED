@@ -1,6 +1,6 @@
 import Symbols from "../../../system/symbols";
 import InputOutputData from "./data-container/input-output-data";
-import Vector from "bitcorn-client/logic/math/vector";
+import Vector from "../../math/vector";
 
 export default abstract class Alignment<T1, T2> {
 
