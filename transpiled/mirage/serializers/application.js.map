@@ -1,1 +1,1 @@
-{"version":3,"file":"application.js","sourceRoot":"","sources":["../../../mirage/serializers/application.js"],"names":[],"mappings":";;AAAA,qDAAqD;AAErD,kBAAe,oCAAiB,CAAC,MAAM,CAAC,EACvC,CAAC,CAAC"}
+{"version":3,"file":"application.js","sourceRoot":"","sources":["../../../mirage/serializers/application.js"],"names":[],"mappings":"AAAA,OAAO,EAAE,iBAAiB,EAAE,MAAM,kBAAkB,CAAC;AAErD,eAAe,iBAAiB,CAAC,MAAM,CAAC,EACvC,CAAC,CAAC"}

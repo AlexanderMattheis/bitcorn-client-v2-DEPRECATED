@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2017",
     "allowJs": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
@@ -16,9 +16,9 @@
     "noEmitOnError": false,
     "noEmit": false,
     "sourceMap": true,
-    "outDir": "transpiled",
+	"outDir": "transpiled",
     "baseUrl": ".",
-    "module": "commonjs",
+    "module": "es6",
     "paths": {
       "bitcorn-client/tests/*": [
         "tests/*"

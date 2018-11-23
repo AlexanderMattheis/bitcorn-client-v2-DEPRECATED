@@ -1,10 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var helper_1 = require("@ember/component/helper");
-function eq(_a) {
-    var a = _a[0], b = _a[1];
+import { helper } from '@ember/component/helper';
+export function eq([a, b]) {
     return a === b;
 }
-exports.eq = eq;
-exports.default = helper_1.helper(eq);
+export default helper(eq);
 //# sourceMappingURL=eq.js.map

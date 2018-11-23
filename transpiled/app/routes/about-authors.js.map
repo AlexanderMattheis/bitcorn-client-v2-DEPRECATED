@@ -1,1 +1,1 @@
-{"version":3,"file":"about-authors.js","sourceRoot":"","sources":["../../../app/routes/about-authors.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;AAAA,8CAAyC;AAEzC;IAA0C,gCAExC;IAFF;;IAIA,CAAC;IAAD,mBAAC;AAAD,CAAC,AAJD,CAA0C,eAAK,CAAC,MAAM,CAAC;AACrD,oDAAoD;CACrD,CAAC,GAED"}
+{"version":3,"file":"about-authors.js","sourceRoot":"","sources":["../../../app/routes/about-authors.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,sBAAsB,CAAC;AAEzC,MAAM,CAAC,OAAO,OAAO,YAAa,SAAQ,KAAK,CAAC,MAAM,CAAC;AACrD,oDAAoD;CACrD,CAAC;CAED"}

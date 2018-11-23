@@ -1,10 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var router_1 = require("@ember/routing/router");
-var environment_1 = require("./config/environment");
-var Router = router_1.default.extend({
-    location: environment_1.default.locationType,
-    rootURL: environment_1.default.rootURL
+import EmberRouter from '@ember/routing/router';
+import config from './config/environment';
+const Router = EmberRouter.extend({
+    location: config.locationType,
+    rootURL: config.rootURL
 });
 Router.map(function () {
     this.route('home');
@@ -41,5 +39,5 @@ Router.map(function () {
     this.route('about-authors');
     this.route('about-page');
 });
-exports.default = Router;
+export default Router;
 //# sourceMappingURL=router.js.map

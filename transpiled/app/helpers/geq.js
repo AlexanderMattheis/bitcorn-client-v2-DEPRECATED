@@ -1,10 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var helper_1 = require("@ember/component/helper");
-function geq(_a) {
-    var a = _a[0], b = _a[1];
+import { helper } from '@ember/component/helper';
+export function geq([a, b]) {
     return a >= b;
 }
-exports.geq = geq;
-exports.default = helper_1.helper(geq);
+export default helper(geq);
 //# sourceMappingURL=geq.js.map

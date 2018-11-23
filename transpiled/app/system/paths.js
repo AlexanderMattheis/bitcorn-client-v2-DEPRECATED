@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = {
+export default {
     Models: {
         VECTOR_GRAPHIC: "creations/graphics/vector-graphic",
         TEXTURE: "creations/graphics/texture"

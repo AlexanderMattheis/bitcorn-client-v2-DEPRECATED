@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-function default_1() {
+export default function () {
     /* application */
     this.transition(this.toRoute('home'), this.use('toDown'));
     this.transition(this.toRoute('creations'), this.use('toDown'));
@@ -24,5 +22,4 @@ function default_1() {
     this.transition(this.toRoute('creations.programs.cross-dating'), this.use('toRight'));
     this.transition(this.toRoute('creations.programs.res'), this.use('toRight'));
 }
-exports.default = default_1;
 //# sourceMappingURL=transitions.js.map

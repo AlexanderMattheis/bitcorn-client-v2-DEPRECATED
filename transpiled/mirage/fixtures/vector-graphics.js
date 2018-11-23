@@ -1,7 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 // create array of objects [{...}, {...}, ..., {...}]
-exports.default = [
+export default [
     {
         type: 'creations/graphics/vector-graphics',
         id: 'community',

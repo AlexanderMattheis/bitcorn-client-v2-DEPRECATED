@@ -1,1 +1,1 @@
-{"version":3,"file":"default.js","sourceRoot":"","sources":["../../../mirage/scenarios/default.js"],"names":[],"mappings":";;AAAA,oBAAwB,YAAY;IAElC;;;MAGE;IAEF,iCAAiC;AACnC,CAAC;AARD,4BAQC"}
+{"version":3,"file":"default.js","sourceRoot":"","sources":["../../../mirage/scenarios/default.js"],"names":[],"mappings":"AAAA,MAAM,CAAC,OAAO,YAAU,YAAY;IAElC;;;MAGE;IAEF,iCAAiC;AACnC,CAAC"}

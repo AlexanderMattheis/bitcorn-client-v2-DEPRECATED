@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var ember_resolver_1 = require("ember-resolver");
-exports.default = ember_resolver_1.default;
+import Resolver from 'ember-resolver';
+export default Resolver;
 //# sourceMappingURL=resolver.js.map

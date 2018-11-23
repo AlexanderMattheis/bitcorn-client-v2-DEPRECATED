@@ -1,14 +1,12 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var application_1 = require("@ember/application");
-var resolver_1 = require("./resolver");
-var ember_load_initializers_1 = require("ember-load-initializers");
-var environment_1 = require("./config/environment");
-var App = application_1.default.extend({
-    modulePrefix: environment_1.default.modulePrefix,
-    podModulePrefix: environment_1.default.podModulePrefix,
-    Resolver: resolver_1.default
+import Application from '@ember/application';
+import Resolver from './resolver';
+import loadInitializers from 'ember-load-initializers';
+import config from './config/environment';
+const App = Application.extend({
+    modulePrefix: config.modulePrefix,
+    podModulePrefix: config.podModulePrefix,
+    Resolver
 });
-ember_load_initializers_1.default(App, environment_1.default.modulePrefix);
-exports.default = App;
+loadInitializers(App, config.modulePrefix);
+export default App;
 //# sourceMappingURL=app.js.map

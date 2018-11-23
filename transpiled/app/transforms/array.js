@@ -1,14 +1,12 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var ember_data_1 = require("ember-data");
-var strings_1 = require("../system/strings");
-var Array = ember_data_1.default.Transform.extend({
-    deserialize: function (serialized) {
-        return serialized.join(strings_1.default.COMMA_SEPARATOR);
+import DS from 'ember-data';
+import Strings from '../system/strings';
+const Array = DS.Transform.extend({
+    deserialize(serialized) {
+        return serialized.join(Strings.COMMA_SEPARATOR);
     },
-    serialize: function (deserialized) {
-        return deserialized.split(strings_1.default.COMMA_SEPARATOR);
+    serialize(deserialized) {
+        return deserialized.split(Strings.COMMA_SEPARATOR);
     }
 });
-exports.default = Array;
+export default Array;
 //# sourceMappingURL=array.js.map

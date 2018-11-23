@@ -1,10 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-function initialize() {
+export function initialize() {
     window.bitcorn = { imageHasBeenEnlarged: false };
 }
-exports.initialize = initialize;
-exports.default = {
-    initialize: initialize
+export default {
+    initialize
 };
 //# sourceMappingURL=listing-resizer.js.map

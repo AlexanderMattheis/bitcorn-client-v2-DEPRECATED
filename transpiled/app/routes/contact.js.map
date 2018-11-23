@@ -1,1 +1,1 @@
-{"version":3,"file":"contact.js","sourceRoot":"","sources":["../../../app/routes/contact.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;AAAA,8CAAyC;AAEzC;IAAqC,2BAEnC;IAFF;;IAIA,CAAC;IAAD,cAAC;AAAD,CAAC,AAJD,CAAqC,eAAK,CAAC,MAAM,CAAC;AAChD,oDAAoD;CACrD,CAAC,GAED"}
+{"version":3,"file":"contact.js","sourceRoot":"","sources":["../../../app/routes/contact.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,sBAAsB,CAAC;AAEzC,MAAM,CAAC,OAAO,OAAO,OAAQ,SAAQ,KAAK,CAAC,MAAM,CAAC;AAChD,oDAAoD;CACrD,CAAC;CAED"}

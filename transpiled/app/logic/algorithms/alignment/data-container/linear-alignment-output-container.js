@@ -1,53 +1,33 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var LinearAlignmentOutputContainer = /** @class */ (function () {
-    function LinearAlignmentOutputContainer() {
+export default class LinearAlignmentOutputContainer {
+    constructor() {
         this._matrix = [];
         this._score = NaN;
         this._tracebacks = [];
         this._alignments = [];
     }
-    Object.defineProperty(LinearAlignmentOutputContainer.prototype, "matrix", {
-        get: function () {
-            return this._matrix;
-        },
-        set: function (value) {
-            this._matrix = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(LinearAlignmentOutputContainer.prototype, "score", {
-        get: function () {
-            return this._score;
-        },
-        set: function (value) {
-            this._score = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(LinearAlignmentOutputContainer.prototype, "tracebacks", {
-        get: function () {
-            return this._tracebacks;
-        },
-        set: function (value) {
-            this._tracebacks = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(LinearAlignmentOutputContainer.prototype, "alignments", {
-        get: function () {
-            return this._alignments;
-        },
-        set: function (value) {
-            this._alignments = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    return LinearAlignmentOutputContainer;
-}());
-exports.default = LinearAlignmentOutputContainer;
+    get matrix() {
+        return this._matrix;
+    }
+    get score() {
+        return this._score;
+    }
+    get tracebacks() {
+        return this._tracebacks;
+    }
+    get alignments() {
+        return this._alignments;
+    }
+    set matrix(value) {
+        this._matrix = value;
+    }
+    set score(value) {
+        this._score = value;
+    }
+    set tracebacks(value) {
+        this._tracebacks = value;
+    }
+    set alignments(value) {
+        this._alignments = value;
+    }
+}
 //# sourceMappingURL=linear-alignment-output-container.js.map

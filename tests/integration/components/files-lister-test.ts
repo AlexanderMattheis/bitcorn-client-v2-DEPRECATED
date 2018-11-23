@@ -14,7 +14,7 @@ module('Integration | Component | files-lister', function(hooks) {
   test('loads listings', async function(assert) {
     this.set("filter", () => resolve({ meta: { pages: 1 }, query: "", results: ITEMS }));
     this.set("empty", function () {});
-
+    debugger;
     // Template block usage:
     await render(hbs`
       {{#files-lister
