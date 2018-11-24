@@ -1,25 +1,13 @@
 import Component from '@ember/component';
-import { scheduleOnce } from '@ember/runloop';
-import Symbols from '../system/symbols';
+import ControlsFunctions from "../view/controls-functions";
 export default class CreationsSidebar extends Component.extend({
     actions: {
-        click: function (moveDown, dropper) {
-            if (this.$(moveDown).is(':visible')) {
-                this.$(moveDown).slideUp("slow");
-                let element = this.$(dropper)[0];
-                element.innerHTML = Symbols.Arrows.RIGHT + element.innerHTML.substring(1);
-            }
-            else {
-                this.$(moveDown).slideDown("slow");
-                let element = this.$(dropper)[0];
-                element.innerHTML = Symbols.Arrows.DOWN + element.innerHTML.substring(1);
-            }
+        toggleVisibility: function (moveDown, dropper) {
+            ControlsFunctions.toggleVisibility(this, moveDown, dropper);
         }
     },
     didInsertElement: function () {
-        scheduleOnce('afterRender', this, function () {
-            this.$(".dropdown").hide();
-        });
+        ControlsFunctions.hide(this, ".dropdown");
     }
 }) {
 }

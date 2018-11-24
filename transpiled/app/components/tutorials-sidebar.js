@@ -1,16 +1,15 @@
 import Component from '@ember/component';
 import ControlsFunctions from "../view/controls-functions";
-
-export default class CreationsSidebar extends Component.extend({
+export default class TutorialsSidebar extends Component.extend({
     actions: {
-        toggleVisibility: function(moveDown: string, dropper: string): void {
+        toggleVisibility: function (moveDown, dropper) {
             ControlsFunctions.toggleVisibility(this, moveDown, dropper);
         }
     },
-
-    didInsertElement: function(): void {
+    didInsertElement: function () {
         ControlsFunctions.hide(this, ".dropdown");
     }
 }) {
-  // normal class body definition here
-};
+}
+;
+//# sourceMappingURL=tutorials-sidebar.js.map

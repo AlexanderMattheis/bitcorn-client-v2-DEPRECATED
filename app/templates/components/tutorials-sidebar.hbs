@@ -1,0 +1,33 @@
+<div class="sidebar">
+  <a class="design-dropper" href="#" {{action "toggleVisibility" ".design-menu" ".design-dropper"}}>&#9658; Design</a>
+
+  <div class="dropdown design-menu">
+    {{#link-to "tutorials.design.blender"}}
+      Blender
+    {{/link-to}}
+
+    {{#link-to "tutorials.design.gimp"}}
+      Gimp
+    {{/link-to}}
+
+    {{#link-to "tutorials.design.gimp"}}
+      Inkscape
+    {{/link-to}}
+  </div>
+
+  <a class="development-dropper" href="#" {{action "toggleVisibility" ".development-menu" ".development-dropper"}}>&#9658; Development</a>
+
+  <div class="dropdown development-menu">
+    {{#link-to "tutorials.development.algorithms"}}
+      Algorithms
+    {{/link-to}}
+
+    {{#link-to "tutorials.development.data-structures"}}
+      Data-Structures
+    {{/link-to}}
+
+    {{#link-to "tutorials.development.languages"}}
+      Languages
+    {{/link-to}}
+  </div>
+</div>

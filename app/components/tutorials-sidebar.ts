@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import ControlsFunctions from "../view/controls-functions";
 
-export default class CreationsSidebar extends Component.extend({
+export default class TutorialsSidebar extends Component.extend({
     actions: {
         toggleVisibility: function(moveDown: string, dropper: string): void {
             ControlsFunctions.toggleVisibility(this, moveDown, dropper);
