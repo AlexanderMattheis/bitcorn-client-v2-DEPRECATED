@@ -31,6 +31,9 @@
   src: url("@{fonts}NovaMono.ttf") format("truetype");
 }
 
+/* OPACITY */
+@default-link-opacity: 0.7;
+
 /* PATHS */
 @fonts: "../assets/fonts/";
 @images: "../assets/images/";
@@ -73,13 +76,25 @@ html, body {
   height: 100%;  /* to stick footer at the bottom of the page */
 }
 
+h2 {
+  a {
+    opacity: @default-link-opacity;
+    font-size: 18px;
+  }
+
+  a:hover {
+    text-decoration: none;
+    opacity: 1.0;
+  }
+}
+
 h3 {
   color: #676767;
   display: inline-block;
 
   /* TAGS */
   a {
-    opacity: 0.7;
+    opacity: @default-link-opacity;
   }
 
   a:hover {
@@ -96,6 +111,48 @@ h4 {
 }
 
 /*---------------------------------------------------- ID STYLING ----------------------------------------------------*/
+#algorithm-description {
+  .authors {
+    width: 540px;
+
+    .author-names {
+      display: inline-block;
+      width: 420px;
+    }
+
+    .label {
+      display: inline-block;
+      width: 120px;
+    }
+  }
+}
+
+#algorithm-input {
+  /* TAGS */
+  input {
+    height: 30px;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  /* CLASSES */
+  .function {
+    display: inline-flex;
+
+    .number {
+      margin-right: 15px;
+      width: 40px;
+    }
+  }
+
+  .input {
+    display: inline-block;
+    width: 120px;
+  }
+}
+
 #author {
   color: #edf2e5;
   float: right;
@@ -288,7 +345,7 @@ h4 {
     font-size: large;
     font-weight: bolder;
     float: right;
-    opacity: 0.7;
+    opacity: @default-link-opacity;
   }
 
   .download:hover {
@@ -297,7 +354,7 @@ h4 {
   }
 
   .history-back {
-    opacity: 0.7;
+    opacity: @default-link-opacity;
     text-decoration: none;
   }
 
@@ -400,7 +457,7 @@ h4 {
         color: black;
         font-weight: bold;
         margin-top: 5px;
-        opacity: 0.7;
+        opacity: @default-link-opacity;
         text-align: center;
         text-decoration: none;
       }
@@ -416,7 +473,7 @@ h4 {
       float: left;
       padding-left: 20px;
       margin-top: 3px;
-      opacity: 0.7;
+      opacity: @default-link-opacity;
       text-decoration: none;
       width: 80px;
     }
@@ -545,7 +602,7 @@ h4 {
 .sprite-download {
   background-position: -180px -5px;
   height: 31px;
-  opacity: 0.7;
+  opacity: @default-link-opacity;
   width: 31px;
 }
 
@@ -553,7 +610,7 @@ h4 {
   background-position: -221px -5px;
   height: 15px;
   margin-top: 10px;
-  opacity: 0.7;
+  opacity: @default-link-opacity;
   position: relative;
   width: 20px;
 }
@@ -574,7 +631,7 @@ h4 {
   background-position: -381px -5px;
   height: 15px;
   margin-top: 10px;
-  opacity: 0.7;
+  opacity: @default-link-opacity;
   position: relative;
   width: 20px;
 }

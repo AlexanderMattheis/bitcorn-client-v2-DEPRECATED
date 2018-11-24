@@ -1,9 +1,16 @@
 <div class="content">
-  <h2>Needleman-Wunsch</h2>
+  <h2>
+    Needleman-Wunsch
+    <a href="https://doi.org/10.1016/0022-2836(70)90057-4">1970</a>
+  </h2>
+  <h4>by Needleman B. Saul, Wunsch D. Christian</h4>
+
   <h3>Description</h3>
-  <p>
-    Computes the optimal, global alignment between two strings.
-  </p>
+  <div id="algorithm-description">
+    <p>
+      Computes the optimal, global linear alignment between two strings.
+    </p>
+  </div>
 
   <br>
 
@@ -13,13 +20,58 @@
   <br>
 
   <h3>Input</h3>
-  <div class="algorithm-input">
+  <div id="algorithm-input">
+    <p>
+      <label class="input" for="sequence-a">
+        <span>Sequence a:</span>
+      </label>
+
+      <input type="text" id="sequence-a">
+    </p>
+
+    <p>
+      <label class="input" for="sequence-b">
+        <span>Sequence b:</span>
+      </label>
+
+      <input type="text" id="sequence-b">
+    </p>
+
+    <div class="function">
+      <label class="input">
+        <span>Scoring for s:</span>
+      </label>
+
+      <div>
+        <label for="gap">
+          <span>Gap</span>
+        </label>
+
+        <input type="number" class="number" id="gap">
+      </div>
+
+      <div>
+        <label for="gap">
+          <span>Match</span>
+        </label>
+
+        <input type="number" class="number" id="match">
+      </div>
+
+      <div>
+        <label for="mismatch">
+          <span>Mismatch</span>
+        </label>
+
+        <input type="number" class="number" id="mismatch">
+      </div>
+    </div>
   </div>
 
   <br>
 
   <h3>Output</h3>
-  <div class="algorithm-output">
-  </div>
+  <div id="algorithm-output">
 
+  </div>
 </div>
