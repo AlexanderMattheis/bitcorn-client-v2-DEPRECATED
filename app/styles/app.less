@@ -156,58 +156,78 @@ h4 {
 }
 
 #algorithm-output {
-  .matrix {
-    border-collapse: collapse;
-    border-spacing: 0;
+  margin-right: 30px;
 
-    /* TAGS */
-    td, th {
-      border: solid 1px #a0a0a0;
-      color: @dark-gray;
-      font-family: "NovaMono", monospace;
-      font-size: small;
-      height: 30px;
-      text-align: center;
-      width: 35px;
-    }
-
-    th {
-      background-color: @gray-2;
-    }
-
-    /* CLASSES */
-    .notice {
-      font-weight: normal;
-      padding-left: 10px;
-      text-align: left;
-    }
+  /* TAGS */
+  td {
+    cursor: pointer;
   }
 
-  .results {
-    border-collapse: collapse;
-    border-spacing: 0;
-    line-height: 15px;
+  /* CLASSES */
+  .left-part {
+    float: left;
 
-    /* TAGS */
-    td, th {
-      border: solid 1px #a0a0a0;
-      color: @dark-gray;
-      padding: 4px 8px 4px 8px;
-      text-align: left;
-      width: 210px;
+    .matrix {
+      border-collapse: collapse;
+      border-spacing: 0;
 
-      small {
-        font-weight: lighter;
+      /* TAGS */
+      td, th {
+        border: solid 1px #a0a0a0;
+        color: @dark-gray;
+        font-family: "NovaMono", monospace;
+        font-size: small;
+        height: 30px;
+        text-align: center;
+        width: 40px;
+      }
+
+      th {
+        background-color: @gray-2;
+      }
+
+      /* CLASSES */
+      .notice {
+        font-weight: normal;
+        padding-left: 10px;
+        text-align: left;
       }
     }
 
-    th {
-      background-color: @gray-2;
-    }
+  }
 
-    /* CLASSES */
-    .table-footer {
-      height: 30px;
+  .right-part {
+    float: left;
+    margin-left: 35px;
+
+    .results {
+      border-collapse: collapse;
+      border-spacing: 0;
+
+      /* TAGS */
+      td, th {
+        border: solid 1px #a0a0a0;
+        color: @dark-gray;
+        font-size: small;
+        height: 60px;
+        line-height: 15px;
+        padding: 4px 8px 4px 8px;
+        text-align: left;
+        width: 145px;
+
+        small {
+          font-weight: lighter;
+        }
+      }
+
+      th {
+        background-color: @gray-2;
+      }
+
+      /* CLASSES */
+      .table-footer {
+        height: 30px;
+      }
     }
   }
 }
