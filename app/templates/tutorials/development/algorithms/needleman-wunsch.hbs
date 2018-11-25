@@ -72,6 +72,34 @@
 
   <h3>Output</h3>
   <div id="algorithm-output">
+    <table class="calculation">
+      <thead>
+        <tr>
+          <th>D</th>
+          <th></th>
+          {{#each (repeat 5 10) as |character index|}}
+            <th>{{character}}<sub>{{add index 1}}</sub></th>
+          {{/each}}
+        </tr>
+      </thead>
 
+      <tbody>
+        {{#let (repeat 2 3) as |sequenceB|}}
+          {{#each (matrix-2d) as |row index|}}
+            <tr>
+              {{#if (eq index 0)}}
+                <th></th>
+              {{else}}
+                <th>{{get-array-value sequenceB (add index -1)}}<sub>{{index}}</sub></th>
+              {{/if}}
+
+              {{#each row as |column|}}
+                <td>{{column}}</td>
+              {{/each}}
+            </tr>
+          {{/each}}
+        {{/let}}
+      </tbody>
+    </table>
   </div>
 </div>
