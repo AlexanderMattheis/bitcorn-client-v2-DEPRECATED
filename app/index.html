@@ -7,6 +7,19 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- CONFIGURATION -->
+    <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+              tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+              displayAlign: "left"
+            });
+    </script> <!-- stores MathJax LaTeX-settings -->
+
+    <!-- THIRD PARTY LIBS -->
+    <script type="text/javascript" async
+            src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async>
+    </script> <!-- to display LaTeX formulas -->
+
     {{content-for "head"}}
 
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">

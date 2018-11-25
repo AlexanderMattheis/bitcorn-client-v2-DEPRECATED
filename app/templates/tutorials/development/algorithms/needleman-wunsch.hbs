@@ -8,7 +8,13 @@
   <h3>Description</h3>
   <div id="algorithm-description">
     <p>
-      Computes an optimal, global alignment between two strings using a linear cost function.
+      Computes an optimal, global alignment for two strings $a$ and $b$ using a linear scoring-function $s$.
+      In this connection, the matrix $D$ represents a dynamic programming matrix which is computed by applying
+      the named scoring-function $s$ from the top left corner.
+      The shown solutions are then retrieved by applying the scoring-function backwards
+      from the bottom right corner i.e. negate the mathematical sign (+/-).
+      Programming-technically therefore, a recursive depth-first search can be applied that stops
+      when the position $(0,0)$ (top-left) is reached.
     </p>
   </div>
 
@@ -23,23 +29,23 @@
   <div id="algorithm-input">
     <p>
       <label class="input" for="sequence-a">
-        <span>Sequence a:</span>
+        <span>Sequence $a$:</span>
       </label>
 
-      <input type="text" id="sequence-a">
+      <input type="text" id="sequence-a" placeholder='e.g. "AACGT"'>
     </p>
 
     <p>
       <label class="input" for="sequence-b">
-        <span>Sequence b:</span>
+        <span>Sequence $b$:</span>
       </label>
 
-      <input type="text" id="sequence-b">
+      <input type="text" id="sequence-b" placeholder='e.g. "ACGT"'>
     </p>
 
     <div class="function">
       <label class="input">
-        <span>Scoring for s:</span>
+        <span>Scoring $s$:</span>
       </label>
 
       <div>
@@ -84,6 +90,10 @@
       <div class="right-part">
         {{results-table results=(test-results)}}
       </div>
+    </div>
+
+    <div class="single-columned">
+      <a href="#">Download</a>
     </div>
   </div>
 </div>

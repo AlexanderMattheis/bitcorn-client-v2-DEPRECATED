@@ -1,28 +1,28 @@
 <table class="matrix">
   <thead>
-  <tr>
-    <th>{{matrix-name}}</th>
-    <th></th>
-    {{#each sequenceB as |character index|}}
-      <th>{{character}}<sub>{{add index 1}}</sub></th>
-    {{/each}}
-  </tr>
+    <tr>
+      <th class="matrix-name">${{matrix-name}}$</th>
+      <th></th>
+      {{#each sequenceB as |character index|}}
+        <th>{{character}}<sub>{{add index 1}}</sub></th>
+      {{/each}}
+    </tr>
   </thead>
 
   <tbody>
-  {{#each matrix as |row index|}}
-    <tr>
-      {{#if (eq index 0)}}
-        <th></th>
-      {{else}}
-        <th>{{get-array-value sequenceA (add index -1)}}<sub>{{index}}</sub></th>
-      {{/if}}
+    {{#each matrix as |row index|}}
+      <tr>
+        {{#if (eq index 0)}}
+          <th></th>
+        {{else}}
+          <th>{{get-array-value sequenceA (add index -1)}}<sub>{{index}}</sub></th>
+        {{/if}}
 
-      {{#each row as |column|}}
-        <td>{{column}}</td>
-      {{/each}}
-    </tr>
-  {{/each}}
+        {{#each row as |column|}}
+          <td>{{column}}</td>
+        {{/each}}
+      </tr>
+    {{/each}}
   </tbody>
 
   <tfoot>
