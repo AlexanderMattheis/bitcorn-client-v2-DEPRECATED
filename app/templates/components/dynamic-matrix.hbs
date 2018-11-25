@@ -1,1 +1,35 @@
-{{yield}}
+<table class="matrix">
+  <thead>
+  <tr>
+    <th>D</th>
+    <th></th>
+    {{#each sequenceB as |character index|}}
+      <th>{{character}}<sub>{{add index 1}}</sub></th>
+    {{/each}}
+  </tr>
+  </thead>
+
+  <tbody>
+  {{#each matrix as |row index|}}
+    <tr>
+      {{#if (eq index 0)}}
+        <th></th>
+      {{else}}
+        <th>{{get-array-value sequenceA (add index -1)}}<sub>{{index}}</sub></th>
+      {{/if}}
+
+      {{#each row as |column|}}
+        <td>{{column}}</td>
+      {{/each}}
+    </tr>
+  {{/each}}
+  </tbody>
+
+  <tfoot>
+    <tr>
+      <th class="notice" colspan="100%">
+        <b>Score:</b> {{score}}
+      </th>
+    </tr>
+  </tfoot>
+</table>
