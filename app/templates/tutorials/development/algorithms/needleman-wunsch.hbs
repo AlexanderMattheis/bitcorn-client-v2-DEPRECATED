@@ -85,7 +85,7 @@
 
       <tbody>
         {{#let (repeat 2 3) as |sequenceB|}}
-          {{#each (matrix-2d) as |row index|}}
+          {{#each (test-matrix 7 3) as |row index|}}
             <tr>
               {{#if (eq index 0)}}
                 <th></th>
