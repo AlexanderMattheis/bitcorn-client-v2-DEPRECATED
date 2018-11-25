@@ -1,0 +1,29 @@
+<table class="results">
+  <thead>
+    <tr>
+      <th>
+        Results
+        <br>
+        <small>Select a results to get the corresponding traceback.</small>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each results as |result|}}
+      <tr>
+        <td>
+          {{#each result as |line|}}
+            <pre>{{line}}</pre>
+          {{/each}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+
+  <tfoot>
+    <tr>
+      <th class="table-footer"></th>
+    </tr>
+  </tfoot>
+</table>

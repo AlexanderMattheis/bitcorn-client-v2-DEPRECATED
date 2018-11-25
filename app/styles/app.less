@@ -1,11 +1,13 @@
 /*--------------------------------------------------- DEFINITIONS ----------------------------------------------------*/
 /* COLORS */
 @gray: #dcdcdc;
+@gray-2: #efefef;
 @orange: #f6c637;
 @red: #e55457;
 @yellow: #fbe03a;
 
 /* colors (dark) */
+@dark-gray: #848484;
 @dark-green: #779219;
 
 /* colors (light) */
@@ -161,6 +163,7 @@ h4 {
     /* TAGS */
     td, th {
       border: solid 1px #a0a0a0;
+      color: @dark-gray;
       font-family: "NovaMono", monospace;
       font-size: small;
       height: 30px;
@@ -169,8 +172,7 @@ h4 {
     }
 
     th {
-      background-color: #efefef;
-      color: #848484;
+      background-color: @gray-2;
     }
 
     /* CLASSES */
@@ -178,6 +180,34 @@ h4 {
       font-weight: normal;
       padding-left: 10px;
       text-align: left;
+    }
+  }
+
+  .results {
+    border-collapse: collapse;
+    border-spacing: 0;
+    line-height: 15px;
+
+    /* TAGS */
+    td, th {
+      border: solid 1px #a0a0a0;
+      color: @dark-gray;
+      padding: 4px 8px 4px 8px;
+      text-align: left;
+      width: 210px;
+
+      small {
+        font-weight: lighter;
+      }
+    }
+
+    th {
+      background-color: @gray-2;
+    }
+
+    /* CLASSES */
+    .table-footer {
+      height: 30px;
     }
   }
 }
