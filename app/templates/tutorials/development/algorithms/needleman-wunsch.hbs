@@ -1,29 +1,15 @@
-<div class="content">
-  <h2>
-    Needleman-Wunsch
-    <a href="https://doi.org/10.1016/0022-2836(70)90057-4">1970</a>
-  </h2>
-  <h4>by Needleman B. Saul, Wunsch D. Christian</h4>
-
-  <h3>Description</h3>
-  <div id="algorithm-description">
-    <p>
-      Computes an optimal, global alignment for two strings $a$ and $b$ using a linear scoring-function $s$.
-      In this connection, the matrix $D$ represents a dynamic programming matrix which is computed by applying
-      the named scoring-function $s$ from the top left corner.
-      The shown solutions are then retrieved by applying the scoring-function backwards
-      from the bottom right corner i.e. negate the mathematical sign (+/-).
-      Programming-technically therefore, a recursive depth-first search can be applied that stops
-      when the position $(0,0)$ (top-left) is reached.
-    </p>
-  </div>
-
-  <br>
-
-  <iframe width="540" height="304"
-          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
-  <br>
+{{#algorithm-page class="content" name="Needleman-Wunsch"
+                   doiLink="https://doi.org/10.1016/0022-2836(70)90057-4"
+                   year="1970"
+                   authors="Needleman B. Saul, Wunsch D. Christian"
+                   description=
+   "Computes an optimal, global alignment for two strings $a$ and $b$ using a linear scoring-function $s$.
+    In this connection, the matrix $D$ represents a dynamic programming matrix which is computed by applying
+    the named scoring-function $s$ from the top left corner.
+    The shown solutions are then retrieved by applying the scoring-function backwards
+    from the bottom right corner i.e. negate the mathematical sign (+/-).
+    Programming-technically therefore, a recursive depth-first search can be applied that stops
+    when the position $(0,0)$ (top-left) is reached."}}
 
   <h3>Input</h3>
   <div id="algorithm-input">
@@ -48,15 +34,15 @@
         <span>Scoring $s$:</span>
       </label>
 
-      <div>
+      <div class="property">
         <label for="gap">
           <span>Gap</span>
         </label>
 
-        {{number-input class="input-number" inputId="gap" value=1 minValue=-10 maxValue=10}}
+        {{number-input class="input-number" inputId="gap" value=-2 minValue=-10 maxValue=10}}
       </div>
 
-      <div>
+      <div class="property">
         <label for="gap">
           <span>Match</span>
         </label>
@@ -64,12 +50,12 @@
         {{number-input class="input-number" inputId="match" value=1 minValue=-10 maxValue=10}}
       </div>
 
-      <div>
+      <div class="property">
         <label for="mismatch">
           <span>Mismatch</span>
         </label>
 
-        {{number-input class="input-number" inputId="mismatch" value=1 minValue=-10 maxValue=10}}
+        {{number-input class="input-number" inputId="mismatch" value=-1 minValue=-10 maxValue=10}}
       </div>
     </div>
   </div>
@@ -96,4 +82,9 @@
       <a href="#">Download</a>
     </div>
   </div>
-</div>
+
+{{/algorithm-page}}
+
+<script type="text/javascript">
+  MathJax.Hub.Queue(["Typeset", MathJax.Hub]);  // reinterpret new LaTeX code
+</script>

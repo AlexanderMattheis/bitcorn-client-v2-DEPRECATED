@@ -1,0 +1,23 @@
+<h2>
+  {{name}}
+  <a href={{doiLink}}>{{year}}</a>
+</h2>
+<h4>by {{authors}}</h4>
+
+{{#if (is-defined videoLink)}}
+  <iframe width="540" height="304" src={{videoLink}}
+          frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <br>
+  <br>
+{{/if}}
+
+<h3>Description</h3>
+<div id="algorithm-description">
+  <p>
+    {{description}}
+  </p>
+</div>
+
+<br>
+
+{{yield}}

@@ -158,9 +158,13 @@ input[type=number] {
   .function {
     display: inline-flex;
 
-    .number {
+    .property {
+      display: inline;
       margin-right: 15px;
-      width: 40px;
+
+      .number {
+        width: 40px;
+      }
     }
   }
 
@@ -489,14 +493,17 @@ input[type=number] {
 
   /* CLASSES */
   .decrementer {
+    top: 12px;
+    right: 0px;
+  }
+
+  .decrementer, .incrementer {
     background-color: @gray;
     border: 0px;
+    cursor: pointer;
     height: 15px;
     opacity: 0.1;
     position: absolute;
-    top: 12px;
-    transition-duration: 500ms;
-    right: 15px;
     width: 15px;
   }
 
@@ -509,15 +516,8 @@ input[type=number] {
   }
 
   .incrementer {
-    background-color: @gray;
-    border: 0px;
-    height: 15px;
-    opacity: 0.1;
-    position: absolute;
     top: -3px;
-    transition-duration: 500ms;
-    right: 15px;
-    width: 15px;
+    right: 0px;
   }
 
   .incrementer:focus {
@@ -814,11 +814,23 @@ _:-ms-lang(x), _:-webkit-full-screen, .input-number {
 
   /* CLASSES */
   .decrementer {
-    top: 13px;
+    top: 12px;
   }
 
   .incrementer {
-    top: -2px;
+    top: -3px;
+  }
+}
+
+_:-ms-lang(x), _:-webkit-full-screen, #algorithm-output {
+  .doubled-columned {
+    .right-part {
+      .results {
+        td {
+          font-size: medium;
+        }
+      }
+    }
   }
 }
 
@@ -828,11 +840,11 @@ _:-ms-lang(x), _:-webkit-full-screen, .input-number {
 
     /* CLASSES */
     .decrementer {
-      right: 19px !important;
+      right: 4px !important;
     }
 
     .incrementer {
-      right: 19px !important;
+      right: 4px !important;
     }
   }
 }
