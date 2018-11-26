@@ -34,7 +34,7 @@
 }
 
 /* OPACITY */
-@default-link-opacity: 0.7;
+@default-non-hovered-opacity: 0.7;
 
 /* PATHS */
 @fonts: "../assets/fonts/";
@@ -80,7 +80,7 @@ html, body {
 
 h2 {
   a {
-    opacity: @default-link-opacity;
+    opacity: @default-non-hovered-opacity;
     font-size: 18px;
   }
 
@@ -96,7 +96,7 @@ h3 {
 
   /* TAGS */
   a {
-    opacity: @default-link-opacity;
+    opacity: @default-non-hovered-opacity;
   }
 
   a:hover {
@@ -451,7 +451,7 @@ input[type=number] {
     font-size: large;
     font-weight: bolder;
     float: right;
-    opacity: @default-link-opacity;
+    opacity: @default-non-hovered-opacity;
   }
 
   .download:hover {
@@ -460,7 +460,7 @@ input[type=number] {
   }
 
   .history-back {
-    opacity: @default-link-opacity;
+    opacity: @default-non-hovered-opacity;
     text-decoration: none;
   }
 
@@ -476,6 +476,67 @@ input[type=number] {
 .image {
   border-radius: 7px;
   margin-bottom: 5px;
+}
+
+.input-number {
+  display: inline;
+  position: relative;
+
+  /* TAGS */
+  input:focus {
+    outline: none;
+  }
+
+  /* CLASSES */
+  .decrementer {
+    background-color: @gray;
+    border: 0px;
+    height: 15px;
+    opacity: 0.1;
+    position: absolute;
+    top: 12px;
+    transition-duration: 500ms;
+    right: 15px;
+    width: 15px;
+  }
+
+  .decrementer:focus {
+    outline: none;
+  }
+
+  .decrementer:hover {
+    background-color: @orange;
+  }
+
+  .incrementer {
+    background-color: @gray;
+    border: 0px;
+    height: 15px;
+    opacity: 0.1;
+    position: absolute;
+    top: -3px;
+    transition-duration: 500ms;
+    right: 15px;
+    width: 15px;
+  }
+
+  .incrementer:focus {
+    outline: none;
+  }
+
+  .incrementer:hover {
+    background-color: @orange;
+  }
+}
+
+.input-number:hover {
+  .decrementer {
+    opacity: 1.0;
+  }
+
+  .incrementer {
+    opacity: 1.0;
+  }
 }
 
 .listing {
@@ -563,7 +624,7 @@ input[type=number] {
         color: black;
         font-weight: bold;
         margin-top: 5px;
-        opacity: @default-link-opacity;
+        opacity: @default-non-hovered-opacity;
         text-align: center;
         text-decoration: none;
       }
@@ -579,7 +640,7 @@ input[type=number] {
       float: left;
       padding-left: 20px;
       margin-top: 3px;
-      opacity: @default-link-opacity;
+      opacity: @default-non-hovered-opacity;
       text-decoration: none;
       width: 80px;
     }
@@ -708,7 +769,7 @@ input[type=number] {
 .sprite-download {
   background-position: -180px -5px;
   height: 31px;
-  opacity: @default-link-opacity;
+  opacity: @default-non-hovered-opacity;
   width: 31px;
 }
 
@@ -716,7 +777,7 @@ input[type=number] {
   background-position: -221px -5px;
   height: 15px;
   margin-top: 10px;
-  opacity: @default-link-opacity;
+  opacity: @default-non-hovered-opacity;
   position: relative;
   width: 20px;
 }
@@ -737,7 +798,7 @@ input[type=number] {
   background-position: -381px -5px;
   height: 15px;
   margin-top: 10px;
-  opacity: @default-link-opacity;
+  opacity: @default-non-hovered-opacity;
   position: relative;
   width: 20px;
 }
@@ -746,4 +807,32 @@ input[type=number] {
 /* Microsoft */
 input::-ms-clear {
   display: none; /* removes the input-removal symbol "X" */
+}
+
+/* Microsoft */
+_:-ms-lang(x), _:-webkit-full-screen, .input-number {
+
+  /* CLASSES */
+  .decrementer {
+    top: 13px;
+  }
+
+  .incrementer {
+    top: -2px;
+  }
+}
+
+/* Mozilla */
+@-moz-document url-prefix() {
+  .input-number {
+
+    /* CLASSES */
+    .decrementer {
+      right: 19px !important;
+    }
+
+    .incrementer {
+      right: 19px !important;
+    }
+  }
 }
