@@ -1,6 +1,4 @@
 import Route from '@ember/routing/route';
-export default class TutorialsDevelopmentAlgorithmsNeedlemanWunsch extends Route.extend({
-// anything which *must* be merged to prototype here
-}) {
+export default class TutorialsDevelopmentAlgorithmsNeedlemanWunsch extends Route.extend({}) {
 }
 //# sourceMappingURL=needleman-wunsch.js.map

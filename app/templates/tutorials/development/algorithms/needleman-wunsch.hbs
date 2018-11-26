@@ -15,10 +15,9 @@
   <div id="algorithm-input">
     <p>
       <label class="input" for="sequence-a">
-        <span>Sequence $a$:</span>
+        <span {{action "recompute"}}>Sequence $a$:</span>
       </label>
-
-      <input type="text" id="sequence-a" placeholder='e.g. "AACGT"'>
+      <input type="text" id="sequence-a" placeholder='e.g. "AACGT"' value={{input.sequenceA}}>
     </p>
 
     <p>
@@ -26,7 +25,7 @@
         <span>Sequence $b$:</span>
       </label>
 
-      <input type="text" id="sequence-b" placeholder='e.g. "ACGT"'>
+      <input type="text" id="sequence-b" placeholder='e.g. "ACGT"' value={{input.sequenceB}}>
     </p>
 
     <div class="function">
@@ -39,7 +38,7 @@
           <span>Gap</span>
         </label>
 
-        {{number-input class="input-number" inputId="gap" value=-2 minValue=-10 maxValue=10}}
+        {{number-input class="input-number" inputId="gap" value=input.gap minValue=-10 maxValue=10}}
       </div>
 
       <div class="property">
@@ -47,7 +46,7 @@
           <span>Match</span>
         </label>
 
-        {{number-input class="input-number" inputId="match" value=1 minValue=-10 maxValue=10}}
+        {{number-input class="input-number" inputId="match" value=input.match minValue=-10 maxValue=10}}
       </div>
 
       <div class="property">
@@ -55,7 +54,7 @@
           <span>Mismatch</span>
         </label>
 
-        {{number-input class="input-number" inputId="mismatch" value=-1 minValue=-10 maxValue=10}}
+        {{number-input class="input-number" inputId="mismatch" value=input.mismatch minValue=-10 maxValue=10}}
       </div>
     </div>
   </div>
