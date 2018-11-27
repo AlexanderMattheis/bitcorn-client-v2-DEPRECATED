@@ -15,9 +15,10 @@
   <div id="algorithm-input">
     <p>
       <label class="input" for="sequence-a">
-        <span {{action "recompute"}}>Sequence $a$:</span>
+        <span>Sequence $a$:</span>
       </label>
-      <input type="text" id="sequence-a" placeholder='e.g. "AACGT"' value={{input.sequenceA}}>
+      <input type="text" id="sequence-a" placeholder='e.g. "AACGT"'
+             value={{input.sequenceA}} {{action "recompute"}} on="focusOut" tabindex="1">
     </p>
 
     <p>
@@ -25,7 +26,8 @@
         <span>Sequence $b$:</span>
       </label>
 
-      <input type="text" id="sequence-b" placeholder='e.g. "ACGT"' value={{input.sequenceB}}>
+      <input type="text" id="sequence-b" placeholder='e.g. "ACGT"'
+             value={{input.sequenceB}} {{action "recompute"}} on="focusOut" tabindex="2">
     </p>
 
     <div class="function">
@@ -38,7 +40,8 @@
           <span>Gap</span>
         </label>
 
-        {{number-input class="input-number" inputId="gap" value=input.gap minValue=-10 maxValue=10}}
+        {{number-input class="input-number" inputId="gap" value=input.gap minValue=-10 maxValue=10
+                       inputAction=(action "recompute") inputEvent="change" inputTabIndex="3"}}
       </div>
 
       <div class="property">
@@ -46,7 +49,8 @@
           <span>Match</span>
         </label>
 
-        {{number-input class="input-number" inputId="match" value=input.match minValue=-10 maxValue=10}}
+        {{number-input class="input-number" inputId="match" value=input.match minValue=-10 maxValue=10
+                       inputAction=(action "recompute") inputEvent="change" inputTabIndex="4"}}
       </div>
 
       <div class="property">
@@ -54,7 +58,8 @@
           <span>Mismatch</span>
         </label>
 
-        {{number-input class="input-number" inputId="mismatch" value=input.mismatch minValue=-10 maxValue=10}}
+        {{number-input class="input-number" inputId="mismatch" value=input.mismatch minValue=-10 maxValue=10
+                       inputAction=(action "recompute") inputEvent="change" inputTabIndex="5"}}
       </div>
     </div>
   </div>
@@ -66,14 +71,14 @@
     <div class="doubled-columned">
       <div class="left-part">
         {{dynamic-matrix matrix-name="D"
-                         sequenceA=(test-sequence "AACGT")
-                         sequenceB=(test-sequence "ACGT")
-                         matrix=(test-matrix 6 5)
-                         score=5}}
+                         sequenceA=(array-creator input.sequenceA)
+                         sequenceB=(array-creator input.sequenceB)
+                         matrix=output.matrix
+                         score=output.score}}
       </div>
 
       <div class="right-part">
-        {{results-table results=(test-results)}}
+        {{results-table results=output.alignments}}
       </div>
     </div>
 

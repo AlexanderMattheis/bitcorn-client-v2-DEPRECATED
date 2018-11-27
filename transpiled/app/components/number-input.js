@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 export default class NumberInput extends Component.extend({
     actions: {
-        decrement(minValue, inputId) {
+        decrement(minValue, inputId, callbackFunction) {
             let input = document.getElementById(inputId);
             // @ts-ignore
             let value = parseInt(input.value);
@@ -13,8 +13,9 @@ export default class NumberInput extends Component.extend({
                 // @ts-ignore
                 input.value = value - 1;
             }
+            callbackFunction();
         },
-        increment(maxValue, inputId) {
+        increment(maxValue, inputId, callbackFunction) {
             let input = document.getElementById(inputId);
             // @ts-ignore
             let value = parseInt(input.value);
@@ -26,6 +27,7 @@ export default class NumberInput extends Component.extend({
                 // @ts-ignore
                 input.value = value + 1;
             }
+            callbackFunction();
         }
     }
 }) {

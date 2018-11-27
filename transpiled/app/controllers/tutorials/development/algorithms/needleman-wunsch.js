@@ -1,20 +1,21 @@
 import Controller from '@ember/controller';
+import Defaults from "../../../../system/defaults";
 import NeedlemanWunsch from "../../../../logic/algorithms/needleman-wunsch";
 export default class TutorialsDevelopmentAlgorithmsNeedlemanWunsch extends Controller.extend({
     input: {},
     output: {},
     init() {
         let input = {
-            sequenceA: "AACGT",
-            sequenceB: "ACGT",
-            gap: -2,
-            match: 1,
-            mismatch: -1
+            sequenceA: Defaults.Algorithms.NeedlemanWunsch.SEQUENCE_A,
+            sequenceB: Defaults.Algorithms.NeedlemanWunsch.SEQUENCE_B,
+            gap: Defaults.Algorithms.NeedlemanWunsch.GAP,
+            match: Defaults.Algorithms.NeedlemanWunsch.MATCH,
+            mismatch: Defaults.Algorithms.NeedlemanWunsch.MISMATCH
         };
         this.input = input;
     },
     actions: {
-        recompute() {
+        recompute: function () {
             let sequenceA = $("#sequence-a")[0].value.toUpperCase();
             let sequenceB = $("#sequence-b")[0].value.toUpperCase();
             let gap = parseInt($("#gap")[0].value);
@@ -29,7 +30,9 @@ export default class TutorialsDevelopmentAlgorithmsNeedlemanWunsch extends Contr
             };
             let algorithm = new NeedlemanWunsch(input);
             let ioData = algorithm.compute();
+            let inputData = ioData.input;
             let outputData = ioData.output;
+            this.set("input", inputData);
             this.set("output", outputData);
         }
     }

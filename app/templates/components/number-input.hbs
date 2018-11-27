@@ -1,3 +1,4 @@
-<input type="number" class="number" id={{inputId}} value={{value}}>
-<button class="incrementer" {{action "increment" maxValue inputId}}>+</button>
-<button class="decrementer" {{action "decrement" minValue inputId}}>-</button>
+<input type="number" class="number" id={{inputId}}
+       value={{value}} {{action inputAction}} on={{inputEvent}} tabindex={{inputTabIndex}}>
+<button class="incrementer" {{action "increment" maxValue inputId inputAction}}>+</button>
+<button class="decrementer" {{action "decrement" minValue inputId inputAction}}>-</button>

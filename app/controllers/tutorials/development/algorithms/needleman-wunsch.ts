@@ -1,8 +1,10 @@
 import Controller from '@ember/controller';
-import NeedlemanWunsch from "../../../../logic/algorithms/needleman-wunsch";
+import Defaults from "../../../../system/defaults";
 import InputOutputData from "../../../../logic/algorithms/alignment/data-container/input-output-data";
 import InputContainer from "../../../../logic/algorithms/alignment/data-container/linear-alignment-input-container";
+import NeedlemanWunsch from "../../../../logic/algorithms/needleman-wunsch";
 import OutputContainer from "../../../../logic/algorithms/alignment/data-container/linear-alignment-output-container";
+
 
 export default class TutorialsDevelopmentAlgorithmsNeedlemanWunsch extends Controller.extend({
     input: {},
@@ -10,24 +12,24 @@ export default class TutorialsDevelopmentAlgorithmsNeedlemanWunsch extends Contr
 
     init() {
         let input = {
-            sequenceA: "AACGT",
-            sequenceB: "ACGT",
+            sequenceA: Defaults.Algorithms.NeedlemanWunsch.SEQUENCE_A,
+            sequenceB: Defaults.Algorithms.NeedlemanWunsch.SEQUENCE_B,
 
-            gap: -2,
-            match: 1,
-            mismatch: -1
+            gap: Defaults.Algorithms.NeedlemanWunsch.GAP,
+            match: Defaults.Algorithms.NeedlemanWunsch.MATCH,
+            mismatch: Defaults.Algorithms.NeedlemanWunsch.MISMATCH
         };
 
         this.input = input;
     },
 
     actions: {
-        recompute(): void {
-            let sequenceA: string = $("#sequence-a")[0].value.toUpperCase();
-            let sequenceB: string = $("#sequence-b")[0].value.toUpperCase();
-            let gap: number = parseInt($("#gap")[0].value);
-            let match: number = parseInt($("#match")[0].value);
-            let mismatch: number = parseInt($("#mismatch")[0].value);
+        recompute: function () {
+            let sequenceA: string = ($("#sequence-a")[0] as HTMLInputElement).value.toUpperCase();
+            let sequenceB: string = ($("#sequence-b")[0] as HTMLInputElement).value.toUpperCase();
+            let gap: number = parseInt(($("#gap")[0] as HTMLInputElement).value);
+            let match: number = parseInt(($("#match")[0] as HTMLInputElement).value);
+            let mismatch: number = parseInt(($("#mismatch")[0] as HTMLInputElement).value);
 
             let input = {
                 sequenceA: sequenceA,
@@ -40,7 +42,10 @@ export default class TutorialsDevelopmentAlgorithmsNeedlemanWunsch extends Contr
 
             let algorithm: NeedlemanWunsch = new NeedlemanWunsch(input);
             let ioData: InputOutputData<InputContainer, OutputContainer> = algorithm.compute();
+            let inputData: InputContainer = ioData.input;
             let outputData: OutputContainer = ioData.output;
+
+            this.set("input", inputData);
             this.set("output", outputData);
         }
     }
