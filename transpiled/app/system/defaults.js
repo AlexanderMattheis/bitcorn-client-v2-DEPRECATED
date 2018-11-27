@@ -12,9 +12,13 @@ export default {
         REDUCED: "120px",
         ENLARGED: "430px",
     },
+    Downloads: {
+        GENERATED_MATRIX: "matrix.csv"
+    },
     Limits: {
         MAX_VALUE: 10,
         MIN_VALUE: -10,
-    }
+    },
+    DYNAMIC_MATRIX_NAME: "D"
 };
 //# sourceMappingURL=defaults.js.map

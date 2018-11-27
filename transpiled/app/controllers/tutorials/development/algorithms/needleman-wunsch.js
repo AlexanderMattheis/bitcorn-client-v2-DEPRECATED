@@ -1,5 +1,6 @@
 import Controller from '@ember/controller';
 import ControlsFunctions from "../../../../view/controls-functions";
+import CsvConverter from "../../../../system/formats/csv-converter";
 import Defaults from "../../../../system/defaults";
 import NeedlemanWunsch from "../../../../logic/algorithms/needleman-wunsch";
 import Regex from "../../../../system/regex";
@@ -20,6 +21,17 @@ export default class TutorialsDevelopmentAlgorithmsNeedlemanWunsch extends Contr
         this.output = this.getExtendedOutput(input);
     },
     actions: {
+        download() {
+            // create CSV-String
+            let converter = new CsvConverter();
+            let csvString = converter.matrixToCSV(Defaults.DYNAMIC_MATRIX_NAME, 
+            // @ts-ignore
+            this.input.sequenceA, this.input.sequenceB, this.output.matrix);
+            // create download
+            let file = new Blob([csvString], { type: "text/plain" });
+            // @ts-ignore - using FileSaver.js library https://github.com/eligrey/FileSaver.js under the MIT licence
+            window.saveAs(file, Defaults.Downloads.GENERATED_MATRIX);
+        },
         recompute() {
             let input = this.getCorrectedInput();
             this.set("input", input);

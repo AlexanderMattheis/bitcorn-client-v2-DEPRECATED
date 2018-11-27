@@ -1,6 +1,8 @@
 export default {
+    CSV_SEPERATOR: ",",
     EMPTY: "",
     GAP: "_",
+    NEW_LINE: "\n",
     NONE: "#",
     SPACE: " ",
     STAR: "*",

@@ -1,5 +1,6 @@
 import Controller from '@ember/controller';
 import ControlsFunctions from "../../../../view/controls-functions";
+import CsvConverter from "../../../../system/formats/csv-converter";
 import Defaults from "../../../../system/defaults";
 import InputOutputData from "../../../../logic/algorithms/alignment/data-container/input-output-data";
 import InputContainer from "../../../../logic/algorithms/alignment/data-container/linear-alignment-input-container";
@@ -28,6 +29,19 @@ export default class TutorialsDevelopmentAlgorithmsNeedlemanWunsch extends Contr
     },
 
     actions: {
+        download(): void {
+            // create CSV-String
+            let converter: CsvConverter = new CsvConverter();
+            let csvString: string = converter.matrixToCSV(Defaults.DYNAMIC_MATRIX_NAME,
+                // @ts-ignore
+                this.input.sequenceA, this.input.sequenceB, this.output.matrix);
+
+            // create download
+            let file = new Blob([csvString], {type: "text/plain"});
+            // @ts-ignore - using FileSaver.js library https://github.com/eligrey/FileSaver.js under the MIT licence
+            window.saveAs(file, Defaults.Downloads.GENERATED_MATRIX);
+        },
+
         recompute(): void {
             let input = this.getCorrectedInput();
 
