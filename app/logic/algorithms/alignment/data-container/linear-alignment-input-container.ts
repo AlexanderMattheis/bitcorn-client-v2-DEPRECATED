@@ -1,13 +1,13 @@
 export default class LinearAlignmentInputContainer {
-    private readonly _sequenceA: string;
-    private readonly _sequenceB: string;
+    private _sequenceA: string;
+    private _sequenceB: string;
 
-    private readonly _gap: number;
-    private readonly _match: number;
-    private readonly _mismatch: number;
+    private _gap: number;
+    private _match: number;
+    private _mismatch: number;
 
-    private readonly _matrixHeight: number;
-    private readonly _matrixWidth: number;
+    private _matrixHeight: number;
+    private _matrixWidth: number;
 
     constructor(input: any) {
         this._sequenceA = input.sequenceA;
@@ -47,5 +47,27 @@ export default class LinearAlignmentInputContainer {
 
     public get matrixWidth(): number {
         return this._matrixWidth;
+    }
+
+    public set sequenceA(value: string) {
+        this._sequenceA = value;
+        this._matrixHeight = this._sequenceA.length + 1;
+    }
+
+    public set sequenceB(value: string) {
+        this._sequenceB = value;
+        this._matrixWidth = this._sequenceB.length + 1;
+    }
+
+    public set gap(value: number) {
+        this._gap = value;
+    }
+
+    public set match(value: number) {
+        this._match = value;
+    }
+
+    public set mismatch(value: number) {
+        this._mismatch = value;
     }
 }

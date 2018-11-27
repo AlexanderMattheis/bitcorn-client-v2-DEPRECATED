@@ -8,6 +8,7 @@ export default class TutorialsDevelopmentAlgorithmsNeedlemanWunsch extends Contr
     input: {},
     output: {},
     init() {
+        // set input
         let input = {
             sequenceA: Defaults.Algorithms.NeedlemanWunsch.SEQUENCE_A,
             sequenceB: Defaults.Algorithms.NeedlemanWunsch.SEQUENCE_B,
@@ -16,30 +17,16 @@ export default class TutorialsDevelopmentAlgorithmsNeedlemanWunsch extends Contr
             mismatch: Defaults.Algorithms.NeedlemanWunsch.MISMATCH
         };
         this.input = input;
+        this.output = this.getExtendedOutput(input);
     },
     actions: {
         recompute: function () {
-            let sequenceA = $("#sequence-a")[0].value.toUpperCase();
-            let sequenceB = $("#sequence-b")[0].value.toUpperCase();
-            let gap = parseInt($("#gap")[0].value);
-            let match = parseInt($("#match")[0].value);
-            let mismatch = parseInt($("#mismatch")[0].value);
-            let input = {
-                sequenceA: sequenceA,
-                sequenceB: sequenceB,
-                gap: gap,
-                match: match,
-                mismatch: mismatch
-            };
-            let algorithm = new NeedlemanWunsch(input);
-            let ioData = algorithm.compute();
-            let inputData = ioData.input;
-            let outputData = ioData.output;
-            this.set("input", inputData);
-            this.set("output", outputData);
+            let input = this.getCorrectedInput();
+            this.set("input", input);
+            this.set("output", this.getExtendedOutput(input));
         }
     },
-    getInput() {
+    getCorrectedInput() {
         // read in
         let sequenceA = $("#sequence-a")[0].value.toUpperCase();
         let sequenceB = $("#sequence-b")[0].value.toUpperCase();
@@ -52,6 +39,17 @@ export default class TutorialsDevelopmentAlgorithmsNeedlemanWunsch extends Contr
         gap = ControlsFunctions.limitNumber(gap, Defaults.Limits.MIN_VALUE, Defaults.Limits.MAX_VALUE);
         match = ControlsFunctions.limitNumber(match, Defaults.Limits.MIN_VALUE, Defaults.Limits.MAX_VALUE);
         mismatch = ControlsFunctions.limitNumber(mismatch, Defaults.Limits.MIN_VALUE, Defaults.Limits.MAX_VALUE);
+        return { sequenceA: sequenceA, sequenceB: sequenceB, gap: gap, match: match, mismatch: mismatch };
+    },
+    getExtendedOutput(input) {
+        // compute
+        let algorithm = new NeedlemanWunsch(input);
+        let ioData = algorithm.compute();
+        // add sequences to output data (necessary for the matrix)
+        let outputData = ioData.output;
+        outputData["sequenceA"] = input.sequenceA;
+        outputData["sequenceB"] = input.sequenceB;
+        return outputData;
     }
 }) {
 }

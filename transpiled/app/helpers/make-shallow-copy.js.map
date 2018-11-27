@@ -1,0 +1,1 @@
+{"version":3,"file":"make-shallow-copy.js","sourceRoot":"","sources":["../../../app/helpers/make-shallow-copy.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,MAAM,EAAE,MAAM,yBAAyB,CAAC;AAEjD,MAAM,UAAU,eAAe,CAAC,CAAC,QAAQ,CAAQ;IAC/C,OAAO,MAAM,CAAC,MAAM,CAAC,KAAK,EAAE,EAAE,EAAE,QAAQ,CAAC,CAAC;AAC5C,CAAC;AAED,eAAe,MAAM,CAAC,eAAe,CAAC,CAAC"}

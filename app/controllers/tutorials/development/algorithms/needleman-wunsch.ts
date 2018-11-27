@@ -13,6 +13,7 @@ export default class TutorialsDevelopmentAlgorithmsNeedlemanWunsch extends Contr
     output: {},
 
     init(): void {
+        // set input
         let input = {
             sequenceA: Defaults.Algorithms.NeedlemanWunsch.SEQUENCE_A,
             sequenceB: Defaults.Algorithms.NeedlemanWunsch.SEQUENCE_B,
@@ -23,36 +24,19 @@ export default class TutorialsDevelopmentAlgorithmsNeedlemanWunsch extends Contr
         };
 
         this.input = input;
+        this.output = this.getExtendedOutput(input);
     },
 
     actions: {
         recompute: function () {
-            let sequenceA: string = ($("#sequence-a")[0] as HTMLInputElement).value.toUpperCase();
-            let sequenceB: string = ($("#sequence-b")[0] as HTMLInputElement).value.toUpperCase();
-            let gap: number = parseInt(($("#gap")[0] as HTMLInputElement).value);
-            let match: number = parseInt(($("#match")[0] as HTMLInputElement).value);
-            let mismatch: number = parseInt(($("#mismatch")[0] as HTMLInputElement).value);
+            let input = this.getCorrectedInput();
 
-            let input = {
-                sequenceA: sequenceA,
-                sequenceB: sequenceB,
-
-                gap: gap,
-                match: match,
-                mismatch: mismatch
-            };
-
-            let algorithm: NeedlemanWunsch = new NeedlemanWunsch(input);
-            let ioData: InputOutputData<InputContainer, OutputContainer> = algorithm.compute();
-            let inputData: InputContainer = ioData.input;
-            let outputData: OutputContainer = ioData.output;
-
-            this.set("input", inputData);
-            this.set("output", outputData);
+            this.set("input", input);
+            this.set("output", this.getExtendedOutput(input));
         }
     },
 
-    getInput(): InputContainer {
+    getCorrectedInput(): any {
         // read in
         let sequenceA: string = ($("#sequence-a")[0] as HTMLInputElement).value.toUpperCase();
         let sequenceB: string = ($("#sequence-b")[0] as HTMLInputElement).value.toUpperCase();
@@ -66,6 +50,21 @@ export default class TutorialsDevelopmentAlgorithmsNeedlemanWunsch extends Contr
         gap = ControlsFunctions.limitNumber(gap, Defaults.Limits.MIN_VALUE, Defaults.Limits.MAX_VALUE);
         match = ControlsFunctions.limitNumber(match, Defaults.Limits.MIN_VALUE, Defaults.Limits.MAX_VALUE);
         mismatch = ControlsFunctions.limitNumber(mismatch, Defaults.Limits.MIN_VALUE, Defaults.Limits.MAX_VALUE);
+
+        return { sequenceA: sequenceA, sequenceB: sequenceB, gap: gap, match: match, mismatch: mismatch };
+    },
+
+    getExtendedOutput(input: any): any {
+        // compute
+        let algorithm: NeedlemanWunsch = new NeedlemanWunsch(input);
+        let ioData: InputOutputData<InputContainer, OutputContainer> = algorithm.compute();
+
+        // add sequences to output data (necessary for the matrix)
+        let outputData: any = ioData.output;
+        outputData["sequenceA"] = input.sequenceA;
+        outputData["sequenceB"] = input.sequenceB;
+
+        return outputData;
     }
 }) {
   // normal class body definition here

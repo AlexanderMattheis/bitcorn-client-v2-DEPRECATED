@@ -18,7 +18,7 @@
         <span>Sequence $a$:</span>
       </label>
       {{input type="text" id="sequence-a" placeholder='e.g. "AACGT"'
-              value=input.sequenceA focus-out="recompute" tabindex="1"}}
+              value=input.sequenceA focus-out=(action "recompute") tabindex="1" enter=(action "recompute")}}
     </p>
 
     <p>
@@ -27,7 +27,7 @@
       </label>
 
       {{input type="text" id="sequence-b" placeholder='e.g. "ACGT"'
-              value=input.sequenceB focus-out="recompute" tabindex="2"}}
+              value=input.sequenceB focus-out=(action "recompute") tabindex="2" enter=(action "recompute")}}
     </p>
 
     <div class="function">
@@ -71,8 +71,8 @@
     <div class="doubled-columned">
       <div class="left-part">
         {{dynamic-matrix matrix-name="D"
-                         sequenceA=(array-creator input.sequenceA)
-                         sequenceB=(array-creator input.sequenceB)
+                         sequenceA=(array-creator output.sequenceA)
+                         sequenceB=(array-creator output.sequenceB)
                          matrix=output.matrix
                          score=output.score}}
       </div>
