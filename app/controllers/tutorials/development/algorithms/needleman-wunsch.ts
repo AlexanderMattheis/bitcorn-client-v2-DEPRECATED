@@ -28,7 +28,7 @@ export default class TutorialsDevelopmentAlgorithmsNeedlemanWunsch extends Contr
     },
 
     actions: {
-        recompute: function () {
+        recompute(): void {
             let input = this.getCorrectedInput();
 
             this.set("input", input);

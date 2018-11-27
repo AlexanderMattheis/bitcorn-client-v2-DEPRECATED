@@ -20,7 +20,7 @@ export default class TutorialsDevelopmentAlgorithmsNeedlemanWunsch extends Contr
         this.output = this.getExtendedOutput(input);
     },
     actions: {
-        recompute: function () {
+        recompute() {
             let input = this.getCorrectedInput();
             this.set("input", input);
             this.set("output", this.getExtendedOutput(input));
