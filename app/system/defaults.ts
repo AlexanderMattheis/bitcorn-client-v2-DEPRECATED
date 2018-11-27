@@ -13,4 +13,9 @@ export default {
         REDUCED: "120px",
         ENLARGED: "430px",
     },
+
+    Limits: {
+        MAX_VALUE: 10,
+        MIN_VALUE: -10,
+    }
 };

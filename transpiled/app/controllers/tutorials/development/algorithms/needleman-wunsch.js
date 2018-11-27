@@ -1,6 +1,9 @@
 import Controller from '@ember/controller';
+import ControlsFunctions from "../../../../view/controls-functions";
 import Defaults from "../../../../system/defaults";
 import NeedlemanWunsch from "../../../../logic/algorithms/needleman-wunsch";
+import Regex from "../../../../system/regex";
+import Symbols from "../../../../system/symbols";
 export default class TutorialsDevelopmentAlgorithmsNeedlemanWunsch extends Controller.extend({
     input: {},
     output: {},
@@ -35,6 +38,20 @@ export default class TutorialsDevelopmentAlgorithmsNeedlemanWunsch extends Contr
             this.set("input", inputData);
             this.set("output", outputData);
         }
+    },
+    getInput() {
+        // read in
+        let sequenceA = $("#sequence-a")[0].value.toUpperCase();
+        let sequenceB = $("#sequence-b")[0].value.toUpperCase();
+        let gap = parseInt($("#gap")[0].value);
+        let match = parseInt($("#match")[0].value);
+        let mismatch = parseInt($("#mismatch")[0].value);
+        // clean/limit
+        sequenceA = sequenceA.replace(Regex.NON_CHARACTERS, Symbols.EMPTY);
+        sequenceB = sequenceB.replace(Regex.NON_CHARACTERS, Symbols.EMPTY);
+        gap = ControlsFunctions.limitNumber(gap, Defaults.Limits.MIN_VALUE, Defaults.Limits.MAX_VALUE);
+        match = ControlsFunctions.limitNumber(match, Defaults.Limits.MIN_VALUE, Defaults.Limits.MAX_VALUE);
+        mismatch = ControlsFunctions.limitNumber(mismatch, Defaults.Limits.MIN_VALUE, Defaults.Limits.MAX_VALUE);
     }
 }) {
 }

@@ -51,4 +51,10 @@ export default class ControlsFunctions {
             element.innerHTML = Symbols.Arrows.DOWN + element.innerHTML.substring(1);
         }
     }
+
+    public static limitNumber(number: number, min: number, max: number): number {
+        number = number >= min? number : min;
+        number = number <= max? number : max;
+        return number;
+    }
 }

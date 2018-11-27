@@ -46,5 +46,10 @@ export default class ControlsFunctions {
             element.innerHTML = Symbols.Arrows.DOWN + element.innerHTML.substring(1);
         }
     }
+    static limitNumber(number, min, max) {
+        number = number >= min ? number : min;
+        number = number <= max ? number : max;
+        return number;
+    }
 }
 //# sourceMappingURL=controls-functions.js.map
