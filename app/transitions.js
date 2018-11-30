@@ -85,4 +85,46 @@ export default function(){
         this.toRoute('creations.programs.res'),
         this.use('toRight')
     );
+
+    /* tutorials.design */
+    this.transition(
+      this.toRoute('tutorials.design'),
+      this.use('toRight')
+    );
+
+    this.transition(
+      this.toRoute('tutorials.design.blender'),
+      this.use('toRight')
+    );
+
+    this.transition(
+      this.toRoute('tutorials.design.gimp'),
+      this.use('toRight')
+    );
+
+    this.transition(
+      this.toRoute('tutorials.design.inkscape'),
+      this.use('toRight')
+    );
+
+    /* tutorials.development */
+    this.transition(
+      this.toRoute('tutorials.development'),
+      this.use('toRight')
+    );
+
+    this.transition(
+      this.toRoute('tutorials.development.algorithms'),
+      this.use('toRight')
+    );
+
+    this.transition(
+      this.toRoute('tutorials.development.data-structures'),
+      this.use('toRight')
+    );
+
+    this.transition(
+      this.toRoute('tutorials.development.languages'),
+      this.use('toRight')
+    );
 }

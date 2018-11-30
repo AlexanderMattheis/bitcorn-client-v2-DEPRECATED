@@ -1,49 +1,51 @@
-<div class="heading-and-download">
-  <a class="history-back" href="#" {{action "transitionBack"}}>&#9668;</a>
-  <h3>{{model.title}}</h3>
+<div class="details">
+  <div class="heading-and-download">
+    <a class="history-back" href="#" {{action "transitionBack"}}>&#9668;</a>
+    <h3>{{model.title}}</h3>
 
-  <a class="download" href={{model.path}} download>
-    <span class="sprite sprite-download"></span>
-    <span>Download</span>
-  </a>
-</div>
-
-
-<img class="image" src={{model.image}} alt="Preview">
-
-<h5>Description</h5>
-<p class="small-text">
-  {{html-safe model.writing}}
-</p>
-
-<br>
-
-<div class="container">
-  <div class="column">
-    <h5>Author</h5>
-    <p class="small-text">
-      {{model.author}}
-    </p>
-
-    <br>
-
-    <h5>Date</h5>
-    <p class="small-text">
-      {{model.date}}
-    </p>
+    <a class="download" href={{model.path}} download>
+      <span class="sprite sprite-download"></span>
+      <span>Download</span>
+    </a>
   </div>
 
-  <div class="column">
-    <h5>Licence</h5>
-    <p class="small-text">
-      {{html-safe model.licence}}
-    </p>
 
-    <br>
+  <img class="image" src={{model.image}} alt="Preview">
 
-    <h5>Tags</h5>
-    <p class="small-text">
-      {{model.tags}}
-    </p>
+  <h5>Description</h5>
+  <p class="small-text">
+    {{html-safe model.writing}}
+  </p>
+
+  <br>
+
+  <div class="container">
+    <div class="column">
+      <h5>Author</h5>
+      <p class="small-text">
+        {{model.author}}
+      </p>
+
+      <br>
+
+      <h5>Date</h5>
+      <p class="small-text">
+        {{model.date}}
+      </p>
+    </div>
+
+    <div class="column">
+      <h5>Licence</h5>
+      <p class="small-text">
+        {{html-safe model.licence}}
+      </p>
+
+      <br>
+
+      <h5>Tags</h5>
+      <p class="small-text">
+        {{model.tags}}
+      </p>
+    </div>
   </div>
 </div>

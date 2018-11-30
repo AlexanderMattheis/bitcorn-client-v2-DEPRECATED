@@ -1,11 +1,11 @@
 <h2>
   {{name}}
-  <a href={{doiLink}}>{{year}}</a>
+  <a href={{doiLink}} target="_blank" rel="noopener">{{year}}</a>
 </h2>
 <h4>by {{authors}}</h4>
 
 {{#if (is-defined videoLink)}}
-  <iframe width="540" height="304" src={{videoLink}}
+  <iframe width="736" height="414" src={{videoLink}}
           frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   <br>
   <br>
