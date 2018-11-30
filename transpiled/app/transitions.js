@@ -21,5 +21,15 @@ export default function () {
     this.transition(this.toRoute('creations.programs.bioinformatics'), this.use('toRight'));
     this.transition(this.toRoute('creations.programs.cross-dating'), this.use('toRight'));
     this.transition(this.toRoute('creations.programs.res'), this.use('toRight'));
+    /* tutorials.design */
+    this.transition(this.toRoute('tutorials.design'), this.use('toRight'));
+    this.transition(this.toRoute('tutorials.design.blender'), this.use('toRight'));
+    this.transition(this.toRoute('tutorials.design.gimp'), this.use('toRight'));
+    this.transition(this.toRoute('tutorials.design.inkscape'), this.use('toRight'));
+    /* tutorials.development */
+    this.transition(this.toRoute('tutorials.development'), this.use('toRight'));
+    this.transition(this.toRoute('tutorials.development.algorithms'), this.use('toRight'));
+    this.transition(this.toRoute('tutorials.development.data-structures'), this.use('toRight'));
+    this.transition(this.toRoute('tutorials.development.languages'), this.use('toRight'));
 }
 //# sourceMappingURL=transitions.js.map

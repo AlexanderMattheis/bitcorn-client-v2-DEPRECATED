@@ -10,15 +10,15 @@
   </thead>
 
   <tbody>
-    {{#each matrix as |row index|}}
+    {{#each matrix as |row i|}}
       <tr>
-        {{#if (eq index 0)}}
+        {{#if (eq i 0)}}
           <th></th>
         {{else}}
-          <th>{{get-array-value sequenceA (add index -1)}}<sub>{{index}}</sub></th>
+          <th>{{get-array-value sequenceA (add i -1)}}<sub>{{i}}</sub></th>
         {{/if}}
 
-        {{#each row as |column|}}
+        {{#each row as |column j|}}
           <td class="matrix-cell">{{column}}</td>
         {{/each}}
       </tr>
