@@ -1,4 +1,6 @@
 /*--------------------------------------------------- DEFINITIONS ----------------------------------------------------*/
+@max-z-index: 2147483647;
+
 /* COLORS */
 @gray: #dcdcdc;
 @gray-2: #efefef;
@@ -451,6 +453,12 @@ input[type=number] {
     left: 55px;
     position: absolute;
   }
+}
+
+#overlay {
+  pointer-events: none;  /* deactivate mouse-event */
+  position: absolute;
+  z-index: @max-z-index;  /* should be at top of everything */
 }
 
 #top {
