@@ -8,7 +8,8 @@ export default class ResultsTable extends Component.extend({
                 let matrixCells = $(".matrix-cell");
                 this.resetMatrixHighlight(matrixCells);
                 let solutionLines = this.$(".solution");
-                resetResultHighlight(solutionLines);
+                this.resetResultHighlight(solutionLines);
+                this.lastClickedSolution = -1; // after reseting no more equal
             }
             else {
                 this.highlightInSolutions(clickedSolution);
@@ -37,6 +38,14 @@ export default class ResultsTable extends Component.extend({
         }
     },
     resetResultHighlight(solutionLines) {
+        for (let i = 0; i < solutionLines.length; i++) {
+            let row = solutionLines[i];
+            let textLines = row.getElementsByTagName("PRE");
+            row.style.backgroundColor = Colors.WHITE;
+            for (let j = 0; j < textLines.length; j++) {
+                textLines[j].style.color = Colors.Dark.GRAY;
+            }
+        }
     },
     highlightInMatrix(clickedSolution, tracebacks, rowLength) {
         let matrixCells = $(".matrix-cell");

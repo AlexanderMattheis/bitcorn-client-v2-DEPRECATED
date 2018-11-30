@@ -11,7 +11,8 @@ export default class ResultsTable extends Component.extend({
               let matrixCells: JQuery = $(".matrix-cell");
               this.resetMatrixHighlight(matrixCells);
               let solutionLines: JQuery = this.$(".solution");
-              resetResultHighlight(solutionLines);
+              this.resetResultHighlight(solutionLines);
+              this.lastClickedSolution = -1;  // after reseting no more equal
             } else {
               this.highlightInSolutions(clickedSolution);
               this.highlightInMatrix(clickedSolution, tracebacks, rowLength);
@@ -45,7 +46,15 @@ export default class ResultsTable extends Component.extend({
     },
 
     resetResultHighlight(solutionLines: JQuery): void {
+      for (let i: number = 0; i < solutionLines.length; i++) {
+        let row: HTMLElement = solutionLines[i];
+        let textLines: HTMLCollectionOf<Element> = row.getElementsByTagName("PRE");
 
+        row.style.backgroundColor = Colors.WHITE;
+        for (let j = 0; j < textLines.length; j++) {
+          (textLines[j] as HTMLElement).style.color = Colors.Dark.GRAY;
+        }
+      }
     },
 
     highlightInMatrix(clickedSolution: number, tracebacks: Vector[][], rowLength: number): void {
