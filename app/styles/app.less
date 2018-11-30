@@ -192,6 +192,10 @@ input[type=number] {
         border-spacing: 0;
 
         /* TAGS */
+        td {
+          color: white;
+        }
+
         td, th {
           border: solid 1px #a0a0a0;
           color: @dark-gray;
@@ -224,7 +228,7 @@ input[type=number] {
       float: left;
       margin-left: 35px;
 
-      .results {
+      .solutions {
         border-collapse: collapse;
         border-spacing: 0;
 
@@ -246,6 +250,10 @@ input[type=number] {
 
         th {
           background-color: @gray-2;
+        }
+
+        tr {
+          background-color: white;
         }
 
         /* CLASSES */
@@ -825,7 +833,7 @@ _:-ms-lang(x), _:-webkit-full-screen, .input-number {
 _:-ms-lang(x), _:-webkit-full-screen, #algorithm-output {
   .doubled-columned {
     .right-part {
-      .results {
+      .solutions {
         td {
           font-size: medium;
         }

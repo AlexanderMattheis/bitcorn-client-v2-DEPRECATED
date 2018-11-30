@@ -1,17 +1,17 @@
-<table class="results">
+<table class="solutions">
   <thead>
     <tr>
       <th>
         Solutions
         <br>
-        <small>Select a results to get the corresponding traceback.</small>
+        <small>Select a solution to get the corresponding traceback.</small>
       </th>
     </tr>
   </thead>
 
   <tbody>
-    {{#each results as |result|}}
-      <tr>
+    {{#each results as |result index|}}
+      <tr class="solution" {{action "highlightTraceback" index tracebacks rowLength}}>
         <td>
           {{#each result as |line|}}
             <pre>{{line}}</pre>
