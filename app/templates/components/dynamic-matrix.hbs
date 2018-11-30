@@ -18,7 +18,7 @@
           <th>{{get-array-value sequenceA (add i -1)}}<sub>{{i}}</sub></th>
         {{/if}}
 
-        {{#each row as |column j|}}
+        {{#each row as |column|}}
           <td class="matrix-cell">{{column}}</td>
         {{/each}}
       </tr>

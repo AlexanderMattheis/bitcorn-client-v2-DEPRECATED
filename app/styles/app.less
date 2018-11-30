@@ -174,7 +174,6 @@ input[type=number] {
 }
 
 #algorithm-output {
-  /* TAGS */
   /* CLASSES */
   .doubled-columned {
     display: inline-block;
@@ -225,10 +224,37 @@ input[type=number] {
       margin-left: 35px;
 
       .solutions {
+        border: solid 1px #a0a0a0;
         border-collapse: collapse;
         border-spacing: 0;
 
         /* TAGS */
+        tbody {
+          display: block;
+          max-height: 122px;  // +1 to avoid showing scrollbars
+          overflow-x: hidden;
+          overflow-y: scroll;
+
+          tr {
+            td {
+              border-left: none;
+              border-right: none;
+            }
+          }
+
+          tr:first-child {
+            td {
+              border-top: none;
+            }
+          }
+
+          tr:last-child {
+            td {
+              border-bottom: none;
+            }
+          }
+        }
+
         td {
           cursor: pointer;
         }
@@ -841,8 +867,10 @@ _:-ms-lang(x), _:-webkit-full-screen, #algorithm-output {
   .doubled-columned {
     .right-part {
       .solutions {
-        td {
-          font-size: medium;
+        tbody {
+          td {
+            font-size: medium;
+          }
         }
       }
     }
