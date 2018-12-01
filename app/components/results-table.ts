@@ -163,7 +163,6 @@ export default class ResultsTable extends Component.extend({
       matrixCell.style.color = Colors.WHITE;
 
       if (i < traceback.length-1) {
-        debugger;
         // @ts-ignore
         this.drawArrow(lastMatrixCell, matrixCell);
       }
@@ -234,7 +233,6 @@ export default class ResultsTable extends Component.extend({
     let cellX: number = -1;
     let cellY: number = -1;
 
-    debugger;
     let horizontalDifference: number = lastCellBounds.left - currentCellBounds.left;
     let verticalDifference: number =  lastCellBounds.top - currentCellBounds.top;
 

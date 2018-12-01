@@ -10,7 +10,7 @@ module.exports = function(defaults) {
   });
 
   app.import('vendor/FileSaver.min.js');  // added to window
-
+  
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //

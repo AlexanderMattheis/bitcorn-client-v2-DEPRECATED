@@ -127,4 +127,11 @@ export default function(){
       this.toRoute('tutorials.development.languages'),
       this.use('toRight')
     );
+
+    /* tutorials.development */
+    this.transition(
+      this.toRoute('tutorials.development.algorithms.needleman-wunsch'),
+      this.use('toRight'),
+      this.reverse('toLeft')
+    );
 }
