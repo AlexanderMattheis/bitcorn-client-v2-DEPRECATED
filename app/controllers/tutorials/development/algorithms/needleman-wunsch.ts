@@ -49,16 +49,7 @@ export default class TutorialsDevelopmentAlgorithmsNeedlemanWunsch extends Contr
           this.set("output", this.getExtendedOutput(input));
 
           // clear overlay drawing
-          let overlay: HTMLElement = $("#overlay")[0];
-
-          if (overlay.firstChild !== null) {  // during initialization of the object it does not exist
-            // @ts-ignore
-            while (overlay.firstChild.hasChildNodes() && overlay.firstChild.lastChild.nodeName === "line") {
-              // @ts-ignore
-              overlay.firstChild.removeChild(overlay.firstChild.lastChild);
-            }
-          }
-
+          ControlsFunctions.cleanOverlay();
           window.bitcorn.solutionNumber++;
         }
     },

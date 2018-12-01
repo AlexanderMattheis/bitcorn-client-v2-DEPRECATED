@@ -57,4 +57,16 @@ export default class ControlsFunctions {
         number = number <= max? number : max;
         return number;
     }
+
+    public static cleanOverlay(): void {
+      let overlay: HTMLElement = $("#overlay")[0];
+
+      if (overlay.firstChild !== null) {  // during initialization of the object it does not exist
+        // @ts-ignore
+        while (overlay.firstChild.hasChildNodes() && overlay.firstChild.lastChild.nodeName === "line") {
+          // @ts-ignore
+          overlay.firstChild.removeChild(overlay.firstChild.lastChild);
+        }
+      }
+    }
 }
