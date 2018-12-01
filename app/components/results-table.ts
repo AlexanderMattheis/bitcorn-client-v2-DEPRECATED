@@ -39,7 +39,6 @@ export default class ResultsTable extends Component.extend({
   },
 
   redraw(): void {
-    debugger;
     if (this._tracebacks !== null) {
       // @ts-ignore
       this.highlightInMatrix(this._clickedSolution, this._tracebacks, this._rowLength);
@@ -193,7 +192,7 @@ export default class ResultsTable extends Component.extend({
     // @ts-ignore
     this.svg.setAttribute("height", matrixBounds.height.toString());
 
-    overlay.style.left = matrixBounds.left.toString() + "px";
+    overlay.style.left = (matrixBounds.left + window.scrollX).toString() + "px";
     overlay.style.top = (matrixBounds.top + window.scrollY).toString() + "px";
   },
 
