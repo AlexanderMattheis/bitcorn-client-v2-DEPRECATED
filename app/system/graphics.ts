@@ -1,6 +1,8 @@
 export default {
   Arrows: {
-    COLOR: "black"
+    COLOR: "black",
+    PERCENT_INSIDE_CELL: 0.1,
+    PERCENT_INSIDE_LAST_CELL: 0.2
   },
 
   MarkerIds: {

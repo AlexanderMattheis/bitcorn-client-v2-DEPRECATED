@@ -30,11 +30,11 @@ export default class ResultsTable extends Component.extend({
 
   init(): void {
     this._super(...arguments);
-    this.setRedrawing();
+    this.enableRedrawing();
     this.svg = this.createSVG(true);
   },
 
-  setRedrawing(): void {
+  enableRedrawing(): void {
     $(window).on("resize", {}, this.redraw.bind(this));
   },
 
@@ -126,6 +126,7 @@ export default class ResultsTable extends Component.extend({
 
   setArgumentsForRedrawing(clickedSolution: number, tracebacks: Vector[][], rowLength: number):void {
     this._clickedSolution = clickedSolution;
+    // @ts-ignore
     this._tracebacks = tracebacks;
     this._rowLength = rowLength;
   },
@@ -199,23 +200,55 @@ export default class ResultsTable extends Component.extend({
   createSVGArrow(matrixBounds: any,
                  lastMatrixCell: HTMLTableElement, currentMatrixCell: HTMLTableElement): SVGElement {
     // retrieve
-    let arrow = document.createElementNS(Graphics.SVG_NAMESPACE_URI, "line");
-
-    let lastCellBounds = lastMatrixCell.getBoundingClientRect();
-    let currentCellBounds = currentMatrixCell.getBoundingClientRect();
+    let arrow: SVGElement = document.createElementNS(Graphics.SVG_NAMESPACE_URI, "line") as SVGElement;
 
     // using previously defined TRIANGLE
     arrow.setAttribute("marker-end", "url(#" + Graphics.MarkerIds.TRIANGLE + ")");
 
     // define line
+    let positions: any = this.getLinePositions(lastMatrixCell, currentMatrixCell);
+
     arrow.setAttribute("stroke", Graphics.Arrows.COLOR);
-    arrow.setAttribute("x1", (lastCellBounds.left - matrixBounds.left).toString());
-    arrow.setAttribute("y1", (lastCellBounds.top - matrixBounds.top).toString());
-    arrow.setAttribute("x2", (currentCellBounds.left - matrixBounds.left).toString());
-    arrow.setAttribute("y2", (currentCellBounds.top - matrixBounds.top).toString());
+    arrow.setAttribute("x1", (positions.x1 - matrixBounds.left).toString());
+    arrow.setAttribute("y1", (positions.y1 - matrixBounds.top).toString());
+    arrow.setAttribute("x2", (positions.x2 - matrixBounds.left).toString());
+    arrow.setAttribute("y2", (positions.y2 - matrixBounds.top).toString());
 
     // @ts-ignore
     return arrow;
+  },
+
+  getLinePositions(lastMatrixCell: HTMLTableElement, currentMatrixCell: HTMLTableElement): object {
+    let lastCellBounds = lastMatrixCell.getBoundingClientRect();
+    let currentCellBounds = currentMatrixCell.getBoundingClientRect();
+
+    let lastCellX: number = -1;
+    let lastCellY: number = -1;
+    let cellX: number = -1;
+    let cellY: number = -1;
+
+    debugger;
+    let horizontalDifference: number = lastCellBounds.left - currentCellBounds.left;
+    let verticalDifference: number =  lastCellBounds.top - currentCellBounds.top;
+
+    if (horizontalDifference > 0 && verticalDifference > 0) {
+      lastCellX = lastCellBounds.left + lastCellBounds.width * Graphics.Arrows.PERCENT_INSIDE_LAST_CELL;
+      lastCellY = lastCellBounds.top + lastCellBounds.height * Graphics.Arrows.PERCENT_INSIDE_LAST_CELL;
+      cellX = currentCellBounds.left + currentCellBounds.width * (1-Graphics.Arrows.PERCENT_INSIDE_CELL);
+      cellY = currentCellBounds.top + currentCellBounds.height * (1-Graphics.Arrows.PERCENT_INSIDE_CELL);
+    } else if (horizontalDifference > 0) {
+      lastCellX = lastCellBounds.left + lastCellBounds.width * Graphics.Arrows.PERCENT_INSIDE_LAST_CELL;
+      lastCellY = lastCellBounds.top + lastCellBounds.height/2;
+      cellX = currentCellBounds.left + currentCellBounds.width * (1-Graphics.Arrows.PERCENT_INSIDE_CELL);
+      cellY = currentCellBounds.top + currentCellBounds.height/2;
+    } else {
+      lastCellX = lastCellBounds.left + lastCellBounds.width/2;
+      lastCellY = lastCellBounds.top + lastCellBounds.height * Graphics.Arrows.PERCENT_INSIDE_LAST_CELL;
+      cellX = currentCellBounds.left + currentCellBounds.width/2;
+      cellY = currentCellBounds.top + currentCellBounds.height * (1-Graphics.Arrows.PERCENT_INSIDE_CELL);
+    }
+
+    return { x1: lastCellX, y1: lastCellY, x2: cellX, y2: cellY };
   }
 }) {
   // normal class body definition here
