@@ -16,7 +16,7 @@ export default class ResultsTable extends Component.extend({
           if (window.bitcorn.solutionNumber !== this.solutionNumber) {  // if the solutions have been recomputed
             this.lastClickedSolution = -1;
           }
-          debugger;
+
           if (this.lastClickedSolution === clickedSolution) {  // reset if it was clicked two time on the same
             let matrixCells: JQuery = $(".matrix-cell");
             this.resetMatrixHighlight(matrixCells);
@@ -33,7 +33,7 @@ export default class ResultsTable extends Component.extend({
           }
       }
   },
-  
+
   init(): void {
     this._super(...arguments);
     this.enableRedrawing();
