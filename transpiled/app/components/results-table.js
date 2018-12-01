@@ -89,6 +89,10 @@ export default class ResultsTable extends Component.extend({
             matrixCell.style.backgroundColor = Colors.WHITE;
             matrixCell.style.color = Colors.Dark.GRAY;
         }
+        // remove arrows
+        while (this.svg.hasChildNodes() && this.svg.lastChild.class === "line") {
+            this.svg.removeChild(this.svg.lastChild);
+        }
     },
     setMatrixHighlight(matrixCells, traceback, rowLength) {
         let lastMatrixCell;
@@ -98,8 +102,8 @@ export default class ResultsTable extends Component.extend({
             matrixCell.style.backgroundColor = Colors.YELLOW;
             matrixCell.style.color = Colors.WHITE;
             if (i < traceback.length - 1) {
-                // @ts-ignore
                 debugger;
+                // @ts-ignore
                 this.drawArrow(lastMatrixCell, matrixCell);
             }
             lastMatrixCell = matrixCell;
@@ -109,18 +113,42 @@ export default class ResultsTable extends Component.extend({
         return position2D.i * rowLength + position2D.j;
     },
     drawArrow(lastMatrixCell, currentMatrixCell) {
-        let overlay = $("#overlay")[0];
-        this.setOverlayPosition(overlay);
-    },
-    setOverlayPosition(overlay) {
         // retrieve
+        let overlay = $("#overlay")[0];
         let matrix = $(".matrix")[0];
+        let matrixBounds = matrix.getBoundingClientRect();
         // set
-        this.svg.setAttribute("width", matrix.offsetWidth);
-        this.svg.setAttribute("height", matrix.offsetHeight);
-        overlay.style.left = matrix.offsetLeft.toString() + "px";
-        overlay.style.top = matrix.offsetTop.toString() + "px";
+        this.setOverlayPosition(matrixBounds, overlay);
+        // create
+        let arrow = this.createSVGArrow(matrixBounds, lastMatrixCell, currentMatrixCell);
+        // @ts-ignore
+        this.svg.appendChild(arrow);
         overlay.appendChild(this.svg);
+    },
+    setOverlayPosition(matrixBounds, overlay) {
+        // set
+        // @ts-ignore
+        this.svg.setAttribute("width", matrixBounds.width.toString());
+        // @ts-ignore
+        this.svg.setAttribute("height", matrixBounds.height.toString());
+        overlay.style.left = matrixBounds.left.toString() + "px";
+        overlay.style.top = (matrixBounds.top + window.scrollY).toString() + "px";
+    },
+    createSVGArrow(matrixBounds, lastMatrixCell, currentMatrixCell) {
+        // retrieve
+        let arrow = document.createElementNS(Graphics.SVG_NAMESPACE_URI, "line");
+        let lastCellBounds = lastMatrixCell.getBoundingClientRect();
+        let currentCellBounds = currentMatrixCell.getBoundingClientRect();
+        // using previously defined TRIANGLE
+        arrow.setAttribute("marker-end", "url(#" + Graphics.MarkerIds.TRIANGLE + ")");
+        // define line
+        arrow.setAttribute("stroke", Graphics.Arrows.COLOR);
+        arrow.setAttribute("x1", (lastCellBounds.left - matrixBounds.left).toString());
+        arrow.setAttribute("y1", (lastCellBounds.top - matrixBounds.top).toString());
+        arrow.setAttribute("x2", (currentCellBounds.left - matrixBounds.left).toString());
+        arrow.setAttribute("y2", (currentCellBounds.top - matrixBounds.top).toString());
+        // @ts-ignore
+        return arrow;
     }
 }) {
 }

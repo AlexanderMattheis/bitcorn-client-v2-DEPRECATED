@@ -6,6 +6,9 @@ import Vector from "../logic/math/vector";
 export default class ResultsTable extends Component.extend({
   lastClickedSolution: -1,
   svg: {},
+  _clickedSolution: -1,
+  _tracebacks: null,
+  _rowLength: -1,
 
   actions: {
       highlightTraceback(clickedSolution: number, tracebacks: Vector[][], rowLength: number): void {
@@ -27,7 +30,20 @@ export default class ResultsTable extends Component.extend({
 
   init(): void {
     this._super(...arguments);
+    this.setRedrawing();
     this.svg = this.createSVG(true);
+  },
+
+  setRedrawing(): void {
+    $(window).on("resize", {}, this.redraw.bind(this));
+  },
+
+  redraw(): void {
+    debugger;
+    if (this._tracebacks !== null) {
+      // @ts-ignore
+      this.highlightInMatrix(this._clickedSolution, this._tracebacks, this._rowLength);
+    }
   },
 
   createSVG(addMarkers: boolean): SVGElement {
@@ -100,11 +116,19 @@ export default class ResultsTable extends Component.extend({
   },
 
   highlightInMatrix(clickedSolution: number, tracebacks: Vector[][], rowLength: number): void {
+    this.setArgumentsForRedrawing(clickedSolution, tracebacks, rowLength);
+
     let matrixCells: JQuery = $(".matrix-cell");
     let traceback: Vector[] = tracebacks[clickedSolution];
 
     this.resetMatrixHighlight(matrixCells);
     this.setMatrixHighlight(matrixCells, traceback, rowLength);
+  },
+
+  setArgumentsForRedrawing(clickedSolution: number, tracebacks: Vector[][], rowLength: number):void {
+    this._clickedSolution = clickedSolution;
+    this._tracebacks = tracebacks;
+    this._rowLength = rowLength;
   },
 
   resetMatrixHighlight(matrixCells: JQuery): void {
@@ -113,6 +137,12 @@ export default class ResultsTable extends Component.extend({
       matrixCell.style.backgroundColor = Colors.WHITE;
       matrixCell.style.color = Colors.Dark.GRAY;
     }
+
+    // @ts-ignore - remove arrows
+    while (this.svg.hasChildNodes() && this.svg.lastChild.nodeName === "line") {
+      // @ts-ignore
+      this.svg.removeChild(this.svg.lastChild);
+    }
   },
 
   setMatrixHighlight(matrixCells: JQuery, traceback: Vector[], rowLength: number): void {
@@ -120,14 +150,14 @@ export default class ResultsTable extends Component.extend({
 
     for (let i: number = traceback.length-1; i >= 0; i--) {  // bottom-up
       let arrayPosition: number = this.getArrayPosition(traceback[i], rowLength);
-      let matrixCell: HTMLTableElement = matrixCells[arrayPosition];
+      let matrixCell: HTMLTableElement = matrixCells[arrayPosition] as HTMLTableElement;
 
       matrixCell.style.backgroundColor = Colors.YELLOW;
       matrixCell.style.color = Colors.WHITE;
 
       if (i < traceback.length-1) {
-        // @ts-ignore
         debugger;
+        // @ts-ignore
         this.drawArrow(lastMatrixCell, matrixCell);
       }
 
@@ -140,21 +170,53 @@ export default class ResultsTable extends Component.extend({
   },
 
   drawArrow(lastMatrixCell: HTMLTableElement, currentMatrixCell: HTMLTableElement):void {
-    let overlay: HTMLElement = $("#overlay")[0];
-    this.setOverlayPosition(overlay);
-  },
-
-  setOverlayPosition(overlay: HTMLElement): void {
     // retrieve
+    let overlay: HTMLElement = $("#overlay")[0];
     let matrix: HTMLTableElement = $(".matrix")[0] as HTMLTableElement;
+    let matrixBounds = matrix.getBoundingClientRect();
 
     // set
-    this.svg.setAttribute("width", matrix.offsetWidth);
-    this.svg.setAttribute("height", matrix.offsetHeight);
-    overlay.style.left = matrix.offsetLeft.toString() + "px";
-    overlay.style.top = matrix.offsetTop.toString() + "px";
+    this.setOverlayPosition(matrixBounds, overlay);
 
-    overlay.appendChild(this.svg);
+    // create
+    let arrow: SVGElement = this.createSVGArrow(matrixBounds, lastMatrixCell, currentMatrixCell);
+
+    // @ts-ignore
+    this.svg.appendChild(arrow);
+    overlay.appendChild(this.svg as Node);
+  },
+
+  setOverlayPosition(matrixBounds: any, overlay: HTMLElement): void {
+    // set
+    // @ts-ignore
+    this.svg.setAttribute("width", matrixBounds.width.toString());
+    // @ts-ignore
+    this.svg.setAttribute("height", matrixBounds.height.toString());
+
+    overlay.style.left = matrixBounds.left.toString() + "px";
+    overlay.style.top = (matrixBounds.top + window.scrollY).toString() + "px";
+  },
+
+  createSVGArrow(matrixBounds: any,
+                 lastMatrixCell: HTMLTableElement, currentMatrixCell: HTMLTableElement): SVGElement {
+    // retrieve
+    let arrow = document.createElementNS(Graphics.SVG_NAMESPACE_URI, "line");
+
+    let lastCellBounds = lastMatrixCell.getBoundingClientRect();
+    let currentCellBounds = currentMatrixCell.getBoundingClientRect();
+
+    // using previously defined TRIANGLE
+    arrow.setAttribute("marker-end", "url(#" + Graphics.MarkerIds.TRIANGLE + ")");
+
+    // define line
+    arrow.setAttribute("stroke", Graphics.Arrows.COLOR);
+    arrow.setAttribute("x1", (lastCellBounds.left - matrixBounds.left).toString());
+    arrow.setAttribute("y1", (lastCellBounds.top - matrixBounds.top).toString());
+    arrow.setAttribute("x2", (currentCellBounds.left - matrixBounds.left).toString());
+    arrow.setAttribute("y2", (currentCellBounds.top - matrixBounds.top).toString());
+
+    // @ts-ignore
+    return arrow;
   }
 }) {
   // normal class body definition here
