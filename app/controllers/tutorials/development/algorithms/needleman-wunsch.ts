@@ -43,10 +43,23 @@ export default class TutorialsDevelopmentAlgorithmsNeedlemanWunsch extends Contr
         },
 
         recompute(): void {
-            let input = this.getCorrectedInput();
+          let input = this.getCorrectedInput();
 
-            this.set("input", input);
-            this.set("output", this.getExtendedOutput(input));
+          this.set("input", input);
+          this.set("output", this.getExtendedOutput(input));
+
+          // clear overlay drawing
+          let overlay: HTMLElement = $("#overlay")[0];
+
+          if (overlay.firstChild !== null) {  // during initialization of the object it does not exist
+            // @ts-ignore
+            while (overlay.firstChild.hasChildNodes() && overlay.firstChild.lastChild.nodeName === "line") {
+              // @ts-ignore
+              overlay.firstChild.removeChild(overlay.firstChild.lastChild);
+            }
+          }
+
+          window.bitcorn.solutionNumber++;
         }
     },
 

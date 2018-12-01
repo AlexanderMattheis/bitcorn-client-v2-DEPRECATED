@@ -6,6 +6,7 @@ import Vector from "../logic/math/vector";
 export default class ResultsTable extends Component.extend({
   lastClickedSolution: -1,
   svg: {},
+  solutionNumber: -1,
   _clickedSolution: -1,
   _tracebacks: null,
   _rowLength: -1,
@@ -20,6 +21,7 @@ export default class ResultsTable extends Component.extend({
 
             this.lastClickedSolution = -1;  // after reseting no more equal
           } else {
+            this.solutionNumber = window.bitcorn.solutionNumber;
             this.highlightInSolutions(clickedSolution);
             this.highlightInMatrix(clickedSolution, tracebacks, rowLength);
 
@@ -39,7 +41,8 @@ export default class ResultsTable extends Component.extend({
   },
 
   redraw(): void {
-    if (this._tracebacks !== null) {
+    // tracebacks had be drawn once and the solution has not been recomputed at the moment
+    if (this._tracebacks !== null && window.bitcorn.solutionNumber === this.solutionNumber) {
       // @ts-ignore
       this.highlightInMatrix(this._clickedSolution, this._tracebacks, this._rowLength);
     }
