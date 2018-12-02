@@ -8,10 +8,11 @@ module('Integration | Helper | array-creator', function(hooks) {
 
   // Replace this with your real tests.
   test('it renders', async function(assert) {
-    this.set('inputValue', '1234');
+    this.set('inputValue', 'ACGT');
 
     await render(hbs`{{array-creator inputValue}}`);
 
-    assert.equal(this.element.textContent.trim(), '1234');
+    // @ts-ignore
+    assert.equal(this.element.textContent.trim(), "A,C,G,T");
   });
 });

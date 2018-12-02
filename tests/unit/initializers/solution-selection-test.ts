@@ -3,23 +3,21 @@ import Application from '@ember/application';
 import { initialize } from 'bitcorn-client/initializers/solution-selection';
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
-import destroyApp from '../../helpers/destroy-app';
 
 module('Unit | Initializer | solution-selection', function(hooks) {
   setupTest(hooks);
 
   hooks.beforeEach(function() {
+    // @ts-ignore
     this.TestApplication = Application.extend();
+    // @ts-ignore
     this.TestApplication.initializer({
       name: 'initializer under test',
       initialize
     });
 
+    // @ts-ignore
     this.application = this.TestApplication.create({ autoboot: false });
-  });
-
-  hooks.afterEach(function() {
-    destroyApp(this.application);
   });
 
   // Replace this with your real tests.

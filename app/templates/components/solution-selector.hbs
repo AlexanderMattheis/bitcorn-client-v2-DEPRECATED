@@ -11,7 +11,7 @@
 
   <tbody>
     {{#each results as |result index|}}
-      <tr class="solution" {{action "highlightTraceback" index tracebacks rowLength}}>
+      <tr class="solution" role="button" {{action "highlightTraceback" index tracebacks rowLength}}>
         <td>
           {{#each result as |line|}}
             <pre>{{line}}</pre>
