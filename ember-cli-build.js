@@ -4,9 +4,15 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
-	  babel: {
-		sourceMaps: 'inline',
-	  },	  
+    babel: {
+      sourceMaps: 'inline',
+	  },
+
+    'ember-bootstrap': {
+      'bootstrapVersion': 4,
+      'importBootstrapFont': false,
+      'importBootstrapCSS': true
+    }
   });
 
   app.import('vendor/FileSaver.min.js');  // added to window

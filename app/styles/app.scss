@@ -1,48 +1,48 @@
 /*--------------------------------------------------- DEFINITIONS ----------------------------------------------------*/
-@max-z-index: 2147483647;
+$max-z-index: 2147483647;
+
+/* PATHS */
+$fonts: "../assets/fonts/";
+$images: "../assets/images/";
 
 /* COLORS */
-@gray: #dcdcdc;
-@gray-2: #efefef;
-@red: #e55457;
-@yellow: #fbe03a;
+$gray: #dcdcdc;
+$gray-2: #efefef;
+$red: #e55457;
+$yellow: #fbe03a;
 
 /* colors (dark) */
-@dark-gray: #848484;
-@dark-green: #779219;
+$dark-gray: #848484;
+$dark-green: #779219;
 
 /* colors (light) */
-@light-gray: #f3f3f3;
-@dark-red: #c6383c;
+$light-gray: #f3f3f3;
+$dark-red: #c6383c;
 
 /* DIMENSIONS */
-@default-distance: 60px;
-@width-long-button: 180px;
-@width-short-button: 150px;
+$default-distance: 60px;
+$width-long-button: 180px;
+$width-short-button: 150px;
 
 /* DURATIONS */
-@button-ease-in: 500ms;
+$button-ease-in: 500ms;
 
 /* FONTS */
 @font-face {
   font-family: "OpenSans-Light";
-  src: url("@{fonts}OpenSans-Light.ttf") format("truetype");
+  src: url("#{$fonts}OpenSans-Light.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "NovaMono";
-  src: url("@{fonts}NovaMono.ttf") format("truetype");
+  src: url("#{$fonts}NovaMono.ttf") format("truetype");
 }
 
 /* OPACITY */
-@default-non-hovered-opacity: 0.7;
-
-/* PATHS */
-@fonts: "../assets/fonts/";
-@images: "../assets/images/";
+$default-non-hovered-opacity: 0.7;
 
 /* OBJECTS */
-@shadow: 0 0 5px rgba(99, 99, 99, 0.7);
+$shadow: 0 0 5px rgba(99, 99, 99, 0.7);
 
 /*--------------------------------------------------- TAG STYLING ----------------------------------------------------*/
 * {
@@ -52,7 +52,7 @@
 }
 
 a {
-  color: @red;
+  color: $red;
   text-decoration: none;
 }
 
@@ -81,14 +81,14 @@ html, body {
 
 h2 {
   a {
-    opacity: @default-non-hovered-opacity;
+    opacity: $default-non-hovered-opacity;
     font-size: 18px;
-  }
+}
 
   a:hover {
     text-decoration: none;
     opacity: 1.0;
-  }
+}
 }
 
 h3 {
@@ -97,13 +97,13 @@ h3 {
 
   /* TAGS */
   a {
-    opacity: @default-non-hovered-opacity;
-  }
+    opacity: $default-non-hovered-opacity;
+}
 
   a:hover {
     opacity: 1.0;
     text-decoration: none;
-  }
+}
 }
 
 h4 {
@@ -116,7 +116,7 @@ h4 {
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button
 {
-  -webkit-appearance: none;
+-webkit-appearance: none;
 }
 
 input[type=number] {
@@ -131,13 +131,13 @@ input[type=number] {
     .author-names {
       display: inline-block;
       width: 420px;
-    }
+  }
 
     .label {
       display: inline-block;
       width: 120px;
-    }
   }
+}
 }
 
 #algorithm-input {
@@ -145,15 +145,15 @@ input[type=number] {
   input {
     height: 30px;
     text-transform: uppercase;
-  }
+}
 
   input::placeholder {
     text-transform: none;
-  }
+}
 
   p {
     margin-bottom: 10px;
-  }
+}
 
   /* CLASSES */
   .function {
@@ -165,14 +165,14 @@ input[type=number] {
 
       .number {
         width: 40px;
-      }
     }
   }
+}
 
   .input {
     display: inline-block;
     width: 120px;
-  }
+}
 }
 
 #algorithm-output {
@@ -191,35 +191,35 @@ input[type=number] {
         /* TAGS */
         td {
           color: white;
-        }
+      }
 
         td, th {
           border: solid 1px #a0a0a0;
-          color: @dark-gray;
+          color: $dark-gray;
           font-family: "NovaMono", monospace;
           font-size: small;
           height: 30px;
           text-align: center;
           width: 40px;
-        }
+      }
 
         th {
-          background-color: @gray-2;
-        }
+          background-color: $gray-2;
+      }
 
         /* CLASSES */
         .matrix-name {
           font-size: medium;
-        }
+      }
 
         .notice {
           font-weight: normal;
           padding-left: 10px;
           text-align: left;
-        }
       }
-
     }
+
+  }
 
     .right-part {
       float: left;
@@ -241,29 +241,29 @@ input[type=number] {
             td {
               border-left: none;
               border-right: none;
-            }
           }
+        }
 
           tr:first-child {
             td {
               border-top: none;
-            }
           }
+        }
 
           tr:last-child {
             td {
               border-bottom: none;
-            }
           }
         }
+      }
 
         td {
           cursor: pointer;
-        }
+      }
 
         td, th {
           border: solid 1px #a0a0a0;
-          color: @dark-gray;
+          color: $dark-gray;
           font-size: small;
           height: 60px;
           line-height: 15px;
@@ -273,41 +273,41 @@ input[type=number] {
 
           small {
             font-weight: lighter;
-          }
         }
+      }
 
         th {
-          background-color: @gray-2;
-        }
+          background-color: $gray-2;
+      }
 
         tr {
           background-color: white;
-        }
+      }
 
         /* CLASSES */
         .table-footer {
           height: 30px;
-        }
       }
     }
   }
+}
 
   .single-columned {
     display: block;
     width: 520px;
-  }
+}
 }
 
 #author {
   color: #edf2e5;
   float: right;
-  margin-right: @default-distance;
+  margin-right: $default-distance;
   margin-top: 15px;
 }
 
 #body {
   background-color: white;
-  margin: @default-distance auto @default-distance auto;
+  margin: $default-distance auto $default-distance auto;
   max-width: 1000px;
   min-height: 800px;
   overflow: auto;  /* extends page with respect to the content */
@@ -327,22 +327,22 @@ input[type=number] {
 
 #header {
   background: linear-gradient(#ed2f38, rgb(200, 34, 40));
-  box-shadow: @shadow;
-  padding-left: @default-distance;
+  box-shadow: $shadow;
+  padding-left: $default-distance;
   height: 50px;
 
   /* TAGS */
   a h1 {
     letter-spacing: .15em;
-    margin: 10px 0 0 @default-distance;
+    margin: 10px 0 0 $default-distance;
     position: absolute;
     text-shadow: 2px 2px 5px black;
-  }
+}
 }
 
 #liabilities {
   float: left;
-  margin-left: @default-distance;
+  margin-left: $default-distance;
   margin-top: 13px;
 
   /* TAGS */
@@ -350,11 +350,11 @@ input[type=number] {
     color: #edf2e5;
     margin-right: 10px;
     text-decoration: none;
-  }
+}
 
   a:hover {
     color: #ffffff;
-  }
+}
 }
 
 #navigation {
@@ -372,19 +372,19 @@ input[type=number] {
     position: relative;
     text-align: center;
     text-decoration: none;
-    transition-duration: @button-ease-in;
-  }
+    transition-duration: $button-ease-in;
+}
 
   a:hover {
-    background-color: @yellow;
+    background-color: $yellow;
     color: white;
-  }
+}
 
   a:hover .sprite-house {
     background-position: -351px -5px;
     height: 27px;
     width: 20px;
-  }
+}
 
   /* IDs */
   .dropdown {
@@ -393,7 +393,7 @@ input[type=number] {
 
     .menu {
       background-color: white;
-      box-shadow: @shadow;
+      box-shadow: $shadow;
       display: none;
       list-style: none;
       margin-left: 480px;
@@ -407,44 +407,44 @@ input[type=number] {
         display: block;
         height: 35px;
         padding: 7px 0 0 20px;
-      }
+    }
 
       li:hover {
-        background-color: @yellow;
+        background-color: $yellow;
         color: white;
-      }
     }
   }
+}
 
   .dropdown:hover {
     .info {
-      background: @yellow;
+      background: $yellow;
       color: white;
-    }
+  }
 
     .menu {
       display: block;
-    }
   }
+}
 
   /* CLASSES */
   .creations {
-    width: @width-short-button;
-  }
+    width: $width-short-button;
+}
 
   .home {
     padding-left: 25px;
-    width: @width-long-button;
-  }
+    width: $width-long-button;
+}
 
   .info {
     cursor: pointer;
-    width: @width-long-button;
-  }
+    width: $width-long-button;
+}
 
   .tutorials {
-    width: @width-short-button;
-  }
+    width: $width-short-button;
+}
 
   /* sprites */
   .sprite {
@@ -452,13 +452,13 @@ input[type=number] {
     display: inline-block;
     left: 55px;
     position: absolute;
-  }
+}
 }
 
 #overlay {
   pointer-events: none;  /* to click through the overlay */
   position: absolute;
-  z-index: @max-z-index;  /* should be at top of everything */
+  z-index: $max-z-index;  /* should be at top of everything */
 }
 
 #top {
@@ -476,7 +476,7 @@ input[type=number] {
   /* TAGS */
   li {
     margin-left: 40px;
-  }
+}
 }
 
 .container {
@@ -484,7 +484,7 @@ input[type=number] {
     display: inline-block;
     vertical-align: middle;
     width: 256px;
-  }
+}
 }
 
 .details {
@@ -498,31 +498,31 @@ input[type=number] {
 
   /* CLASSES */
   .download {
-    color: @red;
+    color: $red;
     font-size: large;
     font-weight: bolder;
     float: right;
-    opacity: @default-non-hovered-opacity;
+    opacity: $default-non-hovered-opacity;
     padding-right: 114px;  /* (740 - 512)/2 */
-  }
+}
 
   .download:hover {
     opacity: 1.0;
     text-decoration: none;
-  }
+}
 
   .history-back {
-    opacity: @default-non-hovered-opacity;
+    opacity: $default-non-hovered-opacity;
     text-decoration: none;
-  }
+}
 
   .history-back:hover {
     opacity: 1.0;
-  }
+}
 
   .sprite-download {
     float: right;
-  }
+}
 }
 
 .image {
@@ -537,54 +537,54 @@ input[type=number] {
   /* TAGS */
   input:focus {
     outline: none;
-  }
+}
 
   /* CLASSES */
   .decrementer {
     top: 12px;
     right: 0px;
-  }
+}
 
   .decrementer, .incrementer {
-    background-color: @gray;
+    background-color: $gray;
     border: 0px;
     cursor: pointer;
     height: 15px;
     opacity: 0.1;
     position: absolute;
     width: 15px;
-  }
+}
 
   .decrementer:focus {
     outline: none;
-  }
+}
 
   .decrementer:hover {
-    background-color: @yellow;
-  }
+    background-color: $yellow;
+}
 
   .incrementer {
     top: -3px;
     right: 0px;
-  }
+}
 
   .incrementer:focus {
     outline: none;
-  }
+}
 
   .incrementer:hover {
-    background-color: @yellow;
-  }
+    background-color: $yellow;
+}
 }
 
 .input-number:hover {
   .decrementer {
     opacity: 1.0;
-  }
+}
 
   .incrementer {
     opacity: 1.0;
-  }
+}
 }
 
 .input-text {
@@ -612,14 +612,14 @@ input[type=number] {
 
       /* CLASSES */
       a {
-        color: @red;
+        color: $red;
         text-decoration: none;
-      }
+    }
 
       a:hover {
         text-decoration: underline;
-      }
     }
+  }
 
     .subcontainer {
       .image-background {
@@ -630,7 +630,7 @@ input[type=number] {
         margin-top: 10px;
         position: relative;
         width: 120px;
-      }
+    }
 
       .image-foreground {
         display: block;
@@ -641,18 +641,18 @@ input[type=number] {
         position: relative;
         top: 50%;
         transform: translateY(-50%);
-      }
     }
+  }
 
     .subcontainer:hover {
       .sprite-enlarge {
         opacity: 1.0;
-      }
+    }
 
       .sprite-reduce {
         opacity: 1.0;
-      }
     }
+  }
 
     .text{
       float: left;
@@ -660,8 +660,8 @@ input[type=number] {
       margin-bottom: 10px;
       padding: 5px 5px 5px 6px;
       width: 181px;  /* fixes the vector-graphic listings in Firefox 63.0.1 (64-bit) */
-    }
   }
+}
 
   .download {
     float: right;
@@ -677,43 +677,43 @@ input[type=number] {
         color: black;
         font-weight: bold;
         margin-top: 5px;
-        opacity: @default-non-hovered-opacity;
+        opacity: $default-non-hovered-opacity;
         text-align: center;
         text-decoration: none;
-      }
+    }
 
       .sprite-download {
         margin: auto;
-      }
     }
+  }
 
     .text {
-      color: @red;
+      color: $red;
       font-weight: bold;
       float: left;
       padding-left: 20px;
       margin-top: 3px;
-      opacity: @default-non-hovered-opacity;
+      opacity: $default-non-hovered-opacity;
       text-decoration: none;
       width: 80px;
-    }
   }
+}
 
   .download:hover {
     .button {
       .date {
         opacity: 1.0;
-      }
     }
+  }
 
     .sprite-download {
       opacity: 1.0;
-    }
+  }
 
     .text {
       opacity: 1.0;
-    }
   }
+}
 
   .name {
     float: left;
@@ -721,8 +721,8 @@ input[type=number] {
 
     .author {
       font-size: small;
-    }
   }
+}
 }
 
 .pagination {
@@ -730,43 +730,43 @@ input[type=number] {
 
   /* TAGS */
   button {
-    background-color: @gray;
-    border: 3px solid @gray;
+    background-color: $gray;
+    border: 3px solid $gray;
     border-radius: 5px;
     color: white;
     cursor: pointer;
     font-size: small;
     font-weight: bold;
     padding: 5px;
-  }
+}
 
   button:focus {
     outline: none;
-  }
+}
 
   /* CLASSES */
   .control:hover {
-    background-color: @yellow;
-    border: 3px solid @yellow;
-  }
+    background-color: $yellow;
+    border: 3px solid $yellow;
+}
 
   .highlighted {
-    background-color: @gray;
+    background-color: $gray;
     border: none;
     cursor: default;
     width: 25px;
-  }
+}
 
   .number {
-    background-color: @light-gray;
+    background-color: $light-gray;
     border: none;
     width: 25px;
-  }
+}
 
   .number:hover {
-    background-color: @yellow;
+    background-color: $yellow;
     border: none;
-  }
+}
 }
 
 .search {
@@ -787,13 +787,13 @@ input[type=number] {
     padding: 10px 10px 10px 40px;
     text-decoration: none;
     width: 180px;
-    transition-duration: @button-ease-in;
-  }
+    transition-duration: $button-ease-in;
+}
 
   a:hover {
-    background: @yellow;
+    background: $yellow;
     color: white;
-  }
+}
 
   /* CLASSES */
   .dropdown {
@@ -803,8 +803,8 @@ input[type=number] {
       height: 30px !important;
       padding: 5px 0 5px 70px !important;
       text-align: left;
-    }
   }
+}
 }
 
 .small-text {
@@ -815,14 +815,14 @@ input[type=number] {
 
 /*------------------------------------------------------ IMAGES -----------------------------------------------------*/
 .sprite {
-  background: url("@{images}spritesheet.png") no-repeat;
+  background: url("#{$images}spritesheet.png") no-repeat;
   display: block;
 }
 
 .sprite-download {
   background-position: -180px -5px;
   height: 31px;
-  opacity: @default-non-hovered-opacity;
+  opacity: $default-non-hovered-opacity;
   width: 31px;
 }
 
@@ -830,7 +830,7 @@ input[type=number] {
   background-position: -221px -5px;
   height: 15px;
   margin-top: 10px;
-  opacity: @default-non-hovered-opacity;
+  opacity: $default-non-hovered-opacity;
   position: relative;
   width: 20px;
 }
@@ -851,7 +851,7 @@ input[type=number] {
   background-position: -381px -5px;
   height: 15px;
   margin-top: 10px;
-  opacity: @default-non-hovered-opacity;
+  opacity: $default-non-hovered-opacity;
   position: relative;
   width: 20px;
 }
@@ -868,11 +868,11 @@ _:-ms-lang(x), _:-webkit-full-screen, .input-number {
   /* CLASSES */
   .decrementer {
     top: 12px;
-  }
+}
 
   .incrementer {
     top: -3px;
-  }
+}
 }
 
 _:-ms-lang(x), _:-webkit-full-screen, #algorithm-output {
@@ -882,11 +882,11 @@ _:-ms-lang(x), _:-webkit-full-screen, #algorithm-output {
         tbody {
           td {
             font-size: medium;
-          }
         }
       }
     }
   }
+}
 }
 
 /* Mozilla */
@@ -896,10 +896,10 @@ _:-ms-lang(x), _:-webkit-full-screen, #algorithm-output {
     /* CLASSES */
     .decrementer {
       right: 4px !important;
-    }
+  }
 
     .incrementer {
       right: 4px !important;
-    }
   }
+}
 }
