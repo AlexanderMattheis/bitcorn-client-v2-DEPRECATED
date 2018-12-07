@@ -1,6 +1,6 @@
 {
   "name": "bitcorn-client",
-  "version": "0.0.0",
+  "version": "2.0.0",
   "private": true,
   "description": "Small description for bitcorn-client goes here",
   "repository": "",
@@ -31,6 +31,7 @@
     "@types/rsvp": "^4.0.2",
     "broccoli-asset-rev": "^2.7.0",
     "ember-ajax": "^3.1.0",
+    "ember-bootstrap": "^2.3.0",
     "ember-cli": "~3.5.0",
     "ember-cli-app-version": "^3.2.0",
     "ember-cli-babel": "^6.16.0",
