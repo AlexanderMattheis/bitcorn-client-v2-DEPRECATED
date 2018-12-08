@@ -1,3 +1,17 @@
 <div class="content">
   <h2>Contact</h2>
+  <p>
+    Have you some feedback or you found a bug, mistake, whatever on my page and you want to report this?
+    Then write me please a short message using the contact form below. No matter what, write me.
+    I'll answer you soon and say thank you. So, move your fingers to the keys, ready, go!
+  </p>
+
+  <br>
+
+  {{#bs-form formLayout="horizontal" model=this novalidate=true as |form|}}
+    {{form.element id="name" controlType="text" label="Name" placeholder="Name" property="name"}}
+    {{form.element id="email" controlType="text" label="Email" placeholder="E-Mail" property="email"}}
+    {{form.element id="message" controlType="textarea" label="Message" placeholder="Message" property="message"}}
+    {{bs-button id="submit" defaultText="Submit" type="primary" buttonType="submit"}}
+  {{/bs-form}}
 </div>

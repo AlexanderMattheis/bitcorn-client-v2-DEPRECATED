@@ -1,5 +1,3 @@
-@import "ember-bootstrap/bootstrap";
-
 /*--------------------------------------------------- DEFINITIONS ----------------------------------------------------*/
 $max-z-index: 2147483647;
 
@@ -10,16 +8,20 @@ $images: "../assets/images/";
 /* COLORS */
 $gray: #dcdcdc;
 $gray-2: #efefef;
+$gray-3: #a0a0a0;
+$orange: #fad141;
 $red: #e55457;
 $yellow: #fbe03a;
 
 /* colors (dark) */
 $dark-gray: #848484;
 $dark-green: #779219;
+$dark-red: #c6383c;
+
+$very-dark-red: #b13539;
 
 /* colors (light) */
 $light-gray: #f3f3f3;
-$dark-red: #c6383c;
 
 /* DIMENSIONS */
 $default-distance: 60px;
@@ -46,6 +48,12 @@ $default-non-hovered-opacity: 0.7;
 /* OBJECTS */
 $shadow: 0 0 5px rgba(99, 99, 99, 0.7);
 
+/*--------------------------------------------------- IMPORT STYLING ----------------------------------------------------*/
+$theme-colors: (
+  //"primary":  $very-dark-red
+);
+
+@import "ember-bootstrap/bootstrap";
 /*--------------------------------------------------- TAG STYLING ----------------------------------------------------*/
 * {
   box-sizing: border-box;
@@ -134,6 +142,7 @@ h5 {
 }
 
 input {
+  color: black !important;
   font-family: "OpenSans-Light";
   font-size: 13px;
 }
@@ -172,9 +181,15 @@ pre {
 #algorithm-input {
   /* TAGS */
   input {
+    border: 1px solid $gray-3;
     height: 30px;
+    padding-left: 5px;
     text-transform: uppercase;
 }
+  input:focus {
+    border-color: $yellow;
+    outline: none;
+  }
 
   input::placeholder {
     text-transform: none;
@@ -201,7 +216,7 @@ pre {
   .input {
     display: inline-block;
     width: 120px;
-}
+  }
 }
 
 #algorithm-output {
@@ -223,7 +238,7 @@ pre {
       }
 
         td, th {
-          border: solid 1px #a0a0a0;
+          border: solid 1px $gray-3;
           color: $dark-gray;
           font-family: "NovaMono", monospace;
           font-size: small;
@@ -255,7 +270,7 @@ pre {
       margin-left: 35px;
 
       .solutions {
-        border: solid 1px #a0a0a0;
+        border: solid 1px $gray-3;
         border-collapse: collapse;
         border-spacing: 0;
 
@@ -291,7 +306,7 @@ pre {
       }
 
         td, th {
-          border: solid 1px #a0a0a0;
+          border: solid 1px $gray-3;
           color: $dark-gray;
           font-size: small;
           height: 60px;
@@ -346,6 +361,16 @@ pre {
   display: flex;  /* allows divs inside to grow dependent on the page size */
 }
 
+#email, #name {
+  label {
+    max-width: 133px;
+  }
+
+  input {
+    width: 300px;
+  }
+}
+
 #footer {
   background: rgb(0, 0, 0);
   color: #404040;
@@ -366,7 +391,7 @@ pre {
     margin: 10px 0 0 $default-distance;
     position: absolute;
     text-shadow: 2px 2px 5px black;
-}
+  }
 }
 
 #liabilities {
@@ -376,14 +401,27 @@ pre {
 
   /* TAGS */
   a {
-    color: #edf2e5;
+    color: #dfdfdf;
     margin-right: 10px;
     text-decoration: none;
-}
+  }
 
   a:hover {
     color: #ffffff;
+  }
 }
+
+#message {
+  label {
+    max-width: 133px;
+  }
+
+  textarea {
+    float: left;
+    height: 300px;
+    resize: none;
+    width: 780px;
+  }
 }
 
 #navigation {
@@ -481,7 +519,7 @@ pre {
     display: inline-block;
     left: 55px;
     position: absolute;
-}
+  }
 }
 
 #overlay {
@@ -490,12 +528,39 @@ pre {
   z-index: $max-z-index;  /* should be at top of everything */
 }
 
+#submit {
+  margin-left: 133px;
+}
+
 #top {
   min-height: 100%;  /* to stick footer at the bottom of the page */
   margin-bottom: 50px;
 }
 
 /*-------------------------------------------------- CLASS STYLING ---------------------------------------------------*/
+.btn:focus {
+  box-shadow: 0 0 20px $red;
+}
+
+.btn-primary {
+  background-color: $red;
+  border-color: $red;
+}
+
+.btn-primary:hover {
+  background-color: $dark-red;
+  border-color: $dark-red;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: $very-dark-red;
+  border-color: $very-dark-red;
+}
+
+.btn:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 0 0 20px $red;
+}
+
 .content {
   float: left;
   line-height: 1.6;
@@ -506,7 +571,7 @@ pre {
   /* TAGS */
   li {
     margin-left: 40px;
-}
+  }
 }
 
 .container {
@@ -521,6 +586,15 @@ pre {
   align: center;
   padding-left: 114px;  /* (740 - 512)/2 */
   width: 740px;
+}
+
+.form-control {
+  border-radius: 0;
+}
+
+.form-control:focus {
+  border-color: $yellow;
+  box-shadow: 0 0px 10px $yellow;
 }
 
 .heading-and-download {
@@ -684,7 +758,7 @@ pre {
     }
   }
 
-    .text{
+    .text {
       float: left;
       height: 120px;
       margin-bottom: 10px;
@@ -891,6 +965,18 @@ pre {
 }
 
 /*------------------------------------------------- BROWSER SPECIFIC -------------------------------------------------*/
+/* WebKit and Blink browsers */
+::selection {
+  background: $yellow;
+  color: white;
+}
+
+/* Gecko browsers */
+::-moz-selection {
+  background: $yellow;
+  color: white;
+}
+
 /* Microsoft */
 input::-ms-clear {
   display: none; /* removes the input-removal symbol "X" */
@@ -937,3 +1023,4 @@ _:-ms-lang(x), _:-webkit-full-screen, #algorithm-output {
   }
 }
 }
+

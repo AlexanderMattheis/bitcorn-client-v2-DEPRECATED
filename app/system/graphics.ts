@@ -1,6 +1,6 @@
 export default {
   Arrows: {
-    COLOR: "black",
+    COLOR: "#4b4b4b",
     PERCENT_INSIDE_CELL: 0.1,
     PERCENT_INSIDE_LAST_CELL: 0.2
   },
