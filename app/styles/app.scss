@@ -1,4 +1,4 @@
-//@import "ember-bootstrap/bootstrap";
+@import "ember-bootstrap/bootstrap";
 
 /*--------------------------------------------------- DEFINITIONS ----------------------------------------------------*/
 $max-z-index: 2147483647;
@@ -73,6 +73,11 @@ body {
   }
 }
 
+button {
+  font-size: 12px;
+  line-height: 12px;
+}
+
 em {
   font-family: "NovaMono", monospace;
   font-style: normal;
@@ -84,22 +89,24 @@ html, body {
 
 h2 {
   font-size: 24px;
+  font-weight: bold;
 
   a {
     opacity: $default-non-hovered-opacity;
     font-size: 18px;
-}
+  }
 
   a:hover {
     text-decoration: none;
     opacity: 1.0;
-}
+  }
 }
 
 h3 {
   color: #676767;
   display: inline-block;
   font-size: 18.72px;
+  font-weight: bold;
 
   /* TAGS */
   a {
@@ -120,13 +127,29 @@ h4 {
   padding-bottom: 10px;
 }
 
+h5 {
+  font-size: 13px;
+  font-weight: bold;
+  margin: 0;
+}
+
+input {
+  font-family: "OpenSans-Light";
+  font-size: 13px;
+}
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
--webkit-appearance: none;
+  -webkit-appearance: none;
 }
 
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+pre {
+  font-size: 12px;
+  margin: 0;
 }
 
 /*---------------------------------------------------- ID STYLING ----------------------------------------------------*/
@@ -476,6 +499,7 @@ input[type=number] {
 .content {
   float: left;
   line-height: 1.6;
+  margin-bottom: 30px;
   padding: 40px;
   text-align: justify;
 
@@ -598,8 +622,7 @@ input[type=number] {
 }
 
 .listing {
-  background: white;
-  margin-top: 20px;
+  margin: 10px 0 0 25px;
   padding: 10px 10px 10px 60px;
   width: 680px;
 
@@ -607,6 +630,7 @@ input[type=number] {
   .container {
     display: inline-block;
     margin-top: -30px;
+    padding-left: 0;
     width: 520px;
 
     .licence {
@@ -732,7 +756,9 @@ input[type=number] {
 }
 
 .pagination {
-  text-align: center;
+  bottom: 30px;
+  left: 40%;
+  position: absolute;
 
   /* TAGS */
   button {
@@ -743,6 +769,7 @@ input[type=number] {
     cursor: pointer;
     font-size: small;
     font-weight: bold;
+    margin: 3px;
     padding: 5px;
 }
 
@@ -851,6 +878,7 @@ input[type=number] {
   background-position: -5px -5px;
   height: 60px;
   width: 165px;
+  z-index: 2;
 }
 
 .sprite-reduce {
