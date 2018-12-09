@@ -7,8 +7,9 @@ const NAMESPACE = "/api";
 export default function() {
     this.namespace = NAMESPACE;
 
-    overWriteGetRequest(this, "/creations/graphics/vector-graphics", jsonVectorGraphics);
-    overWriteGetRequest(this, "/creations/graphics/textures", jsonTextures);
+    queryContactData(this, "/contact");
+    queryListingData(this, "/creations/graphics/vector-graphics", jsonVectorGraphics);
+    queryListingData(this, "/creations/graphics/textures", jsonTextures);
 
     // access on an id, as data returned is the listing with the id from the made request
     this.get('/creations/graphics/textures/:id', function (database, request) {
@@ -17,13 +18,19 @@ export default function() {
 
 }
 
-function overWriteGetRequest(instance, path, fixtures) {
+function queryContactData(instance, path) {
+  instance.get(path, function(database, request) {
+
+  });
+}
+
+function queryListingData(instance, path, fixtures) {
     instance.get(path, function(database, request) {
         let distributed;
         let metaData;
         let numberOfResults;
 
-        if (request.queryParams.tags != undefined) {  // if the typed in tags are defined
+        if (request.queryParams.tags !== undefined) {  // if the typed in tags are defined
             let filtered = filterResults(request, fixtures);
 
             // read out
@@ -43,7 +50,7 @@ function overWriteGetRequest(instance, path, fixtures) {
 }
 
 function filterResults(request, fixtures) {
-    let filtered = fixtures.filter(function (element) {
+    return fixtures.filter(function (element) {
         // iterate over all request tags or substrings and check if all substrings are substrings of one of the tags
         for (let j = 0; j < request.queryParams.tags.length; j++) {
             let requestSubstring = request.queryParams.tags[j];
@@ -66,8 +73,6 @@ function filterResults(request, fixtures) {
         // if the each request-string was a substring of one of the tags
         return true;
     });
-
-    return filtered;
 }
 
 function distributeToPages(request, allotment) {

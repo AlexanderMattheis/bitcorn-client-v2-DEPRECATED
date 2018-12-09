@@ -148,6 +148,10 @@ input {
   font-size: 13px;
 }
 
+input.form-control {
+  display: inline;
+}
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -586,6 +590,10 @@ pre {
 .details {
   padding-left: 114px;  /* (740 - 512)/2 */
   width: 740px;
+}
+
+.d-block {
+  display: inline !important;
 }
 
 .form-control {

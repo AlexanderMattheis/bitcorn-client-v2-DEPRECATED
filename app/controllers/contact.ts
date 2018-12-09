@@ -1,23 +1,9 @@
-import Ember from 'ember';
 import Controller from '@ember/controller';
 import Defaults from "../system/defaults";
 import Regex from "../system/regex";
 import Symbols from "../system/symbols"
 
 export default class Contact extends Controller.extend({
-  init() {
-    this._super();
-
-    // removing 'd-block'-class which makes invalid-feedbacks visible right from beginning
-    Ember.run.schedule("afterRender", this,function() {
-      let elements: NodeListOf<Element> = document.querySelectorAll(".invalid-feedback");
-
-      for (let i: number = 0; i < elements.length; i++) {
-        elements[i].classList.remove("d-block");
-      }
-    });
-  },
-
   actions: {
     submit(): void {
       let form: (HTMLElement | null) = document.querySelector(".needs-validation");
