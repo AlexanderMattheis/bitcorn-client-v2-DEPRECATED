@@ -8,10 +8,10 @@
 
   <br>
 
-  {{#bs-form formLayout="horizontal" model=this novalidate=true as |form|}}
+  {{#bs-form model=this class="needs-validation" formLayout="horizontal" novalidate=true as |form|}}
     {{form.element id="name" controlType="text" label="Name" placeholder="Name" property="name"}}
-    {{form.element id="email" controlType="text" label="Email" placeholder="E-Mail" property="email"}}
-    {{form.element id="message" controlType="textarea" label="Message" placeholder="Message" property="message"}}
-    {{bs-button id="submit" defaultText="Submit" type="primary" buttonType="submit"}}
+    {{form.element id="email" controlType="text" label="E-Mail*" placeholder="E-Mail" property="email"}}
+    {{form.element id="message" controlType="textarea" label="Message*" placeholder="Message" property="message"}}
+    {{bs-button id="submit" defaultText="Submit" type="primary" buttonType="submit" onClick=(action "submit")}}
   {{/bs-form}}
 </div>

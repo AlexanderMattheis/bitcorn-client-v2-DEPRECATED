@@ -23,5 +23,7 @@ export default {
         MIN_VALUE: -10,
     },
 
-    DYNAMIC_MATRIX_NAME: "D"
+    DYNAMIC_MATRIX_NAME: "D",
+    MAIL_ADDRESS_LENGTH: 10,
+    MESSAGE_LENGTH: 15
 };
