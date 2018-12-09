@@ -9,9 +9,16 @@
   <br>
 
   {{#bs-form model=this class="needs-validation" formLayout="horizontal" novalidate=true as |form|}}
-    {{form.element id="name" controlType="text" label="Name" placeholder="Name" property="name"}}
-    {{form.element id="email" controlType="text" label="E-Mail*" placeholder="E-Mail" property="email"}}
-    {{form.element id="message" controlType="textarea" label="Message*" placeholder="Message" property="message"}}
+    {{form.element id="name" controlType="text" label="Name" placeholder="Name" property="name"
+                   customError="Only characters are allowed!"}}
+
+    {{form.element id="email" controlType="text" label="E-Mail*" placeholder="E-Mail" property="email"
+                   customError="Each mail should consist at least out of ten English characters!"}}
+
+    {{form.element id="message" controlType="textarea" label="Message*" placeholder="Message" property="message"
+                   customError="Each message should be at least 15 characters long,
+                   not containing any special symbols like '+', '*', '$', .. !"}}
+
     {{bs-button id="submit" defaultText="Submit" type="primary" buttonType="submit" onClick=(action "submit")}}
   {{/bs-form}}
 </div>

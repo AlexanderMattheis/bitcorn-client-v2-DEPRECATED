@@ -53,6 +53,7 @@ $theme-colors: (
   //"primary":  $very-dark-red
 );
 
+//noinspection CssUnknownTarget
 @import "ember-bootstrap/bootstrap";
 /*--------------------------------------------------- TAG STYLING ----------------------------------------------------*/
 * {
@@ -143,7 +144,7 @@ h5 {
 
 input {
   color: black !important;
-  font-family: "OpenSans-Light";
+  font-family: "OpenSans-Light", sans-serif;
   font-size: 13px;
 }
 
@@ -583,7 +584,6 @@ pre {
 }
 
 .details {
-  align: center;
   padding-left: 114px;  /* (740 - 512)/2 */
   width: 740px;
 }
@@ -594,7 +594,7 @@ pre {
 
 .form-control:focus {
   border-color: $yellow;
-  box-shadow: 0 0px 10px $yellow;
+  box-shadow: 0 0 10px $yellow;
 }
 
 .heading-and-download {
@@ -646,12 +646,12 @@ pre {
   /* CLASSES */
   .decrementer {
     top: 12px;
-    right: 0px;
+    right: 0;
 }
 
   .decrementer, .incrementer {
     background-color: $gray;
-    border: 0px;
+    border: 0;
     cursor: pointer;
     height: 15px;
     opacity: 0.1;
@@ -669,7 +669,7 @@ pre {
 
   .incrementer {
     top: -3px;
-    right: 0px;
+    right: 0;
 }
 
   .incrementer:focus {
@@ -1011,16 +1011,16 @@ _:-ms-lang(x), _:-webkit-full-screen, #algorithm-output {
 
 /* Mozilla */
 @-moz-document url-prefix() {
-  .input-number {
+    .input-number {
 
-    /* CLASSES */
-    .decrementer {
-      right: 4px !important;
-  }
+      /* CLASSES */
+      .decrementer {
+        right: 4px !important;
+    }
 
-    .incrementer {
-      right: 4px !important;
+      .incrementer {
+        right: 4px !important;
+    }
   }
-}
 }
 

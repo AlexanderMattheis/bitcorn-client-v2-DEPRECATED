@@ -1,9 +1,23 @@
+import Ember from 'ember';
 import Controller from '@ember/controller';
 import Defaults from "../system/defaults";
 import Regex from "../system/regex";
 import Symbols from "../system/symbols"
 
 export default class Contact extends Controller.extend({
+  init() {
+    this._super();
+
+    // removing 'd-block'-class which makes invalid-feedbacks visible right from beginning
+    Ember.run.schedule("afterRender", this,function() {
+      let elements: NodeListOf<Element> = document.querySelectorAll(".invalid-feedback");
+
+      for (let i: number = 0; i < elements.length; i++) {
+        elements[i].classList.remove("d-block");
+      }
+    });
+  },
+
   actions: {
     submit(): void {
       let form: (HTMLElement | null) = document.querySelector(".needs-validation");
@@ -14,15 +28,17 @@ export default class Contact extends Controller.extend({
       let isLegalMail: boolean = this.isLegalMail(form, new RegExp(Regex.AllowedPattern.MAIL));
       let isLegalMessage: boolean = this.isLegalMessage(form, new RegExp(Regex.AllowedPattern.MESSAGE));
 
-      alert("Legal Name: " + isLegalName
-        + ", Legal E-Mail: " + isLegalMail
-        + ", Legal Message: " + isLegalMessage);
+      this.checkLegacy(isLegalName, "name-field");
+      this.checkLegacy(isLegalMail, "email-field");
+      this.checkLegacy(isLegalMessage, "message-field");
     }
   },
 
   isLegalName(form: (HTMLElement | null), allowedNamePattern: RegExp): boolean {
     // @ts-ignore
-    let names: string[] = form[0].value.split(Symbols.SPACE);
+    let nameField: HTMLInputElement = form[0];
+    nameField.classList.remove("is-invalid");
+    let names: string[] = nameField.value.split(Symbols.SPACE);
 
     let isCorrectName: boolean = true;
 
@@ -41,14 +57,26 @@ export default class Contact extends Controller.extend({
 
   isLegalMail(form: (HTMLElement | null), allowedMailPattern: RegExp) {
     // @ts-ignore
-    let mail: string = form[1].value;
+    let mailField: HTMLInputElement = form[1];
+    mailField.classList.remove("is-invalid");
+    let mail: string = mailField.value;
     return allowedMailPattern.test(mail) && mail.length >= Defaults.MAIL_ADDRESS_LENGTH;
   },
 
   isLegalMessage(form: (HTMLElement | null), allowedMessagePattern: RegExp) {
     // @ts-ignore
-    let message: string = form[2].value;
+    let messageField: HTMLInputElement = form[2];
+    messageField.classList.remove("is-invalid");
+    let message: string = messageField.value;
     return allowedMessagePattern.test(message) && message.length >= Defaults.MESSAGE_LENGTH;
+  },
+
+  checkLegacy(isLegal: boolean, fieldId: string) {
+    if (!isLegal) {
+      let field: (HTMLInputElement | null) = document.querySelector("#" + fieldId);
+      // @ts-ignore
+      field.classList.add("is-invalid");
+    }
   }
 }) {
   // normal class body definition here
