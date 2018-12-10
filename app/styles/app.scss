@@ -12,6 +12,7 @@ $gray-3: #a0a0a0;
 $orange: #fad141;
 $red: #e55457;
 $yellow: #fbe03a;
+$white: #fafafa;
 
 /* colors (dark) */
 $dark-gray: #848484;
@@ -239,7 +240,7 @@ pre {
 
         /* TAGS */
         td {
-          color: white;
+          background-color: white;
       }
 
         td, th {
@@ -355,7 +356,7 @@ pre {
 }
 
 #body {
-  background-color: white;
+  background-color: #fafafa;
   margin: $default-distance auto $default-distance auto;
   max-width: 1000px;
   min-height: 800px;
@@ -364,6 +365,14 @@ pre {
 
 #creations {
   display: flex;  /* allows divs inside to grow dependent on the page size */
+}
+
+#effects {
+  margin: 0;
+  overflow: hidden;
+  position: fixed;
+  pointer-events: none;
+  z-index: $max-z-index;
 }
 
 #email, #name {
@@ -530,7 +539,7 @@ pre {
 #overlay {
   pointer-events: none;  /* to click through the overlay */
   position: absolute;
-  z-index: $max-z-index;  /* should be at top of everything */
+  z-index: $max-z-index - 1;  /* should be at top of everything */
 }
 
 #submit {
@@ -735,7 +744,7 @@ pre {
 
     .subcontainer {
       .image-background {
-        background: white;
+        background: $white;
         border-radius: 2px;
         float: left;
         height: 120px;

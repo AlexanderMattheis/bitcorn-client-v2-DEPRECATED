@@ -18,6 +18,11 @@ export default {
       GENERATED_MATRIX: "matrix.csv"
     },
 
+    Effects: {
+      NUMBER_SNOWFLAKES: 100,
+      SNOW_SPEED: 1
+    },
+
     Limits: {
         MAX_VALUE: 10,
         MIN_VALUE: -10,
