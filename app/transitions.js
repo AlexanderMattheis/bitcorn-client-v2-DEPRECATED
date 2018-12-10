@@ -26,6 +26,12 @@ export default function(){
         this.use('toDown')
     );
 
+    /* settings */
+    this.transition(
+      this.toRoute('settings'),
+      this.use('toDown')
+    );
+
     /* liabilities */
     this.transition(
         this.toRoute('contact'),

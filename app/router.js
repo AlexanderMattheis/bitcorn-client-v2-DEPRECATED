@@ -40,6 +40,7 @@ Router.map(function() {
   this.route('privacy');
   this.route('about-authors');
   this.route('about-page');
+  this.route('settings');
 });
 
 export default Router;

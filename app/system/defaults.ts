@@ -14,6 +14,11 @@ export default {
         ENLARGED: "430px",
     },
 
+    Cookies: {
+      NUM_DAYS_EXPIRING: 30,
+      IS_SNOWING: "isSnowing"
+    },
+
     Downloads: {
       GENERATED_MATRIX: "matrix.csv"
     },
