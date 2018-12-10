@@ -7,7 +7,7 @@ const NAMESPACE = "/api";
 export default function() {
     this.namespace = NAMESPACE;
 
-    queryContactData(this, "/contact");
+    //queryContactData(this, "/contact");
     queryListingData(this, "/creations/graphics/vector-graphics", jsonVectorGraphics);
     queryListingData(this, "/creations/graphics/textures", jsonTextures);
 
@@ -18,11 +18,11 @@ export default function() {
 
 }
 
-function queryContactData(instance, path) {
-  instance.get(path, function(database, request) {
-
-  });
-}
+// function queryContactData(instance, path) {
+//   instance.get(path, function(database, request) {
+//
+//   });
+// }
 
 function queryListingData(instance, path, fixtures) {
     instance.get(path, function(database, request) {
