@@ -372,6 +372,7 @@ pre {
   overflow: hidden;
   position: fixed;
   pointer-events: none;
+  zoom: normal;
   z-index: $max-z-index;
 }
 

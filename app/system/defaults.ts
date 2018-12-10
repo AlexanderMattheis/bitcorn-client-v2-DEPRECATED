@@ -19,7 +19,7 @@ export default {
     },
 
     Effects: {
-      NUMBER_SNOWFLAKES: 100,
+      PERCENT_SNOWFLAKES: 1/14440,
       SNOW_SPEED: 1
     },
 
