@@ -16,7 +16,7 @@ $white: #fafafa;
 
 /* colors (dark) */
 $dark-gray: #848484;
-$dark-green: #779219;
+$dark-green: #a0be1c;
 $dark-red: #c6383c;
 
 $very-dark-red: #b13539;
@@ -553,6 +553,15 @@ pre {
 }
 
 /*-------------------------------------------------- CLASS STYLING ---------------------------------------------------*/
+.alert-success {
+  background-color: white;
+  border: none;
+  color: $dark-green;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
 .btn:focus {
   box-shadow: 0 0 20px $red;
 }
@@ -574,6 +583,14 @@ pre {
 
 .btn:not(:disabled):not(.disabled):active:focus {
   box-shadow: 0 0 20px $red;
+}
+
+.close:focus {
+  outline: none;
+}
+
+.close {
+  color: black !important;
 }
 
 .content {
@@ -970,6 +987,7 @@ pre {
   background-position: -5px -5px;
   height: 60px;
   width: 165px;
+  position: absolute;
   z-index: 2;
 }
 

@@ -1,8 +1,8 @@
 import Cookies from '../system/cookies';
-import Defaults from "bitcorn-client/system/defaults";
+import Defaults from "../system/defaults";
 
 export function initialize(): void {
-  Cookies.isSnowing = getCookieValue(Defaults.Cookies.IS_SNOWING)
+  Cookies.isSnowing = getCookieValue(Defaults.Cookies.Available.IS_SNOWING)
 }
 
 function getCookieValue(name: string): any {

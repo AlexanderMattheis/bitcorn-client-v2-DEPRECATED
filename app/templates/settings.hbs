@@ -12,7 +12,8 @@
     <span>Let it snow!</span>
   </label>
 
-  {{input class="input-text" type="checkbox" id="let-it-snow" checked=isSnowing change=(action "changeSnowState")}}
+  {{input class="input-text" type="checkbox" id="let-it-snow" checked=isSnowing change=(action "changeSnowState")
+          tabindex=-1}}
   <br>
   <br>
   {{bs-button id="reset" defaultText="Reset" type="primary" buttonType="button" onClick=(action "reset")}}

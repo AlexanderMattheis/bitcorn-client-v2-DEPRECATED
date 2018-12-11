@@ -15,8 +15,11 @@ export default {
     },
 
     Cookies: {
-      NUM_DAYS_EXPIRING: 30,
-      IS_SNOWING: "isSnowing"
+      Available: {
+        IS_SNOWING: "isSnowing",
+      },
+
+      NUM_DAYS_EXPIRING: 30
     },
 
     Downloads: {
