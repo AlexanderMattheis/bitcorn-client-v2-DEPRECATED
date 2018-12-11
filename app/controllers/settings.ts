@@ -43,7 +43,7 @@ export default class Settings extends Controller.extend({
   },
 
   showMessage(message: string) {
-    let alert: HTMLDivElement = document.getElementById("message") as HTMLDivElement;
+    let alert: HTMLDivElement = document.getElementById("alert-message") as HTMLDivElement;
 
     alert.classList.remove("invisible");
 
