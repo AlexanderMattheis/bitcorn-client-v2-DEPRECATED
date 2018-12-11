@@ -1,4 +1,4 @@
-import Colors from '../../system/colors';
+import Colors from '../../../system/colors';
 
 export default class Snowflake {
   private _x: number;
@@ -6,7 +6,7 @@ export default class Snowflake {
   private _dy: number;
   private _radius: number;
 
-  constructor(x: number, y: number, dy:number, radius:number) {
+  public constructor(x: number, y: number, dy:number, radius:number) {
     this._x = x;
     this._y = y;
     this._dy = dy;
@@ -24,7 +24,7 @@ export default class Snowflake {
   public draw(canvasData: any): void {
     canvasData.context.beginPath();
     canvasData.context.arc(this._x, this._y, this._radius, 0, Math.PI * 2, false);
-    canvasData.context.fillStyle = Colors.Effects.SNOWFLAKE;
+    canvasData.context.fillStyle = Colors.Particle.SNOWFLAKE;
     canvasData.context.fill();
     canvasData.context.closePath();
   }

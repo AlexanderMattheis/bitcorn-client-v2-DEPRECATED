@@ -3,7 +3,7 @@ export default {
         GRAY: "#848484"
     },
 
-    Effects: {
+    Particle: {
       SNOWFLAKE: "#ffffff",
     },
 
