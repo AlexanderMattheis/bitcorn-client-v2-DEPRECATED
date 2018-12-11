@@ -50,7 +50,7 @@ export default class Settings extends Controller.extend({
     let messageBox: HTMLDivElement = document.createElement("div");
     messageBox.innerHTML = message;
 
-    alert.appendChild(messageBox);
+    alert.appendChild(messageBox);  // test
   }
 }) {
   // normal class body definition here
