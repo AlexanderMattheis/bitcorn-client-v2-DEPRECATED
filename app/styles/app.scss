@@ -463,7 +463,7 @@ pre {
 }
 
   a:hover .sprite-house {
-    background-position: -351px -5px;
+    background-position: -388px -5px;
     height: 27px;
     width: 20px;
 }
@@ -955,7 +955,7 @@ pre {
   max-width: 512px;
 }
 
-/*------------------------------------------------------ IMAGES -----------------------------------------------------*/
+/*------------------------------------------------------ IMAGES ------------------------------------------------------*/
 .sprite {
   background: url("#{$images}spritesheet.png") no-repeat;
   display: block;
@@ -978,7 +978,7 @@ pre {
 }
 
 .sprite-house {
-  background-position: -321px -5px;
+  background-position: -358px -5px;
   height: 27px;
   width: 20px;
 }
@@ -992,7 +992,7 @@ pre {
 }
 
 .sprite-reduce {
-  background-position: -381px -5px;
+  background-position: -418px -5px;
   height: 15px;
   margin-top: 10px;
   opacity: $default-non-hovered-opacity;
