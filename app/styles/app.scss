@@ -149,6 +149,17 @@ input {
   font-size: 13px;
 }
 
+input {
+  border: 1px solid $gray-3;
+  height: 30px;
+  padding-left: 5px;
+}
+
+input:focus {
+  border-color: $yellow;
+  outline: none;
+}
+
 input.form-control {
   display: inline;
 }
@@ -175,35 +186,24 @@ pre {
     .author-names {
       display: inline-block;
       width: 420px;
-  }
+    }
 
     .label {
       display: inline-block;
       width: 120px;
+    }
   }
-}
 }
 
 #algorithm-input {
   /* TAGS */
-  input {
-    border: 1px solid $gray-3;
-    height: 30px;
-    padding-left: 5px;
-    text-transform: uppercase;
-}
-  input:focus {
-    border-color: $yellow;
-    outline: none;
-  }
-
   input::placeholder {
     text-transform: none;
-}
+  }
 
   p {
     margin-bottom: 10px;
-}
+  }
 
   /* CLASSES */
   .function {
@@ -215,9 +215,9 @@ pre {
 
       .number {
         width: 40px;
+      }
     }
   }
-}
 
   .input {
     display: inline-block;
@@ -241,7 +241,7 @@ pre {
         /* TAGS */
         td {
           background-color: white;
-      }
+        }
 
         td, th {
           border: solid 1px $gray-3;
@@ -251,25 +251,25 @@ pre {
           height: 30px;
           text-align: center;
           width: 40px;
-      }
+        }
 
         th {
           background-color: $gray-2;
-      }
+        }
 
         /* CLASSES */
         .matrix-name {
           font-size: medium;
-      }
+        }
 
         .notice {
           font-weight: normal;
           padding-left: 10px;
           text-align: left;
+        }
       }
-    }
 
-  }
+    }
 
     .right-part {
       float: left;
@@ -291,25 +291,25 @@ pre {
             td {
               border-left: none;
               border-right: none;
+            }
           }
-        }
 
           tr:first-child {
             td {
               border-top: none;
+            }
           }
-        }
 
           tr:last-child {
             td {
               border-bottom: none;
+            }
           }
         }
-      }
 
         td {
           cursor: pointer;
-      }
+        }
 
         td, th {
           border: solid 1px $gray-3;
@@ -323,29 +323,29 @@ pre {
 
           small {
             font-weight: lighter;
+          }
         }
-      }
 
         th {
           background-color: $gray-2;
-      }
+        }
 
         tr {
           background-color: white;
-      }
+        }
 
         /* CLASSES */
         .table-footer {
           height: 30px;
+        }
       }
     }
   }
-}
 
   .single-columned {
     display: block;
     width: 520px;
-}
+  }
 }
 
 #author {
@@ -455,12 +455,12 @@ pre {
     text-align: center;
     text-decoration: none;
     transition-duration: $button-ease-in;
-}
+  }
 
   a:hover {
     background-color: $yellow;
     color: white;
-}
+  }
 
   a:hover .sprite-house {
     background-position: -425px -5px;
@@ -495,40 +495,40 @@ pre {
         display: block;
         height: 35px;
         padding: 7px 0 0 20px;
-    }
+      }
 
       li:hover {
         background-color: $yellow;
         color: white;
+      }
     }
   }
-}
 
   .dropdown:hover {
     .info {
       background: $yellow;
       color: white;
-  }
+    }
 
     .menu {
       display: block;
+    }
   }
-}
 
   /* CLASSES */
   .creations {
     width: $width-short-button;
-}
+  }
 
   .home {
     padding-left: 25px;
     width: $width-long-button;
-}
+  }
 
   .info {
     cursor: pointer;
     width: $width-long-button;
-}
+  }
 
   .right-side {
     float: right;
@@ -545,7 +545,7 @@ pre {
 
   .tutorials {
     width: $width-short-button;
-}
+  }
 
   /* sprites */
   .sprite {
@@ -630,7 +630,7 @@ pre {
     display: inline-block;
     vertical-align: middle;
     width: 256px;
-}
+  }
 }
 
 .details {
@@ -663,25 +663,25 @@ pre {
     float: right;
     opacity: $default-non-hovered-opacity;
     padding-right: 114px;  /* (740 - 512)/2 */
-}
+  }
 
   .download:hover {
     opacity: 1.0;
     text-decoration: none;
-}
+  }
 
   .history-back {
     opacity: $default-non-hovered-opacity;
     text-decoration: none;
-}
+  }
 
   .history-back:hover {
     opacity: 1.0;
-}
+  }
 
   .sprite-download {
     float: right;
-}
+  }
 }
 
 .image {
@@ -696,13 +696,13 @@ pre {
   /* TAGS */
   input:focus {
     outline: none;
-}
+  }
 
   /* CLASSES */
   .decrementer {
     top: 12px;
     right: 0;
-}
+  }
 
   .decrementer, .incrementer {
     background-color: $gray;
@@ -712,38 +712,38 @@ pre {
     opacity: 0.1;
     position: absolute;
     width: 15px;
-}
+  }
 
   .decrementer:focus {
     outline: none;
-}
+  }
 
   .decrementer:hover {
     background-color: $yellow;
-}
+  }
 
   .incrementer {
     top: -3px;
     right: 0;
-}
+  }
 
   .incrementer:focus {
     outline: none;
-}
+  }
 
   .incrementer:hover {
     background-color: $yellow;
-}
+  }
 }
 
 .input-number:hover {
   .decrementer {
     opacity: 1.0;
-}
+  }
 
   .incrementer {
     opacity: 1.0;
-}
+  }
 }
 
 .input-text {
@@ -773,12 +773,12 @@ pre {
       a {
         color: $red;
         text-decoration: none;
-    }
+      }
 
       a:hover {
         text-decoration: underline;
+      }
     }
-  }
 
     .subcontainer {
       .image-background {
@@ -789,7 +789,7 @@ pre {
         margin-top: 10px;
         position: relative;
         width: 120px;
-    }
+      }
 
       .image-foreground {
         display: block;
@@ -800,18 +800,18 @@ pre {
         position: relative;
         top: 50%;
         transform: translateY(-50%);
+      }
     }
-  }
 
     .subcontainer:hover {
       .sprite-enlarge {
         opacity: 1.0;
-    }
+      }
 
       .sprite-reduce {
         opacity: 1.0;
+      }
     }
-  }
 
     .text {
       float: left;
@@ -819,8 +819,8 @@ pre {
       margin-bottom: 10px;
       padding: 5px 5px 5px 6px;
       width: 181px;  /* fixes the vector-graphic listings in Firefox 63.0.1 (64-bit) */
+    }
   }
-}
 
   .download {
     float: right;
@@ -839,12 +839,12 @@ pre {
         opacity: $default-non-hovered-opacity;
         text-align: center;
         text-decoration: none;
-    }
+      }
 
       .sprite-download {
         margin: auto;
+      }
     }
-  }
 
     .text {
       color: $red;
@@ -855,23 +855,23 @@ pre {
       opacity: $default-non-hovered-opacity;
       text-decoration: none;
       width: 80px;
+    }
   }
-}
 
   .download:hover {
     .button {
       .date {
         opacity: 1.0;
+      }
     }
-  }
 
     .sprite-download {
       opacity: 1.0;
-  }
+    }
 
     .text {
       opacity: 1.0;
-  }
+    }
 }
 
   .name {
@@ -880,8 +880,8 @@ pre {
 
     .author {
       font-size: small;
+    }
   }
-}
 }
 
 .pagination {
@@ -900,35 +900,35 @@ pre {
     font-weight: bold;
     margin: 3px;
     padding: 5px;
-}
+  }
 
   button:focus {
     outline: none;
-}
+  }
 
   /* CLASSES */
   .control:hover {
     background-color: $yellow;
     border: 3px solid $yellow;
-}
+  }
 
   .highlighted {
     background-color: $gray;
     border: none;
     cursor: default;
     width: 25px;
-}
+  }
 
   .number {
     background-color: $light-gray;
     border: none;
     width: 25px;
-}
+  }
 
   .number:hover {
     background-color: $yellow;
     border: none;
-}
+  }
 }
 
 .search {
@@ -950,12 +950,12 @@ pre {
     text-decoration: none;
     width: 180px;
     transition-duration: $button-ease-in;
-}
+  }
 
   a:hover {
     background: $yellow;
     color: white;
-}
+  }
 
   /* CLASSES */
   .dropdown {
@@ -965,8 +965,8 @@ pre {
       height: 30px !important;
       padding: 5px 0 5px 70px !important;
       text-align: left;
+    }
   }
-}
 }
 
 .small-text {
@@ -1064,11 +1064,11 @@ _:-ms-lang(x), _:-webkit-full-screen, #algorithm-output {
         tbody {
           td {
             font-size: medium;
+          }
         }
       }
     }
   }
-}
 }
 
 /* Mozilla */
@@ -1078,12 +1078,12 @@ _:-ms-lang(x), _:-webkit-full-screen, #algorithm-output {
       /* CLASSES */
       .decrementer {
         right: 4px !important;
-    }
+      }
 
       .incrementer {
         right: 4px !important;
+      }
     }
-  }
 }
 
 /*------------------------------------------------- RESOLUTION SPECIFIC -------------------------------------------------*/
