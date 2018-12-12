@@ -8,16 +8,28 @@ export default class Contact extends Controller.extend({
     submit(): void {
       let form: (HTMLElement | null) = document.querySelector(".needs-validation");
 
-      debugger;
+      this.coverLegality("name-field", "d-block", 0);
+      this.coverLegality("email-field", "d-block", 1);
+      this.coverLegality("message-field", "d-block", 2);
+
       // test correctness
       let isLegalName: boolean = this.isLegalName(form, new RegExp(Regex.AllowedPattern.NAME));
       let isLegalMail: boolean = this.isLegalMail(form, new RegExp(Regex.AllowedPattern.MAIL));
       let isLegalMessage: boolean = this.isLegalMessage(form, new RegExp(Regex.AllowedPattern.MESSAGE));
 
-      this.checkLegacy(isLegalName, "name-field");
-      this.checkLegacy(isLegalMail, "email-field");
-      this.checkLegacy(isLegalMessage, "message-field");
+      this.uncoverLegality(isLegalName, "name-field", "d-block", 0);
+      this.uncoverLegality(isLegalMail, "email-field", "d-block", 1);
+      this.uncoverLegality(isLegalMessage, "message-field", "d-block", 2);
     }
+  },
+
+  coverLegality(fieldId: string, messageClass: string, messageNumber: number) {
+    let field: (HTMLInputElement | null) = document.querySelector("#" + fieldId);
+    // @ts-ignore
+    field.classList.remove("is-invalid");
+
+    let messages: NodeListOf<HTMLDivElement> = document.querySelectorAll("." + messageClass);  // ordered list!
+    messages[messageNumber].style.visibility = "hidden";
   },
 
   isLegalName(form: (HTMLElement | null), allowedNamePattern: RegExp): boolean {
@@ -57,11 +69,14 @@ export default class Contact extends Controller.extend({
     return allowedMessagePattern.test(message) && message.length >= Defaults.MESSAGE_LENGTH;
   },
 
-  checkLegacy(isLegal: boolean, fieldId: string) {
+  uncoverLegality(isLegal: boolean, fieldId: string, messageClass: string, messageNumber: number) {
     if (!isLegal) {
       let field: (HTMLInputElement | null) = document.querySelector("#" + fieldId);
       // @ts-ignore
       field.classList.add("is-invalid");
+
+      let messages: NodeListOf<HTMLDivElement> = document.querySelectorAll("." + messageClass);  // ordered list!
+      messages[messageNumber].style.visibility = "visible";
     }
   }
 }) {
