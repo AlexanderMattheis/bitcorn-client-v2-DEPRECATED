@@ -1061,3 +1061,9 @@ _:-ms-lang(x), _:-webkit-full-screen, #algorithm-output {
   }
 }
 
+/*------------------------------------------------- RESOLUTION SPECIFIC -------------------------------------------------*/
+@media (max-width: 768px) {
+  #submit {
+    margin-left: 0;
+  }
+}
