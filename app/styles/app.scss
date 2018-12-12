@@ -463,10 +463,16 @@ pre {
 }
 
   a:hover .sprite-house {
-    background-position: -388px -5px;
+    background-position: -425px -5px;
     height: 27px;
     width: 20px;
 }
+
+  a:hover .sprite-gear {
+    background-position: -288px -5px;
+    height: 27px;
+    width: 27px;
+  }
 
   /* IDs */
   .dropdown {
@@ -523,6 +529,19 @@ pre {
     cursor: pointer;
     width: $width-long-button;
 }
+
+  .right-side {
+    float: right;
+    position: relative;
+
+    .settings {
+      width: 40px;
+
+      .sprite-gear {
+        margin-left: -48px;
+      }
+    }
+  }
 
   .tutorials {
     width: $width-short-button;
@@ -962,6 +981,14 @@ pre {
   display: block;
 }
 
+.sprite-bitcorn-logo  {
+  background-position: -5px -5px;
+  height: 60px;
+  width: 165px;
+  position: absolute;
+  z-index: 2;
+}
+
 .sprite-download {
   background-position: -180px -5px;
   height: 31px;
@@ -978,22 +1005,20 @@ pre {
   width: 20px;
 }
 
+.sprite-gear {
+  background-position: -251px -5px;
+  height: 27px;
+  width: 27px;
+}
+
 .sprite-house {
-  background-position: -358px -5px;
+  background-position: -395px -5px;
   height: 27px;
   width: 20px;
 }
 
-.sprite-bitcorn-logo  {
-  background-position: -5px -5px;
-  height: 60px;
-  width: 165px;
-  position: absolute;
-  z-index: 2;
-}
-
 .sprite-reduce {
-  background-position: -418px -5px;
+  background-position: -455px -5px;
   height: 15px;
   margin-top: 10px;
   opacity: $default-non-hovered-opacity;
