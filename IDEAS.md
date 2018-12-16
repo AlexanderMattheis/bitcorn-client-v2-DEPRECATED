@@ -1,4 +1,8 @@
 # IDEAS
-- add bootstrapping
-- Cookies to set settings like opened sidebar and language (settings in navigation right upper corner)
 - use Ember Engines to scale application else the JavaScript-file for the main-application becomes too big
+- add "autofocus" to search bars
+- property macro for Submit  // Property Macro for
+                             // computed('emailAddress', function () {
+                             //   return this.get('emailAddress') === '';
+                             // })
+                                isDisabled: empty('emailAddress')
