@@ -8,6 +8,6 @@ free video-tutorials using YouTube.
 On that website you can also download creations like vector-graphics,
 fonts and textures. Everything is free, so you have not to pay any licence fees. 
 Even you have not to mention the author's name because everything 
-except the logos were released under the [CC0 licence](https://creativecommons.org/publicdomain/zero/1.0/).
+except the logos and videos were released under the [CC0 licence](https://creativecommons.org/publicdomain/zero/1.0/).
 
 **Hint:** You need [Ember](https://www.emberjs.com/) to transpile and work with the page.
