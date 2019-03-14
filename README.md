@@ -1,4 +1,4 @@
-<img src="https://github.com/AlexanderMattheis/bitcorn-client-v2-PREVIEW/blob/master/bitcorn_logo.png" width="256" height="93">
+<img src="https://github.com/AlexanderMattheis/bitcorn-client-v3-PREVIEW/blob/master/bitcorn_logo.png" width="256" height="93">
 
 # BITCORN
 This repository contains a website I've formerly created to test out the Ember Framework
